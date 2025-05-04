@@ -52,8 +52,10 @@ export class OpenAPIToMCPConverter {
   convertOpenApiSchemaToJsonSchema(
     schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
     resolvedRefs: Set<string>,
-    resolveRefs: boolean = false,
+    resolveRefs: boolean = true,
   ): IJsonSchema {
+    // TODO: fix resolving references
+    resolveRefs = true
     if ('$ref' in schema) {
       const ref = schema.$ref
       if (!resolveRefs) {
