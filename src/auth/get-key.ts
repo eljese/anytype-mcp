@@ -1,14 +1,13 @@
-import axios from 'axios';
-import * as readline from 'readline';
+import axios from "axios";
+import * as readline from "readline";
 
-interface AuthTokens {
+interface AuthToken {
   app_key: string;
-  session_token: string;
 }
 
 export class AppKeyGenerator {
   private readonly rl: readline.Interface;
-  private readonly appName: string = 'AnyMCP';
+  private readonly appName: string = "AnyMCP";
   private readonly basePath: string;
 
   constructor(basePath: string) {
@@ -27,7 +26,7 @@ export class AppKeyGenerator {
 
   private displaySuccessMessage(appKey: string): void {
     console.log(`\nYour APP KEY: ${appKey}`);
-    console.log('\nAdd this to your MCP settings file as:');
+    console.log("\nAdd this to your MCP settings file as:");
     console.log(`
 {
   "mcpServers": {
@@ -54,20 +53,16 @@ export class AppKeyGenerator {
    */
   private async startAuthentication(): Promise<string> {
     try {
-      const response = await axios.post(
-        `${this.basePath}/auth/display_code`,
-        null,
-        { params: { app_name: this.appName } }
-      );
+      const response = await axios.post(`${this.basePath}/auth/display_code`, null, { params: { app_name: this.appName } });
 
       if (!response.data?.challenge_id) {
-        throw new Error('Failed to get challenge ID');
+        throw new Error("Failed to get challenge ID");
       }
 
       return response.data.challenge_id;
     } catch (error) {
-      console.error('Authentication error:', error instanceof Error ? error.message : error);
-      throw new Error('Failed to start authentication');
+      console.error("Authentication error:", error instanceof Error ? error.message : error);
+      throw new Error("Failed to start authentication");
     }
   }
 
@@ -77,46 +72,39 @@ export class AppKeyGenerator {
    * @param code Display code shown in Anytype desktop
    * @returns Authentication tokens
    */
-  private async completeAuthentication(challengeId: string, code: string): Promise<AuthTokens> {
+  private async completeAuthentication(challengeId: string, code: string): Promise<string> {
     try {
-      const response = await axios.post(
-        `${this.basePath}/auth/token`,
-        null,
-        {
-          params: { challenge_id: challengeId, code: code },
-        }
-      );
+      const response = await axios.post(`${this.basePath}/auth/token`, null, {
+        params: { challenge_id: challengeId, code: code },
+      });
 
-      if (!response.data?.session_token || !response.data?.app_key) {
-        throw new Error('Authentication failed: No session token received');
+      if (!response.data?.app_key) {
+        throw new Error("Authentication failed: No app key received");
       }
 
-      return {
-        session_token: response.data.session_token,
-        app_key: response.data.app_key,
-      };
+      return response.data.app_key;
     } catch (error) {
-      console.error('Authentication error:', error instanceof Error ? error.message : error);
-      throw new Error('Failed to complete authentication');
+      console.error("Authentication error:", error instanceof Error ? error.message : error);
+      throw new Error("Failed to complete authentication");
     }
   }
 
   public async generateAppKey(): Promise<void> {
     try {
-      console.log('Starting authentication to get app key...');
+      console.log("Starting authentication to get app key...");
 
       const challengeId = await this.startAuthentication();
-      console.log('Please check Anytype Desktop for the 4-digit code');
-      const code = await this.prompt('Enter the 4-digit code shown in Anytype Desktop: ');
+      console.log("Please check Anytype Desktop for the 4-digit code");
+      const code = await this.prompt("Enter the 4-digit code shown in Anytype Desktop: ");
 
-      const tokens = await this.completeAuthentication(challengeId, code);
-      console.log('Authenticated successfully!');
-      this.displaySuccessMessage(tokens.app_key);
+      const appKey = await this.completeAuthentication(challengeId, code);
+      console.log("Authenticated successfully!");
+      this.displaySuccessMessage(appKey);
     } catch (error) {
-      console.error('Error:', error instanceof Error ? error.message : error);
+      console.error("Error:", error instanceof Error ? error.message : error);
       process.exit(1);
     } finally {
       this.rl.close();
     }
   }
-} 
+}
