@@ -1,9 +1,10 @@
-import type { OpenAPIV3, OpenAPIV3_1 } from 'openapi-types'
+import type {OpenAPIV3, OpenAPIV3_1} from 'openapi-types'
 import OpenAPIClientAxios from 'openapi-client-axios'
-import type { AxiosInstance } from 'axios'
+import type {AxiosInstance} from 'axios'
 import FormData from 'form-data'
 import fs from 'fs'
-import { isFileUploadParameter } from '../openapi/file-upload'
+import {Headers} from 'node-fetch'
+import {isFileUploadParameter} from '../openapi/file-upload'
 
 export type HttpClientConfig = {
   baseUrl: string
@@ -48,7 +49,7 @@ export class HttpClient {
   }
 
   private async prepareFileUpload(operation: OpenAPIV3.OperationObject, params: Record<string, any>): Promise<FormData | null> {
-    console.error('prepareFileUpload', { operation, params })
+    console.error('prepareFileUpload', {operation, params})
     const fileParams = isFileUploadParameter(operation)
     if (fileParams.length === 0) return null
 
@@ -66,22 +67,23 @@ export class HttpClient {
           addFile(param, filePath)
           break
         case 'object':
-          if(Array.isArray(filePath)) {
+          if (Array.isArray(filePath)) {
             let fileCount = 0
-            for(const file of filePath) {
+            for (const file of filePath) {
               addFile(param, file)
               fileCount++
             }
             break
           }
-          //deliberate fallthrough
+        //deliberate fallthrough
         default:
           throw new Error(`Unsupported file type: ${typeof filePath}`)
       }
+
       function addFile(name: string, filePath: string) {
-          try {
-            const fileStream = fs.createReadStream(filePath)
-            formData.append(name, fileStream)
+        try {
+          const fileStream = fs.createReadStream(filePath)
+          formData.append(name, fileStream)
         } catch (error) {
           throw new Error(`Failed to read file at ${filePath}: ${error}`)
         }
@@ -116,7 +118,7 @@ export class HttpClient {
 
     // Separate parameters based on their location
     const urlParameters: Record<string, any> = {}
-    const bodyParams: Record<string, any> = formData || { ...params }
+    const bodyParams: Record<string, any> = formData || {...params}
 
     // Extract path and query parameters based on operation definition
     if (operation.parameters) {
@@ -154,7 +156,7 @@ export class HttpClient {
       const hasBody = Object.keys(bodyParams).length > 0
       const headers = formData
         ? formData.getHeaders()
-        : { ...(hasBody ? { 'Content-Type': 'application/json' } : { 'Content-Type': null }) }
+        : {...(hasBody ? {'Content-Type': 'application/json'} : {'Content-Type': null})}
       const requestConfig = {
         headers: {
           ...headers,
@@ -162,9 +164,10 @@ export class HttpClient {
       }
 
       // first argument is url parameters, second is body parameters
-      console.error('calling operation', { operationId, urlParameters, bodyParams, requestConfig })
+      console.error('calling operation', {operationId, urlParameters, bodyParams, requestConfig})
       const response = await operationFn(urlParameters, hasBody ? bodyParams : undefined, requestConfig)
 
+      console.error('operation finished')
       // Convert axios headers to Headers object
       const responseHeaders = new Headers()
       Object.entries(response.headers).forEach(([key, value]) => {

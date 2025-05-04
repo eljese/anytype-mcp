@@ -6,6 +6,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import OpenAPISchemaValidator from 'openapi-schema-validator'
 import axios from 'axios'
 import yaml from 'js-yaml'
+import { AppKeyGenerator } from '../src/auth/get-key'
 
 export class ValidationError extends Error {
   constructor(public errors: any[]) {
@@ -57,13 +58,7 @@ export async function loadOpenApiSpec(specPath: string): Promise<OpenAPIV3.Docum
   }
 }
 
-// Main execution
-export async function main(args: string[] = process.argv.slice(2)) {
-  const specPath = args[0]
-  if (!specPath) {
-    throw new Error('Usage: openapi-mcp-server <path-to-openapi-spec>')
-  }
-
+async function runProxy(specPath: string) {
   const openApiSpec = await loadOpenApiSpec(specPath)
   const proxy = new MCPProxy('OpenAPI Tools', openApiSpec)
   
@@ -71,10 +66,57 @@ export async function main(args: string[] = process.argv.slice(2)) {
   return proxy.connect(new StdioServerTransport())
 }
 
-const shouldStart = process.argv[1].endsWith('openapi-mcp-server')
+async function getAppKey(specPath: string) {
+  const openApiSpec = await loadOpenApiSpec(specPath)
+  const basePath = openApiSpec.servers?.[0]?.url || 'http://localhost:31009/v1'
+  const generator = new AppKeyGenerator(basePath)
+  await generator.generateAppKey()
+}
+
+// Main execution
+export async function main(args: string[] = process.argv.slice(2)) {
+  const command = args[0]
+
+  if (!command) {
+    console.error('Usage: any-mcp <command> [options]')
+    console.error('\nCommands:')
+    console.error('  get-key <swagger-file>    Generate an app key for Anytype')
+    console.error('  run <swagger-file>        Run the MCP proxy with an OpenAPI spec')
+    console.error('\nExamples:')
+    console.error('  any-mcp get-key path/to/swagger.yaml')
+    console.error('  any-mcp run path/to/swagger.yaml')
+    process.exit(1)
+  }
+
+  switch (command) {
+    case 'get-key':
+      const getKeySpecPath = args[1]
+      if (!getKeySpecPath) {
+        console.error('Error: Please provide a path to the OpenAPI specification')
+        console.error('Usage: any-mcp get-key <path-to-openapi-spec>')
+        process.exit(1)
+      }
+      await getAppKey(getKeySpecPath)
+      break
+    case 'run':
+      const runSpecPath = args[1]
+      if (!runSpecPath) {
+        console.error('Error: Please provide a path to the OpenAPI specification')
+        console.error('Usage: any-mcp run <path-to-openapi-spec>')
+        process.exit(1)
+      }
+      await runProxy(runSpecPath)
+      break
+    default:
+      console.error(`Error: Unknown command "${command}"`)
+      console.error('Run "any-mcp" without arguments to see available commands')
+      process.exit(1)
+  }
+}
+
+const shouldStart = process.argv[1].endsWith('any-mcp')
 // Only run main if this is the entry point
 if (shouldStart) {
-  console.error('Starting proxy...')
   main().catch(error => {
     if (error instanceof ValidationError) {
       console.error('Invalid OpenAPI 3.1 specification:')

@@ -1,5 +1,5 @@
 {
-  "name": "openapi-mcp-server",
+  "name": "any-mcp",
   "keywords": [
     "openapi",
     "mcp",
@@ -17,7 +17,7 @@
     "parse-openapi": "tsx scripts/parse-openapi.ts"
   },
   "bin": {
-    "openapi-mcp-server": "bin/cli.mjs"
+    "any-mcp": "bin/cli.mjs"
   },
   "exports": {
     ".": {
