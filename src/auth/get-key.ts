@@ -7,7 +7,7 @@ interface AuthToken {
 
 export class AppKeyGenerator {
   private readonly rl: readline.Interface;
-  private readonly appName: string = "AnyMCP";
+  private readonly appName: string = "anytype_mcp_server";
   private readonly basePath: string;
 
   constructor(basePath: string) {
@@ -24,7 +24,7 @@ export class AppKeyGenerator {
     });
   }
 
-  private displaySuccessMessage(appKey: string): void {
+  private displaySuccessMessage(appKey: string, anytypeVersion: string): void {
     console.log(`\nYour APP KEY: ${appKey}`);
     console.log("\nAdd this to your MCP settings file as:");
     console.log(`
@@ -37,7 +37,7 @@ export class AppKeyGenerator {
         "run",
       ],
       "env": {
-        "OPENAPI_MCP_HEADERS": "{\\"Authorization\\":\\"Bearer ${appKey}\\"}"
+        "OPENAPI_MCP_HEADERS": "{\\"Authorization\\":\\"Bearer ${appKey}\\", \\"Anytype-Version\\":\\"${anytypeVersion}\\"}"
       },
       "disabled": false
     }
@@ -73,7 +73,10 @@ export class AppKeyGenerator {
    * @param code Display code shown in Anytype desktop
    * @returns Authentication tokens
    */
-  private async completeAuthentication(challengeId: string, code: string): Promise<string> {
+  private async completeAuthentication(
+    challengeId: string,
+    code: string,
+  ): Promise<{ appKey: string; anytypeVersion: string }> {
     try {
       const response = await axios.post(`${this.basePath}/auth/token`, null, {
         params: { challenge_id: challengeId, code: code },
@@ -83,7 +86,7 @@ export class AppKeyGenerator {
         throw new Error("Authentication failed: No app key received");
       }
 
-      return response.data.app_key;
+      return { appKey: response.data.app_key, anytypeVersion: response.headers["anytype-version"] };
     } catch (error) {
       console.error("Authentication error:", error instanceof Error ? error.message : error);
       throw new Error("Failed to complete authentication");
@@ -98,9 +101,9 @@ export class AppKeyGenerator {
       console.log("Please check Anytype Desktop for the 4-digit code");
       const code = await this.prompt("Enter the 4-digit code shown in Anytype Desktop: ");
 
-      const appKey = await this.completeAuthentication(challengeId, code);
+      const { appKey, anytypeVersion } = await this.completeAuthentication(challengeId, code);
       console.log("Authenticated successfully!");
-      this.displaySuccessMessage(appKey);
+      this.displaySuccessMessage(appKey, anytypeVersion);
     } catch (error) {
       console.error("Error:", error instanceof Error ? error.message : error);
       process.exit(1);
