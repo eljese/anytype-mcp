@@ -41,6 +41,7 @@ export class HttpClient {
         baseURL: config.baseUrl,
         headers: {
           "Content-Type": "application/json",
+          "User-Agent": "anytype-mcp-server",
           ...config.headers,
         },
       },

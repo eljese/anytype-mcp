@@ -52,10 +52,8 @@ export class OpenAPIToMCPConverter {
   convertOpenApiSchemaToJsonSchema(
     schema: OpenAPIV3.SchemaObject | OpenAPIV3.ReferenceObject,
     resolvedRefs: Set<string>,
-    resolveRefs: boolean = true,
+    resolveRefs: boolean = true, // TODO: fix resolving references
   ): IJsonSchema {
-    // TODO: fix resolving references
-    resolveRefs = true;
     if ("$ref" in schema) {
       const ref = schema.$ref;
       if (!resolveRefs) {
@@ -174,7 +172,7 @@ export class OpenAPIToMCPConverter {
     openApiLookup: Record<string, OpenAPIV3.OperationObject & { method: string; path: string }>;
     zip: Record<string, { openApi: OpenAPIV3.OperationObject & { method: string; path: string }; mcp: NewToolMethod }>;
   } {
-    const apiName = "api";
+    const apiName = "API";
 
     const openApiLookup: Record<string, OpenAPIV3.OperationObject & { method: string; path: string }> = {};
     const tools: Record<string, { methods: NewToolMethod[] }> = {

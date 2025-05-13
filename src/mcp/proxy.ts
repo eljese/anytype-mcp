@@ -31,10 +31,9 @@ export class MCPProxy {
 
   constructor(name: string, openApiSpec: OpenAPIV3.Document) {
     this.server = new Server({ name, version: "1.0.0" }, { capabilities: { tools: {} } });
-    let baseUrl = openApiSpec.servers?.[0].url;
+    const baseUrl = openApiSpec.servers?.[0].url;
     if (!baseUrl) {
-      baseUrl = "http://localhost:31009/v1";
-      console.error("No base URL found in OpenAPI spec");
+      throw new Error("No base URL found in OpenAPI spec");
     }
     this.httpClient = new HttpClient(
       {
@@ -57,6 +56,7 @@ export class MCPProxy {
     // Handle tool listing
     this.server.setRequestHandler(ListToolsRequestSchema, async () => {
       const tools: Tool[] = [];
+
       // Add methods as separate tools to match the MCP format
       Object.entries(this.tools).forEach(([toolName, def]) => {
         def.methods.forEach((method) => {

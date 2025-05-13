@@ -65,7 +65,7 @@ export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Docu
 
 async function runProxy(specPath?: string) {
   const openApiSpec = await loadOpenApiSpec(specPath);
-  const proxy = new MCPProxy("OpenAPI Tools", openApiSpec);
+  const proxy = new MCPProxy("Anytype API", openApiSpec);
 
   console.error("Connecting to Claude Desktop...");
   return proxy.connect(new StdioServerTransport());
