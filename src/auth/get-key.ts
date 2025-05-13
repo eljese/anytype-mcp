@@ -38,8 +38,7 @@ export class AppKeyGenerator {
       ],
       "env": {
         "OPENAPI_MCP_HEADERS": "{\\"Authorization\\":\\"Bearer ${appKey}\\", \\"Anytype-Version\\":\\"${anytypeVersion}\\"}"
-      },
-      "disabled": false
+      }
     }
   }
 }
