@@ -1,11 +1,11 @@
-import fs from "node:fs";
-import path from "node:path";
-import { OpenAPIV3 } from "openapi-types";
-import { MCPProxy } from "../src/mcp/proxy";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import axios from "axios";
 import yaml from "js-yaml";
+import fs from "node:fs";
+import path from "node:path";
+import { OpenAPIV3 } from "openapi-types";
 import { AppKeyGenerator } from "../src/auth/get-key";
+import { MCPProxy } from "../src/mcp/proxy";
 
 export class ValidationError extends Error {
   constructor(public errors: any[]) {

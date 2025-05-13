@@ -52,7 +52,9 @@ export class AppKeyGenerator {
    */
   private async startAuthentication(): Promise<string> {
     try {
-      const response = await axios.post(`${this.basePath}/auth/display_code`, null, { params: { app_name: this.appName } });
+      const response = await axios.post(`${this.basePath}/auth/display_code`, null, {
+        params: { app_name: this.appName },
+      });
 
       if (!response.data?.challenge_id) {
         throw new Error("Failed to get challenge ID");

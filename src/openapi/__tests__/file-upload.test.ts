@@ -1,100 +1,100 @@
-import { OpenAPIV3 } from 'openapi-types'
-import { describe, it, expect } from 'vitest'
-import { isFileUploadParameter } from '../file-upload'
+import { OpenAPIV3 } from "openapi-types";
+import { describe, expect, it } from "vitest";
+import { isFileUploadParameter } from "../file-upload";
 
-describe('File Upload Detection', () => {
-  it('identifies file upload parameters in request bodies', () => {
+describe("File Upload Detection", () => {
+  it("identifies file upload parameters in request bodies", () => {
     const operation: OpenAPIV3.OperationObject = {
-      operationId: 'uploadFile',
+      operationId: "uploadFile",
       responses: {
-        '200': {
-          description: 'File uploaded successfully',
+        "200": {
+          description: "File uploaded successfully",
         },
       },
       requestBody: {
         content: {
-          'multipart/form-data': {
+          "multipart/form-data": {
             schema: {
-              type: 'object',
+              type: "object",
               properties: {
                 file: {
-                  type: 'string',
-                  format: 'binary',
+                  type: "string",
+                  format: "binary",
                 },
                 additionalInfo: {
-                  type: 'string',
+                  type: "string",
                 },
               },
             },
           },
         },
       },
-    }
+    };
 
-    const fileParams = isFileUploadParameter(operation)
-    expect(fileParams).toEqual(['file'])
-  })
+    const fileParams = isFileUploadParameter(operation);
+    expect(fileParams).toEqual(["file"]);
+  });
 
-  it('returns empty array for non-file upload operations', () => {
+  it("returns empty array for non-file upload operations", () => {
     const operation: OpenAPIV3.OperationObject = {
-      operationId: 'createUser',
+      operationId: "createUser",
       responses: {
-        '200': {
-          description: 'User created successfully',
+        "200": {
+          description: "User created successfully",
         },
       },
       requestBody: {
         content: {
-          'application/json': {
+          "application/json": {
             schema: {
-              type: 'object',
+              type: "object",
               properties: {
                 name: {
-                  type: 'string',
+                  type: "string",
                 },
               },
             },
           },
         },
       },
-    }
+    };
 
-    const fileParams = isFileUploadParameter(operation)
-    expect(fileParams).toEqual([])
-  })
+    const fileParams = isFileUploadParameter(operation);
+    expect(fileParams).toEqual([]);
+  });
 
-  it('identifies array-based file upload parameters', () => {
+  it("identifies array-based file upload parameters", () => {
     const operation: OpenAPIV3.OperationObject = {
-      operationId: 'uploadFiles',
+      operationId: "uploadFiles",
       responses: {
-        '200': {
-          description: 'Files uploaded successfully',
+        "200": {
+          description: "Files uploaded successfully",
         },
       },
       requestBody: {
         content: {
-          'multipart/form-data': {
+          "multipart/form-data": {
             schema: {
-              type: 'object',
+              type: "object",
               properties: {
                 files: {
-                  type: 'array',
+                  type: "array",
                   items: {
-                    type: 'string',
-                    format: 'binary',
+                    type: "string",
+                    format: "binary",
                   },
                 },
                 description: {
-                  type: 'string',
+                  type: "string",
                 },
               },
             },
           },
         },
       },
-    }
+    };
 
-    const fileParams = isFileUploadParameter(operation)
-    expect(fileParams).toEqual(['files'])
-  })
-})
+    const fileParams = isFileUploadParameter(operation);
+    expect(fileParams).toEqual(["files"]);
+  });
+});
