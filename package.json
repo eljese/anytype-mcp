@@ -14,7 +14,8 @@
     "test:dev": "vitest watch",
     "build": "tsc -build && node scripts/build-cli.js",
     "dev": "tsx watch scripts/start-proxy.ts",
-    "parse-openapi": "tsx scripts/parse-openapi.ts"
+    "parse-openapi": "tsx scripts/parse-openapi.ts",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\" \"scripts/**/*.{ts,tsx}\""
   },
   "bin": {
     "any-mcp": "bin/cli.mjs"
@@ -51,6 +52,8 @@
     "esbuild": "^0.24.2",
     "multer": "1.4.5-lts.1",
     "openai": "^4.80.1",
+    "prettier": "^3.5.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "vitest": "^2.1.8"
