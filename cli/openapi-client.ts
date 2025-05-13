@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { OpenAPIToMCPConverter, HttpClient } from '../../src'
+import { OpenAPIToMCPConverter, HttpClient } from '../src'
 import { OpenAPIV3 } from 'openapi-types'
 import fs from 'fs/promises'
 import axios from 'axios'
@@ -97,4 +97,4 @@ async function main() {
 main().catch(error => {
   console.error('Error:', error.message)
   process.exit(1)
-}) 
+})
