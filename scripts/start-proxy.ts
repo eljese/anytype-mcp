@@ -32,8 +32,12 @@ export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Docu
       } else {
         rawSpec = JSON.stringify(response.data);
       }
-    } catch (error) {
-      console.error("Failed to fetch OpenAPI specification from URL:", (error as Error).message);
+    } catch (error: any) {
+      if (error.code === "ECONNREFUSED") {
+        console.error("Can't connect to API. Please ensure Anytype is running and reachable.");
+        process.exit(1);
+      }
+      console.error("Failed to fetch OpenAPI specification from URL:", error.message);
       process.exit(1);
     }
   } else {
