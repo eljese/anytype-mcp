@@ -188,7 +188,8 @@ export class OpenAPIToMCPConverter {
       if (!pathItem) continue;
 
       for (const [method, operation] of Object.entries(pathItem)) {
-        if (!this.isOperation(method, operation)) continue;
+        // skip "Auth" operations, as they shouldn't be called by mcp client
+        if (!this.isOperation(method, operation) || operation.tags?.includes("Auth")) continue;
 
         const mcpMethod = this.convertOperationToMCPMethod(operation, method, path);
         if (mcpMethod) {
@@ -214,7 +215,8 @@ export class OpenAPIToMCPConverter {
       if (!pathItem) continue;
 
       for (const [method, operation] of Object.entries(pathItem)) {
-        if (!this.isOperation(method, operation)) continue;
+        // skip "Auth" operations, as they shouldn't be called by mcp client
+        if (!this.isOperation(method, operation) || operation.tags?.includes("Auth")) continue;
 
         const parameters = this.convertOperationToJsonSchema(operation, method, path);
         const tool: ChatCompletionTool = {
@@ -242,7 +244,8 @@ export class OpenAPIToMCPConverter {
       if (!pathItem) continue;
 
       for (const [method, operation] of Object.entries(pathItem)) {
-        if (!this.isOperation(method, operation)) continue;
+        // skip "Auth" operations, as they shouldn't be called by mcp client
+        if (!this.isOperation(method, operation) || operation.tags?.includes("Auth")) continue;
 
         const parameters = this.convertOperationToJsonSchema(operation, method, path);
         const tool: Tool = {
@@ -408,6 +411,10 @@ export class OpenAPIToMCPConverter {
       for (const param of operation.parameters) {
         const paramObj = this.resolveParameter(param);
         if (paramObj && paramObj.schema) {
+          // do not include Anytype-Version in the input schema, it's set in http client header by prox
+          if (paramObj.name === "Anytype-Version") {
+            continue;
+          }
           const schema = this.convertOpenApiSchemaToJsonSchema(paramObj.schema, new Set(), false);
           // Merge parameter-level description if available
           if (paramObj.description) {
