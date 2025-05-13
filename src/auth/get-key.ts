@@ -33,7 +33,7 @@ export class AppKeyGenerator {
     "anytype": {
       "command": "npx",
       "args": [
-        "any-mcp",
+        "anytype-mcp",
         "run",
       ],
       "env": {

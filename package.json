@@ -1,12 +1,12 @@
 {
-  "name": "any-mcp",
+  "name": "anytype-mcp",
   "keywords": [
-    "openapi",
+    "anytype",
+    "api",
     "mcp",
-    "server",
-    "proxy"
+    "server"
   ],
-  "version": "1.2.0-beta05",
+  "version": "1.0.0",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -18,7 +18,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"scripts/**/*.{ts,tsx}\""
   },
   "bin": {
-    "any-mcp": "bin/cli.mjs"
+    "anytype-mcp": "bin/cli.mjs"
   },
   "exports": {
     ".": {

@@ -83,15 +83,15 @@ export async function main(args: string[] = process.argv.slice(2)) {
   const command = args[0];
 
   if (!command) {
-    console.error("Usage: any-mcp <command> [options]");
+    console.error("Usage: anytype-mcp <command> [options]");
     console.error("\nCommands:");
     console.error("  get-key [swagger-file]    Generate an app key for Anytype");
     console.error("  run [swagger-file]        Run the MCP proxy with an OpenAPI spec");
     console.error("\nExamples:");
-    console.error("  any-mcp get-key");
-    console.error("  any-mcp get-key path/to/swagger.yaml");
-    console.error("  any-mcp run");
-    console.error("  any-mcp run path/to/swagger.yaml");
+    console.error("  anytype-mcp get-key");
+    console.error("  anytype-mcp get-key path/to/swagger.yaml");
+    console.error("  anytype-mcp run");
+    console.error("  anytype-mcp run path/to/swagger.yaml");
     process.exit(1);
   }
 
@@ -106,12 +106,12 @@ export async function main(args: string[] = process.argv.slice(2)) {
       break;
     default:
       console.error(`Error: Unknown command "${command}"`);
-      console.error('Run "any-mcp" without arguments to see available commands');
+      console.error('Run "anytype-mcp" without arguments to see available commands');
       process.exit(1);
   }
 }
 
-const shouldStart = process.argv[1].endsWith("any-mcp");
+const shouldStart = process.argv[1].endsWith("anytype-mcp");
 // Only run main if this is the entry point
 if (shouldStart) {
   main().catch((error) => {
