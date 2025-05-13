@@ -35,7 +35,6 @@ export class AppKeyGenerator {
       "args": [
         "any-mcp",
         "run",
-        "[PATH_TO_SWAGGER_YML]"
       ],
       "env": {
         "OPENAPI_MCP_HEADERS": "{\\"Authorization\\":\\"Bearer ${appKey}\\"}"
