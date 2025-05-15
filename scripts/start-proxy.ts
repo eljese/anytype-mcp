@@ -73,7 +73,7 @@ async function runProxy(specPath?: string) {
 
 async function getAppKey(specPath?: string) {
   const openApiSpec = await loadOpenApiSpec(specPath);
-  const basePath = openApiSpec.servers?.[0]?.url || "http://localhost:31009/v1";
+  const basePath = openApiSpec.servers?.[0]?.url || "http://localhost:31009";
   const generator = new AppKeyGenerator(basePath);
   await generator.generateAppKey();
 }
