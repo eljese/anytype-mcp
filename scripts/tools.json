@@ -76,76 +76,20 @@
                     "icon": {
                       "type": "object",
                       "description": "The icon of the object",
-                      "additionalProperties": true,
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "emoji": {
-                              "type": "string",
-                              "description": "The emoji of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
+                      "properties": {
+                        "emoji": {
+                          "type": "string",
+                          "description": "The emoji of the icon"
                         },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "file": {
-                              "type": "string",
-                              "description": "The file of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the icon"
-                            }
-                          },
-                          "additionalProperties": true
+                        "format": {
+                          "type": "string",
+                          "description": "The format of the icon",
+                          "enum": [
+                            "emoji"
+                          ]
                         }
-                      ]
+                      },
+                      "additionalProperties": true
                     },
                     "id": {
                       "type": "string",
@@ -745,76 +689,20 @@
                         "icon": {
                           "type": "object",
                           "description": "The icon of the object",
-                          "additionalProperties": true,
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "emoji": {
-                                  "type": "string",
-                                  "description": "The emoji of the icon"
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                }
-                              },
-                              "additionalProperties": true
+                          "properties": {
+                            "emoji": {
+                              "type": "string",
+                              "description": "The emoji of the icon"
                             },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "file": {
-                                  "type": "string",
-                                  "description": "The file of the icon"
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "color": {
-                                  "type": "string",
-                                  "description": "The color of the icon",
-                                  "enum": [
-                                    "grey",
-                                    "yellow",
-                                    "orange",
-                                    "red",
-                                    "pink",
-                                    "purple",
-                                    "blue",
-                                    "ice",
-                                    "teal",
-                                    "lime"
-                                  ]
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "The name of the icon"
-                                }
-                              },
-                              "additionalProperties": true
+                            "format": {
+                              "type": "string",
+                              "description": "The format of the icon",
+                              "enum": [
+                                "emoji"
+                              ]
                             }
-                          ]
+                          },
+                          "additionalProperties": true
                         },
                         "id": {
                           "type": "string",
@@ -961,76 +849,20 @@
                     "icon": {
                       "type": "object",
                       "description": "The icon of the object",
-                      "additionalProperties": true,
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "emoji": {
-                              "type": "string",
-                              "description": "The emoji of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
+                      "properties": {
+                        "emoji": {
+                          "type": "string",
+                          "description": "The emoji of the icon"
                         },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "file": {
-                              "type": "string",
-                              "description": "The file of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the icon"
-                            }
-                          },
-                          "additionalProperties": true
+                        "format": {
+                          "type": "string",
+                          "description": "The format of the icon",
+                          "enum": [
+                            "emoji"
+                          ]
                         }
-                      ]
+                      },
+                      "additionalProperties": true
                     },
                     "id": {
                       "type": "string",
@@ -1119,76 +951,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -1249,76 +1025,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -1387,76 +1107,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -1794,76 +1458,20 @@
                     "icon": {
                       "type": "object",
                       "description": "The icon of the object",
-                      "additionalProperties": true,
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "emoji": {
-                              "type": "string",
-                              "description": "The emoji of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
+                      "properties": {
+                        "emoji": {
+                          "type": "string",
+                          "description": "The emoji of the icon"
                         },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "file": {
-                              "type": "string",
-                              "description": "The file of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the icon"
-                            }
-                          },
-                          "additionalProperties": true
+                        "format": {
+                          "type": "string",
+                          "description": "The format of the icon",
+                          "enum": [
+                            "emoji"
+                          ]
                         }
-                      ]
+                      },
+                      "additionalProperties": true
                     },
                     "id": {
                       "type": "string",
@@ -2463,76 +2071,20 @@
                         "icon": {
                           "type": "object",
                           "description": "The icon of the object",
-                          "additionalProperties": true,
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "emoji": {
-                                  "type": "string",
-                                  "description": "The emoji of the icon"
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                }
-                              },
-                              "additionalProperties": true
+                          "properties": {
+                            "emoji": {
+                              "type": "string",
+                              "description": "The emoji of the icon"
                             },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "file": {
-                                  "type": "string",
-                                  "description": "The file of the icon"
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "color": {
-                                  "type": "string",
-                                  "description": "The color of the icon",
-                                  "enum": [
-                                    "grey",
-                                    "yellow",
-                                    "orange",
-                                    "red",
-                                    "pink",
-                                    "purple",
-                                    "blue",
-                                    "ice",
-                                    "teal",
-                                    "lime"
-                                  ]
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "The name of the icon"
-                                }
-                              },
-                              "additionalProperties": true
+                            "format": {
+                              "type": "string",
+                              "description": "The format of the icon",
+                              "enum": [
+                                "emoji"
+                              ]
                             }
-                          ]
+                          },
+                          "additionalProperties": true
                         },
                         "id": {
                           "type": "string",
@@ -2681,76 +2233,20 @@
                     "icon": {
                       "type": "object",
                       "description": "The icon of the object",
-                      "additionalProperties": true,
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "emoji": {
-                              "type": "string",
-                              "description": "The emoji of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
+                      "properties": {
+                        "emoji": {
+                          "type": "string",
+                          "description": "The emoji of the icon"
                         },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "file": {
-                              "type": "string",
-                              "description": "The file of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the icon"
-                            }
-                          },
-                          "additionalProperties": true
+                        "format": {
+                          "type": "string",
+                          "description": "The format of the icon",
+                          "enum": [
+                            "emoji"
+                          ]
                         }
-                      ]
+                      },
+                      "additionalProperties": true
                     },
                     "id": {
                       "type": "string",
@@ -2858,76 +2354,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -3018,76 +2458,20 @@
                     "icon": {
                       "type": "object",
                       "description": "The icon of the object",
-                      "additionalProperties": true,
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "emoji": {
-                              "type": "string",
-                              "description": "The emoji of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
+                      "properties": {
+                        "emoji": {
+                          "type": "string",
+                          "description": "The emoji of the icon"
                         },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "file": {
-                              "type": "string",
-                              "description": "The file of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the icon"
-                            }
-                          },
-                          "additionalProperties": true
+                        "format": {
+                          "type": "string",
+                          "description": "The format of the icon",
+                          "enum": [
+                            "emoji"
+                          ]
                         }
-                      ]
+                      },
+                      "additionalProperties": true
                     },
                     "id": {
                       "type": "string",
@@ -3687,76 +3071,20 @@
                         "icon": {
                           "type": "object",
                           "description": "The icon of the object",
-                          "additionalProperties": true,
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "emoji": {
-                                  "type": "string",
-                                  "description": "The emoji of the icon"
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                }
-                              },
-                              "additionalProperties": true
+                          "properties": {
+                            "emoji": {
+                              "type": "string",
+                              "description": "The emoji of the icon"
                             },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "file": {
-                                  "type": "string",
-                                  "description": "The file of the icon"
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "color": {
-                                  "type": "string",
-                                  "description": "The color of the icon",
-                                  "enum": [
-                                    "grey",
-                                    "yellow",
-                                    "orange",
-                                    "red",
-                                    "pink",
-                                    "purple",
-                                    "blue",
-                                    "ice",
-                                    "teal",
-                                    "lime"
-                                  ]
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "The name of the icon"
-                                }
-                              },
-                              "additionalProperties": true
+                            "format": {
+                              "type": "string",
+                              "description": "The format of the icon",
+                              "enum": [
+                                "emoji"
+                              ]
                             }
-                          ]
+                          },
+                          "additionalProperties": true
                         },
                         "id": {
                           "type": "string",
@@ -3880,76 +3208,20 @@
               "icon": {
                 "type": "object",
                 "description": "The icon of the object",
-                "additionalProperties": true,
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "emoji": {
-                        "type": "string",
-                        "description": "The emoji of the icon"
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      }
-                    },
-                    "additionalProperties": true
+                "properties": {
+                  "emoji": {
+                    "type": "string",
+                    "description": "The emoji of the icon"
                   },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "file": {
-                        "type": "string",
-                        "description": "The file of the icon"
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      }
-                    },
-                    "additionalProperties": true
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "color": {
-                        "type": "string",
-                        "description": "The color of the icon",
-                        "enum": [
-                          "grey",
-                          "yellow",
-                          "orange",
-                          "red",
-                          "pink",
-                          "purple",
-                          "blue",
-                          "ice",
-                          "teal",
-                          "lime"
-                        ]
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "The name of the icon"
-                      }
-                    },
-                    "additionalProperties": true
+                  "format": {
+                    "type": "string",
+                    "description": "The format of the icon",
+                    "enum": [
+                      "emoji"
+                    ]
                   }
-                ]
+                },
+                "additionalProperties": true
               },
               "name": {
                 "type": "string",
@@ -4332,76 +3604,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -5005,76 +4221,20 @@
                       "icon": {
                         "type": "object",
                         "description": "The icon of the object",
-                        "additionalProperties": true,
-                        "oneOf": [
-                          {
-                            "type": "object",
-                            "properties": {
-                              "emoji": {
-                                "type": "string",
-                                "description": "The emoji of the icon"
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              }
-                            },
-                            "additionalProperties": true
+                        "properties": {
+                          "emoji": {
+                            "type": "string",
+                            "description": "The emoji of the icon"
                           },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "file": {
-                                "type": "string",
-                                "description": "The file of the icon"
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              }
-                            },
-                            "additionalProperties": true
-                          },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the icon"
-                              }
-                            },
-                            "additionalProperties": true
+                          "format": {
+                            "type": "string",
+                            "description": "The format of the icon",
+                            "enum": [
+                              "emoji"
+                            ]
                           }
-                        ]
+                        },
+                        "additionalProperties": true
                       },
                       "id": {
                         "type": "string",
@@ -5191,76 +4351,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -5864,76 +4968,20 @@
                       "icon": {
                         "type": "object",
                         "description": "The icon of the object",
-                        "additionalProperties": true,
-                        "oneOf": [
-                          {
-                            "type": "object",
-                            "properties": {
-                              "emoji": {
-                                "type": "string",
-                                "description": "The emoji of the icon"
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              }
-                            },
-                            "additionalProperties": true
+                        "properties": {
+                          "emoji": {
+                            "type": "string",
+                            "description": "The emoji of the icon"
                           },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "file": {
-                                "type": "string",
-                                "description": "The file of the icon"
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              }
-                            },
-                            "additionalProperties": true
-                          },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the icon"
-                              }
-                            },
-                            "additionalProperties": true
+                          "format": {
+                            "type": "string",
+                            "description": "The format of the icon",
+                            "enum": [
+                              "emoji"
+                            ]
                           }
-                        ]
+                        },
+                        "additionalProperties": true
                       },
                       "id": {
                         "type": "string",
@@ -6058,76 +5106,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -6731,76 +5723,20 @@
                       "icon": {
                         "type": "object",
                         "description": "The icon of the object",
-                        "additionalProperties": true,
-                        "oneOf": [
-                          {
-                            "type": "object",
-                            "properties": {
-                              "emoji": {
-                                "type": "string",
-                                "description": "The emoji of the icon"
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              }
-                            },
-                            "additionalProperties": true
+                        "properties": {
+                          "emoji": {
+                            "type": "string",
+                            "description": "The emoji of the icon"
                           },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "file": {
-                                "type": "string",
-                                "description": "The file of the icon"
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              }
-                            },
-                            "additionalProperties": true
-                          },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the icon"
-                              }
-                            },
-                            "additionalProperties": true
+                          "format": {
+                            "type": "string",
+                            "description": "The format of the icon",
+                            "enum": [
+                              "emoji"
+                            ]
                           }
-                        ]
+                        },
+                        "additionalProperties": true
                       },
                       "id": {
                         "type": "string",
@@ -6900,76 +5836,20 @@
               "icon": {
                 "type": "object",
                 "description": "The icon of the object",
-                "additionalProperties": true,
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "emoji": {
-                        "type": "string",
-                        "description": "The emoji of the icon"
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      }
-                    },
-                    "additionalProperties": true
+                "properties": {
+                  "emoji": {
+                    "type": "string",
+                    "description": "The emoji of the icon"
                   },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "file": {
-                        "type": "string",
-                        "description": "The file of the icon"
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      }
-                    },
-                    "additionalProperties": true
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "color": {
-                        "type": "string",
-                        "description": "The color of the icon",
-                        "enum": [
-                          "grey",
-                          "yellow",
-                          "orange",
-                          "red",
-                          "pink",
-                          "purple",
-                          "blue",
-                          "ice",
-                          "teal",
-                          "lime"
-                        ]
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "The name of the icon"
-                      }
-                    },
-                    "additionalProperties": true
+                  "format": {
+                    "type": "string",
+                    "description": "The format of the icon",
+                    "enum": [
+                      "emoji"
+                    ]
                   }
-                ]
+                },
+                "additionalProperties": true
               },
               "name": {
                 "type": "string",
@@ -7344,76 +6224,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -8017,76 +6841,20 @@
                       "icon": {
                         "type": "object",
                         "description": "The icon of the object",
-                        "additionalProperties": true,
-                        "oneOf": [
-                          {
-                            "type": "object",
-                            "properties": {
-                              "emoji": {
-                                "type": "string",
-                                "description": "The emoji of the icon"
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              }
-                            },
-                            "additionalProperties": true
+                        "properties": {
+                          "emoji": {
+                            "type": "string",
+                            "description": "The emoji of the icon"
                           },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "file": {
-                                "type": "string",
-                                "description": "The file of the icon"
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              }
-                            },
-                            "additionalProperties": true
-                          },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the icon"
-                              }
-                            },
-                            "additionalProperties": true
+                          "format": {
+                            "type": "string",
+                            "description": "The format of the icon",
+                            "enum": [
+                              "emoji"
+                            ]
                           }
-                        ]
+                        },
+                        "additionalProperties": true
                       },
                       "id": {
                         "type": "string",
@@ -9082,76 +7850,20 @@
                     "icon": {
                       "type": "object",
                       "description": "The icon of the object",
-                      "additionalProperties": true,
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "emoji": {
-                              "type": "string",
-                              "description": "The emoji of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
+                      "properties": {
+                        "emoji": {
+                          "type": "string",
+                          "description": "The emoji of the icon"
                         },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "file": {
-                              "type": "string",
-                              "description": "The file of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the icon"
-                            }
-                          },
-                          "additionalProperties": true
+                        "format": {
+                          "type": "string",
+                          "description": "The format of the icon",
+                          "enum": [
+                            "emoji"
+                          ]
                         }
-                      ]
+                      },
+                      "additionalProperties": true
                     },
                     "id": {
                       "type": "string",
@@ -9751,76 +8463,20 @@
                         "icon": {
                           "type": "object",
                           "description": "The icon of the object",
-                          "additionalProperties": true,
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "emoji": {
-                                  "type": "string",
-                                  "description": "The emoji of the icon"
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                }
-                              },
-                              "additionalProperties": true
+                          "properties": {
+                            "emoji": {
+                              "type": "string",
+                              "description": "The emoji of the icon"
                             },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "file": {
-                                  "type": "string",
-                                  "description": "The file of the icon"
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "color": {
-                                  "type": "string",
-                                  "description": "The color of the icon",
-                                  "enum": [
-                                    "grey",
-                                    "yellow",
-                                    "orange",
-                                    "red",
-                                    "pink",
-                                    "purple",
-                                    "blue",
-                                    "ice",
-                                    "teal",
-                                    "lime"
-                                  ]
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "The name of the icon"
-                                }
-                              },
-                              "additionalProperties": true
+                            "format": {
+                              "type": "string",
+                              "description": "The format of the icon",
+                              "enum": [
+                                "emoji"
+                              ]
                             }
-                          ]
+                          },
+                          "additionalProperties": true
                         },
                         "id": {
                           "type": "string",
@@ -9969,76 +8625,20 @@
                     "icon": {
                       "type": "object",
                       "description": "The icon of the object",
-                      "additionalProperties": true,
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "emoji": {
-                              "type": "string",
-                              "description": "The emoji of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
+                      "properties": {
+                        "emoji": {
+                          "type": "string",
+                          "description": "The emoji of the icon"
                         },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "file": {
-                              "type": "string",
-                              "description": "The file of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the icon"
-                            }
-                          },
-                          "additionalProperties": true
+                        "format": {
+                          "type": "string",
+                          "description": "The format of the icon",
+                          "enum": [
+                            "emoji"
+                          ]
                         }
-                      ]
+                      },
+                      "additionalProperties": true
                     },
                     "id": {
                       "type": "string",
@@ -10155,76 +8755,20 @@
               "icon": {
                 "type": "object",
                 "description": "The icon of the object",
-                "additionalProperties": true,
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "emoji": {
-                        "type": "string",
-                        "description": "The emoji of the icon"
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      }
-                    },
-                    "additionalProperties": true
+                "properties": {
+                  "emoji": {
+                    "type": "string",
+                    "description": "The emoji of the icon"
                   },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "file": {
-                        "type": "string",
-                        "description": "The file of the icon"
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      }
-                    },
-                    "additionalProperties": true
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "color": {
-                        "type": "string",
-                        "description": "The color of the icon",
-                        "enum": [
-                          "grey",
-                          "yellow",
-                          "orange",
-                          "red",
-                          "pink",
-                          "purple",
-                          "blue",
-                          "ice",
-                          "teal",
-                          "lime"
-                        ]
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "The name of the icon"
-                      }
-                    },
-                    "additionalProperties": true
+                  "format": {
+                    "type": "string",
+                    "description": "The format of the icon",
+                    "enum": [
+                      "emoji"
+                    ]
                   }
-                ]
+                },
+                "additionalProperties": true
               },
               "layout": {
                 "type": "string",
@@ -10299,76 +8843,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -10482,76 +8970,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -10665,76 +9097,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -10831,76 +9207,20 @@
               "icon": {
                 "type": "object",
                 "description": "The icon of the object",
-                "additionalProperties": true,
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "emoji": {
-                        "type": "string",
-                        "description": "The emoji of the icon"
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      }
-                    },
-                    "additionalProperties": true
+                "properties": {
+                  "emoji": {
+                    "type": "string",
+                    "description": "The emoji of the icon"
                   },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "file": {
-                        "type": "string",
-                        "description": "The file of the icon"
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      }
-                    },
-                    "additionalProperties": true
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "color": {
-                        "type": "string",
-                        "description": "The color of the icon",
-                        "enum": [
-                          "grey",
-                          "yellow",
-                          "orange",
-                          "red",
-                          "pink",
-                          "purple",
-                          "blue",
-                          "ice",
-                          "teal",
-                          "lime"
-                        ]
-                      },
-                      "format": {
-                        "type": "string",
-                        "description": "The format of the icon",
-                        "enum": [
-                          "icon"
-                        ]
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "The name of the icon"
-                      }
-                    },
-                    "additionalProperties": true
+                  "format": {
+                    "type": "string",
+                    "description": "The format of the icon",
+                    "enum": [
+                      "emoji"
+                    ]
                   }
-                ]
+                },
+                "additionalProperties": true
               },
               "layout": {
                 "type": "string",
@@ -10974,76 +9294,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -11169,76 +9433,20 @@
                     "icon": {
                       "type": "object",
                       "description": "The icon of the object",
-                      "additionalProperties": true,
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "emoji": {
-                              "type": "string",
-                              "description": "The emoji of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
+                      "properties": {
+                        "emoji": {
+                          "type": "string",
+                          "description": "The emoji of the icon"
                         },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "file": {
-                              "type": "string",
-                              "description": "The file of the icon"
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            }
-                          },
-                          "additionalProperties": true
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "format": {
-                              "type": "string",
-                              "description": "The format of the icon",
-                              "enum": [
-                                "icon"
-                              ]
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the icon"
-                            }
-                          },
-                          "additionalProperties": true
+                        "format": {
+                          "type": "string",
+                          "description": "The format of the icon",
+                          "enum": [
+                            "emoji"
+                          ]
                         }
-                      ]
+                      },
+                      "additionalProperties": true
                     },
                     "id": {
                       "type": "string",
@@ -11838,76 +10046,20 @@
                         "icon": {
                           "type": "object",
                           "description": "The icon of the object",
-                          "additionalProperties": true,
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "emoji": {
-                                  "type": "string",
-                                  "description": "The emoji of the icon"
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                }
-                              },
-                              "additionalProperties": true
+                          "properties": {
+                            "emoji": {
+                              "type": "string",
+                              "description": "The emoji of the icon"
                             },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "file": {
-                                  "type": "string",
-                                  "description": "The file of the icon"
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                }
-                              },
-                              "additionalProperties": true
-                            },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "color": {
-                                  "type": "string",
-                                  "description": "The color of the icon",
-                                  "enum": [
-                                    "grey",
-                                    "yellow",
-                                    "orange",
-                                    "red",
-                                    "pink",
-                                    "purple",
-                                    "blue",
-                                    "ice",
-                                    "teal",
-                                    "lime"
-                                  ]
-                                },
-                                "format": {
-                                  "type": "string",
-                                  "description": "The format of the icon",
-                                  "enum": [
-                                    "icon"
-                                  ]
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "The name of the icon"
-                                }
-                              },
-                              "additionalProperties": true
+                            "format": {
+                              "type": "string",
+                              "description": "The format of the icon",
+                              "enum": [
+                                "emoji"
+                              ]
                             }
-                          ]
+                          },
+                          "additionalProperties": true
                         },
                         "id": {
                           "type": "string",
@@ -12053,76 +10205,20 @@
                   "icon": {
                     "type": "object",
                     "description": "The icon of the object",
-                    "additionalProperties": true,
-                    "oneOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "emoji": {
-                            "type": "string",
-                            "description": "The emoji of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
+                    "properties": {
+                      "emoji": {
+                        "type": "string",
+                        "description": "The emoji of the icon"
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "file": {
-                            "type": "string",
-                            "description": "The file of the icon"
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          }
-                        },
-                        "additionalProperties": true
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the icon",
-                            "enum": [
-                              "icon"
-                            ]
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the icon"
-                          }
-                        },
-                        "additionalProperties": true
+                      "format": {
+                        "type": "string",
+                        "description": "The format of the icon",
+                        "enum": [
+                          "emoji"
+                        ]
                       }
-                    ]
+                    },
+                    "additionalProperties": true
                   },
                   "id": {
                     "type": "string",
@@ -12726,76 +10822,20 @@
                       "icon": {
                         "type": "object",
                         "description": "The icon of the object",
-                        "additionalProperties": true,
-                        "oneOf": [
-                          {
-                            "type": "object",
-                            "properties": {
-                              "emoji": {
-                                "type": "string",
-                                "description": "The emoji of the icon"
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              }
-                            },
-                            "additionalProperties": true
+                        "properties": {
+                          "emoji": {
+                            "type": "string",
+                            "description": "The emoji of the icon"
                           },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "file": {
-                                "type": "string",
-                                "description": "The file of the icon"
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              }
-                            },
-                            "additionalProperties": true
-                          },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "format": {
-                                "type": "string",
-                                "description": "The format of the icon",
-                                "enum": [
-                                  "icon"
-                                ]
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the icon"
-                              }
-                            },
-                            "additionalProperties": true
+                          "format": {
+                            "type": "string",
+                            "description": "The format of the icon",
+                            "enum": [
+                              "emoji"
+                            ]
                           }
-                        ]
+                        },
+                        "additionalProperties": true
                       },
                       "id": {
                         "type": "string",

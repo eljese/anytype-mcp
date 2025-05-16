@@ -153,6 +153,32 @@ export class OpenAPIToMCPConverter {
       result.items = this.convertOpenApiSchemaToJsonSchema(schema.items, resolvedRefs, resolveRefs);
     }
 
+    if (schema.oneOf) {
+      // Special handling for icon schema - only keep emoji definition
+      const hasEmojiIcon = schema.oneOf.some(
+        (def) => typeof def === "object" && "$ref" in def && def.$ref === "#/components/schemas/apimodel.EmojiIcon",
+      );
+
+      if (hasEmojiIcon) {
+        return {
+          type: "object",
+          description: schema.description,
+          properties: {
+            emoji: {
+              type: "string",
+              description: "The emoji of the icon",
+            },
+            format: {
+              type: "string",
+              description: "The format of the icon",
+              enum: ["emoji"],
+            },
+          },
+          additionalProperties: true,
+        };
+      }
+    }
+
     // oneOf, anyOf, allOf
     if (schema.oneOf) {
       result.oneOf = schema.oneOf.map((s) => this.convertOpenApiSchemaToJsonSchema(s, resolvedRefs, resolveRefs));
