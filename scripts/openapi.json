@@ -1,6 +1,20 @@
 {
   "components": {
     "schemas": {
+      "apimodel.AddObjectsToListRequest": {
+        "properties": {
+          "objects": {
+            "description": "The list of object IDs to add to the list",
+            "example": ["[\"bafyreie6n5l5nkbjal37su54cha4coy7qzuhrnajluzv5qd5jvtsrxkequ\"]"],
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": false
+          }
+        },
+        "type": "object"
+      },
       "apimodel.CheckboxPropertyLinkValue": {
         "properties": {
           "checkbox": {
@@ -53,18 +67,7 @@
       },
       "apimodel.Color": {
         "description": "The color of the icon",
-        "enum": [
-          "grey",
-          "yellow",
-          "orange",
-          "red",
-          "pink",
-          "purple",
-          "blue",
-          "ice",
-          "teal",
-          "lime"
-        ],
+        "enum": ["grey", "yellow", "orange", "red", "pink", "purple", "blue", "ice", "teal", "lime"],
         "example": "yellow",
         "type": "string",
         "x-enum-varnames": [
@@ -114,9 +117,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "type_key"
-        ],
+        "required": ["type_key"],
         "type": "object"
       },
       "apimodel.CreatePropertyRequest": {
@@ -130,10 +131,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "format",
-          "name"
-        ],
+        "required": ["format", "name"],
         "type": "object"
       },
       "apimodel.CreateSpaceRequest": {
@@ -149,9 +147,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "type": "object"
       },
       "apimodel.CreateTagRequest": {
@@ -165,10 +161,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "color",
-          "name"
-        ],
+        "required": ["color", "name"],
         "type": "object"
       },
       "apimodel.CreateTypeRequest": {
@@ -198,10 +191,7 @@
             "uniqueItems": false
           }
         },
-        "required": [
-          "layout",
-          "name"
-        ],
+        "required": ["layout", "name"],
         "type": "object"
       },
       "apimodel.DatePropertyLinkValue": {
@@ -344,9 +334,7 @@
         "properties": {
           "files": {
             "description": "The file values of the property",
-            "example": [
-              "['fileId']"
-            ],
+            "example": ["['fileId']"],
             "items": {
               "type": "string"
             },
@@ -367,9 +355,7 @@
         "properties": {
           "files": {
             "description": "The file values of the property",
-            "example": [
-              "['fileId']"
-            ],
+            "example": ["['file_id']"],
             "items": {
               "type": "string"
             },
@@ -466,15 +452,9 @@
       },
       "apimodel.IconFormat": {
         "description": "The format of the icon",
-        "enum": [
-          "icon"
-        ],
+        "enum": ["emoji", "file", "icon"],
         "type": "string",
-        "x-enum-varnames": [
-          "IconFormatEmoji",
-          "IconFormatFile",
-          "IconFormatIcon"
-        ]
+        "x-enum-varnames": ["IconFormatEmoji", "IconFormatFile", "IconFormatIcon"]
       },
       "apimodel.Member": {
         "description": "The member",
@@ -509,25 +489,13 @@
           },
           "role": {
             "description": "The role of the member",
-            "enum": [
-              "viewer",
-              "editor",
-              "owner",
-              "no_permission"
-            ],
+            "enum": ["viewer", "editor", "owner", "no_permission"],
             "example": "owner",
             "type": "string"
           },
           "status": {
             "description": "The status of the member",
-            "enum": [
-              "joining",
-              "active",
-              "removed",
-              "declined",
-              "removing",
-              "canceled"
-            ],
+            "enum": ["joining", "active", "removed", "declined", "removing", "canceled"],
             "example": "active",
             "type": "string"
           }
@@ -820,9 +788,7 @@
           },
           "objects": {
             "description": "The object values of the property",
-            "example": [
-              "['objectId']"
-            ],
+            "example": ["['object_id']"],
             "items": {
               "type": "string"
             },
@@ -859,9 +825,7 @@
           },
           "objects": {
             "description": "The object values of the property",
-            "example": [
-              "['objectId']"
-            ],
+            "example": ["['object_id']"],
             "items": {
               "type": "string"
             },
@@ -996,11 +960,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "format",
-          "key",
-          "name"
-        ],
+        "required": ["format", "key", "name"],
         "type": "object"
       },
       "apimodel.PropertyLinkWithValue": {
@@ -1099,11 +1059,7 @@
           },
           "types": {
             "description": "The types of objects to search for, specified by their key",
-            "example": [
-              "page",
-              "task",
-              "bookmark"
-            ],
+            "example": ["page", "task", "bookmark"],
             "items": {
               "type": "string"
             },
@@ -1177,11 +1133,7 @@
           },
           "sort_type": {
             "description": "The sort direction",
-            "enum": [
-              "asc",
-              "desc",
-              "custom"
-            ],
+            "enum": ["asc", "desc", "custom"],
             "example": "asc",
             "type": "string"
           }
@@ -1191,15 +1143,9 @@
       "apimodel.SortDirection": {
         "default": "desc",
         "description": "The direction to sort the search results",
-        "enum": [
-          "asc",
-          "desc"
-        ],
+        "enum": ["asc", "desc"],
         "type": "string",
-        "x-enum-varnames": [
-          "Asc",
-          "Desc"
-        ]
+        "x-enum-varnames": ["Asc", "Desc"]
       },
       "apimodel.SortOptions": {
         "description": "The sorting criteria and direction for the search results",
@@ -1216,19 +1162,9 @@
       "apimodel.SortProperty": {
         "default": "last_modified_date",
         "description": "The property to sort the search results by",
-        "enum": [
-          "created_date",
-          "last_modified_date",
-          "last_opened_date",
-          "name"
-        ],
+        "enum": ["created_date", "last_modified_date", "last_opened_date", "name"],
         "type": "string",
-        "x-enum-varnames": [
-          "CreatedDate",
-          "LastModifiedDate",
-          "LastOpenedDate",
-          "Name"
-        ]
+        "x-enum-varnames": ["CreatedDate", "LastModifiedDate", "LastOpenedDate", "Name"]
       },
       "apimodel.Space": {
         "description": "The space",
@@ -1448,12 +1384,7 @@
         "description": "The layout of the type",
         "example": "basic",
         "type": "string",
-        "x-enum-varnames": [
-          "TypeLayoutBasic",
-          "TypeLayoutProfile",
-          "TypeLayoutAction",
-          "TypeLayoutNote"
-        ]
+        "x-enum-varnames": ["TypeLayoutBasic", "TypeLayoutProfile", "TypeLayoutAction", "TypeLayoutNote"]
       },
       "apimodel.TypeResponse": {
         "properties": {
@@ -1542,9 +1473,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "type": "object"
       },
       "apimodel.UpdateSpaceRequest": {
@@ -1584,12 +1513,7 @@
             "description": "The layout of the type",
             "example": "basic",
             "type": "string",
-            "x-enum-varnames": [
-              "TypeLayoutBasic",
-              "TypeLayoutProfile",
-              "TypeLayoutAction",
-              "TypeLayoutNote"
-            ]
+            "x-enum-varnames": ["TypeLayoutBasic", "TypeLayoutProfile", "TypeLayoutAction", "TypeLayoutNote"]
           },
           "name": {
             "description": "The name to set for the type",
@@ -1629,10 +1553,7 @@
           },
           "layout": {
             "description": "The layout of the view",
-            "enum": [
-              "grid",
-              "table"
-            ],
+            "enum": ["grid", "table"],
             "example": "grid",
             "type": "string"
           },
@@ -2033,9 +1954,7 @@
           }
         },
         "summary": "Start challenge",
-        "tags": [
-          "Auth"
-        ]
+        "tags": ["Auth"]
       }
     },
     "/v1/auth/token": {
@@ -2114,9 +2033,7 @@
           }
         },
         "summary": "Solve challenge",
-        "tags": [
-          "Auth"
-        ]
+        "tags": ["Auth"]
       }
     },
     "/v1/search": {
@@ -2203,9 +2120,7 @@
           }
         ],
         "summary": "Search objects across all spaces",
-        "tags": [
-          "Search"
-        ]
+        "tags": ["Search"]
       }
     },
     "/v1/spaces": {
@@ -2281,9 +2196,7 @@
           }
         ],
         "summary": "List spaces",
-        "tags": [
-          "Spaces"
-        ]
+        "tags": ["Spaces"]
       },
       "post": {
         "description": "Creates a new space based on a supplied name and description in the JSON request body. The endpoint is subject to rate limiting and automatically applies default configurations such as generating a random icon and initializing the workspace with default settings (for example, a default dashboard or home page). On success, the new space’s full metadata is returned, enabling the client to immediately switch context to the new internal.",
@@ -2369,9 +2282,7 @@
           }
         ],
         "summary": "Create space",
-        "tags": [
-          "Spaces"
-        ]
+        "tags": ["Spaces"]
       }
     },
     "/v1/spaces/{space_id}": {
@@ -2447,9 +2358,7 @@
           }
         ],
         "summary": "Get space",
-        "tags": [
-          "Spaces"
-        ]
+        "tags": ["Spaces"]
       },
       "patch": {
         "description": "Updates the name or description of an existing space. The request body should contain the new name and/or description in JSON format. This endpoint is useful for renaming or rebranding a workspace without needing to recreate it. The updated space’s metadata is returned in the response.",
@@ -2564,9 +2473,7 @@
           }
         ],
         "summary": "Update space",
-        "tags": [
-          "Spaces"
-        ]
+        "tags": ["Spaces"]
       }
     },
     "/v1/spaces/{space_id}/lists/{list_id}/objects": {
@@ -2607,10 +2514,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
+                "$ref": "#/components/schemas/apimodel.AddObjectsToListRequest"
               }
             }
           },
@@ -2685,9 +2589,7 @@
           }
         ],
         "summary": "Add objects to list",
-        "tags": [
-          "Lists"
-        ]
+        "tags": ["Lists"]
       }
     },
     "/v1/spaces/{space_id}/lists/{list_id}/objects/{object_id}": {
@@ -2801,9 +2703,7 @@
           }
         ],
         "summary": "Remove object from list",
-        "tags": [
-          "Lists"
-        ]
+        "tags": ["Lists"]
       }
     },
     "/v1/spaces/{space_id}/lists/{list_id}/views": {
@@ -2905,9 +2805,7 @@
           }
         ],
         "summary": "Get list views",
-        "tags": [
-          "Lists"
-        ]
+        "tags": ["Lists"]
       }
     },
     "/v1/spaces/{space_id}/lists/{list_id}/views/{view_id}/objects": {
@@ -3018,9 +2916,7 @@
           }
         ],
         "summary": "Get objects in list",
-        "tags": [
-          "Lists"
-        ]
+        "tags": ["Lists"]
       }
     },
     "/v1/spaces/{space_id}/members": {
@@ -3105,9 +3001,7 @@
           }
         ],
         "summary": "List members",
-        "tags": [
-          "Members"
-        ]
+        "tags": ["Members"]
       }
     },
     "/v1/spaces/{space_id}/members/{member_id}": {
@@ -3192,9 +3086,7 @@
           }
         ],
         "summary": "Get member",
-        "tags": [
-          "Members"
-        ]
+        "tags": ["Members"]
       }
     },
     "/v1/spaces/{space_id}/objects": {
@@ -3279,9 +3171,7 @@
           }
         ],
         "summary": "List objects",
-        "tags": [
-          "Objects"
-        ]
+        "tags": ["Objects"]
       },
       "post": {
         "description": "Creates a new object in the specified space using a JSON payload. The creation process is subject to rate limiting. The payload must include key details such as the object name, icon, description, body content (which may support Markdown), source URL (required for bookmark objects), template identifier, and the type_key (which is the non-unique identifier of the type of object to create). Post-creation, additional operations (like setting featured properties or fetching bookmark metadata) may occur. The endpoint then returns the full object data, ready for further interactions.",
@@ -3376,9 +3266,7 @@
           }
         ],
         "summary": "Create object",
-        "tags": [
-          "Objects"
-        ]
+        "tags": ["Objects"]
       }
     },
     "/v1/spaces/{space_id}/objects/{object_id}": {
@@ -3493,9 +3381,7 @@
           }
         ],
         "summary": "Delete object",
-        "tags": [
-          "Objects"
-        ]
+        "tags": ["Objects"]
       },
       "get": {
         "description": "Fetches the full details of a single object identified by the object ID within the specified space. The response includes not only basic metadata (ID, name, icon, type) but also the complete set of blocks (which may include text, files, properties and dataviews) and extra details (such as timestamps and linked member information). This endpoint is essential when a client needs to render or edit the full object view.",
@@ -3535,9 +3421,7 @@
             "name": "format",
             "schema": {
               "default": "\"md\"",
-              "enum": [
-                "md"
-              ],
+              "enum": ["md"],
               "type": "string"
             }
           }
@@ -3600,9 +3484,7 @@
           }
         ],
         "summary": "Get object",
-        "tags": [
-          "Objects"
-        ]
+        "tags": ["Objects"]
       },
       "patch": {
         "description": "This endpoint updates an existing object in the specified space using a JSON payload. The update process is subject to rate limiting. The payload must include the details to be updated. The endpoint then returns the full object data, ready for further interactions.",
@@ -3726,9 +3608,7 @@
           }
         ],
         "summary": "Update object",
-        "tags": [
-          "Objects"
-        ]
+        "tags": ["Objects"]
       }
     },
     "/v1/spaces/{space_id}/properties": {
@@ -3813,9 +3693,7 @@
           }
         ],
         "summary": "List properties",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       },
       "post": {
         "description": "⚠ Warning: Properties are experimental and may change in the next update. ⚠ Creates a new property in the specified space using a JSON payload. The creation process is subject to rate limiting. The payload must include property details such as the name and format. The endpoint then returns the full property data, ready for further interactions.",
@@ -3910,9 +3788,7 @@
           }
         ],
         "summary": "Create property",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/v1/spaces/{space_id}/properties/{property_id}": {
@@ -4027,9 +3903,7 @@
           }
         ],
         "summary": "Delete property",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       },
       "get": {
         "description": "⚠ Warning: Properties are experimental and may change in the next update. ⚠ Fetches detailed information about one specific property by its ID. This includes the property’s unique identifier, name and format. This detailed view assists clients in showing property options to users and in guiding the user interface (such as displaying appropriate input fields or selection options).",
@@ -4122,9 +3996,7 @@
           }
         ],
         "summary": "Get property",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       },
       "patch": {
         "description": "⚠ Warning: Properties are experimental and may change in the next update. ⚠ This endpoint updates an existing property in the specified space using a JSON payload. The update process is subject to rate limiting. The payload must include the name to be updated. The endpoint then returns the full property data, ready for further interactions.",
@@ -4258,9 +4130,7 @@
           }
         ],
         "summary": "Update property",
-        "tags": [
-          "Properties"
-        ]
+        "tags": ["Properties"]
       }
     },
     "/v1/spaces/{space_id}/properties/{property_id}/tags": {
@@ -4345,9 +4215,7 @@
           }
         ],
         "summary": "List tags",
-        "tags": [
-          "Tags"
-        ]
+        "tags": ["Tags"]
       },
       "post": {
         "description": "This endpoint creates a new tag for a given property id in a space. The creation process is subject to rate limiting. The tag is identified by its unique identifier within the specified space. The request must include the tag's name and color. The response includes the tag's details such as its ID, name, and color. This is useful for clients when users want to add new tag options to a property.",
@@ -4451,9 +4319,7 @@
           }
         ],
         "summary": "Create tag",
-        "tags": [
-          "Tags"
-        ]
+        "tags": ["Tags"]
       }
     },
     "/v1/spaces/{space_id}/properties/{property_id}/tags/{tag_id}": {
@@ -4577,9 +4443,7 @@
           }
         ],
         "summary": "Delete tag",
-        "tags": [
-          "Tags"
-        ]
+        "tags": ["Tags"]
       },
       "get": {
         "description": "This endpoint retrieves a tag for a given property id. The tag is identified by its unique identifier within the specified space. The response includes the tag's details such as its ID, name, and color. This is useful for clients to display or when editing a specific tag option.",
@@ -4681,9 +4545,7 @@
           }
         ],
         "summary": "Get tag",
-        "tags": [
-          "Tags"
-        ]
+        "tags": ["Tags"]
       },
       "patch": {
         "description": "This endpoint updates a tag for a given property id in a space. The update process is subject to rate limiting. The tag is identified by its unique identifier within the specified space. The request must include the tag's name and color. The response includes the tag's details such as its ID, name, and color. This is useful for clients when users want to edit existing tags for a property.",
@@ -4826,9 +4688,7 @@
           }
         ],
         "summary": "Update tag",
-        "tags": [
-          "Tags"
-        ]
+        "tags": ["Tags"]
       }
     },
     "/v1/spaces/{space_id}/search": {
@@ -4924,9 +4784,7 @@
           }
         ],
         "summary": "Search objects within a space",
-        "tags": [
-          "Search"
-        ]
+        "tags": ["Search"]
       }
     },
     "/v1/spaces/{space_id}/types": {
@@ -5011,9 +4869,7 @@
           }
         ],
         "summary": "List types",
-        "tags": [
-          "Types"
-        ]
+        "tags": ["Types"]
       },
       "post": {
         "description": "Creates a new object type in the specified space using a JSON payload. The creation process is subject to rate limiting. The payload must include type details such as the name, icon, and layout. The endpoint then returns the full type data, ready to be used for creating objects.",
@@ -5108,9 +4964,7 @@
           }
         ],
         "summary": "Create type",
-        "tags": [
-          "Types"
-        ]
+        "tags": ["Types"]
       }
     },
     "/v1/spaces/{space_id}/types/{type_id}": {
@@ -5225,9 +5079,7 @@
           }
         ],
         "summary": "Delete type",
-        "tags": [
-          "Types"
-        ]
+        "tags": ["Types"]
       },
       "get": {
         "description": "Fetches detailed information about one specific object type by its ID. This includes the type’s unique key, name, icon, and layout. This detailed view assists clients in understanding the expected structure and style for objects of that type and in guiding the user interface (such as displaying appropriate icons or layout hints).",
@@ -5320,9 +5172,7 @@
           }
         ],
         "summary": "Get type",
-        "tags": [
-          "Types"
-        ]
+        "tags": ["Types"]
       },
       "patch": {
         "description": "This endpoint updates an existing object type in the specified space using a JSON payload. The update process is subject to rate limiting. The payload must include the name and properties to be updated. The endpoint then returns the full type data, ready for further interactions.",
@@ -5446,9 +5296,7 @@
           }
         ],
         "summary": "Update type",
-        "tags": [
-          "Types"
-        ]
+        "tags": ["Types"]
       }
     },
     "/v1/spaces/{space_id}/types/{type_id}/templates": {
@@ -5542,9 +5390,7 @@
           }
         ],
         "summary": "List templates",
-        "tags": [
-          "Templates"
-        ]
+        "tags": ["Templates"]
       }
     },
     "/v1/spaces/{space_id}/types/{type_id}/templates/{template_id}": {
@@ -5648,9 +5494,7 @@
           }
         ],
         "summary": "Get template",
-        "tags": [
-          "Templates"
-        ]
+        "tags": ["Templates"]
       }
     }
   },

@@ -177,6 +177,140 @@ export class OpenAPIToMCPConverter {
           additionalProperties: true,
         };
       }
+
+      // Special handling for property value types
+      const isPropertyValue = schema.oneOf.every(
+        (def) => typeof def === "object" && "$ref" in def && def.$ref.endsWith("PropertyValue"),
+      );
+      const isPropertyLinkValue = schema.oneOf.every(
+        (def) => typeof def === "object" && "$ref" in def && def.$ref.endsWith("PropertyLinkValue"),
+      );
+
+      if (isPropertyValue || isPropertyLinkValue) {
+        const isLink = isPropertyLinkValue;
+        const baseProperties = {
+          format: {
+            type: "string",
+            description: "The format of the property. Ensure to always set this to the intended format value.",
+            enum: [
+              "text",
+              "number",
+              "select",
+              "multi_select",
+              "date",
+              "files",
+              "checkbox",
+              "url",
+              "email",
+              "phone",
+              "objects",
+            ],
+            examples: ["date"],
+          },
+          ...(isLink
+            ? {
+                key: {
+                  type: "string",
+                  description: "The key of the property",
+                  examples: ["last_modified_date"],
+                },
+              }
+            : {
+                id: {
+                  type: "string",
+                  description: "The id of the property",
+                  examples: ["last_modified_date"],
+                },
+                key: {
+                  type: "string",
+                  description: "The key of the property",
+                  examples: ["last_modified_date"],
+                },
+                name: {
+                  type: "string",
+                  description: "The name of the property",
+                  examples: ["Last modified date"],
+                },
+                object: {
+                  type: "string",
+                  description: "The data model of the object",
+                  examples: ["property"],
+                },
+              }),
+        } as Record<string, IJsonSchema>;
+
+        return {
+          type: "object",
+          properties: {
+            ...baseProperties,
+            checkbox: {
+              type: "boolean",
+              description: "The checkbox value, if applicable",
+              examples: [true],
+            },
+            date: {
+              type: "string",
+              description: "The date value in ISO 8601 format, if applicable",
+              examples: ["2025-02-14T12:34:56Z"],
+            },
+            email: {
+              type: "string",
+              description: "The email value, if applicable",
+              examples: ["example@example.com"],
+            },
+            files: {
+              type: "array",
+              description: "The file references, if applicable",
+              items: {
+                type: "string",
+              },
+              examples: [["['file_id']"]],
+            },
+            multi_select: {
+              type: "array",
+              description: "The multi-select values, if applicable",
+              items: this.convertOpenApiSchemaToJsonSchema(
+                this.internalResolveRef("#/components/schemas/apimodel.Tag", new Set())!,
+                new Set(),
+                true,
+              ),
+            },
+            number: {
+              type: "number",
+              description: "The number value, if applicable",
+              examples: [42],
+            },
+            objects: {
+              type: "array",
+              description: "The object references, if applicable",
+              items: {
+                type: "string",
+              },
+              examples: [["['object_id']"]],
+            },
+            phone: {
+              type: "string",
+              description: "The phone number value, if applicable",
+              examples: ["+1234567890"],
+            },
+            select: this.convertOpenApiSchemaToJsonSchema(
+              this.internalResolveRef("#/components/schemas/apimodel.Tag", new Set())!,
+              new Set(),
+              true,
+            ),
+            text: {
+              type: "string",
+              description: "The text value, if applicable",
+              examples: ["Some text..."],
+            },
+            url: {
+              type: "string",
+              description: "The url value, if applicable",
+              examples: ["https://example.com"],
+            },
+          } as Record<string, IJsonSchema>,
+        };
+      }
     }
 
     // oneOf, anyOf, allOf
