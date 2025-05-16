@@ -1,3 +1,4 @@
+import { Headers } from "node-fetch";
 import OpenAPIClientAxios from "openapi-client-axios";
 import { OpenAPIV3 } from "openapi-types";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";

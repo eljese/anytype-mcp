@@ -96,14 +96,16 @@ export async function main(args: string[] = process.argv.slice(2)) {
   }
 
   switch (command) {
-    case "get-key":
+    case "get-key": {
       const getKeySpecPath = args[1];
       await getAppKey(getKeySpecPath);
       break;
-    case "run":
+    }
+    case "run": {
       const runSpecPath = args[1];
       await runProxy(runSpecPath);
       break;
+    }
     default:
       console.error(`Error: Unknown command "${command}"`);
       console.error('Run "anytype-mcp" without arguments to see available commands');

@@ -77,7 +77,7 @@ export class AppKeyGenerator {
     code: string,
   ): Promise<{ appKey: string; anytypeVersion: string }> {
     try {
-      const response = await axios.post(`${this.basePath}/v1/auth/token`, null, {
+      const response = await axios.post<AuthToken>(`${this.basePath}/v1/auth/token`, null, {
         params: { challenge_id: challengeId, code: code },
       });
 

@@ -34,7 +34,7 @@ export class HttpClient {
   private client: OpenAPIClientAxios;
 
   constructor(config: HttpClientConfig, openApiSpec: OpenAPIV3.Document | OpenAPIV3_1.Document) {
-    // @ts-expect-error
+    // @ts-expect-error OpenAPIClientAxios can be imported as default or named export, we handle both cases
     this.client = new (OpenAPIClientAxios.default ?? OpenAPIClientAxios)({
       definition: openApiSpec,
       axiosConfigDefaults: {

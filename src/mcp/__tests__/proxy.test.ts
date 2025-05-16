@@ -1,4 +1,5 @@
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
+import { Headers } from "node-fetch";
 import { OpenAPIV3 } from "openapi-types";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { HttpClient } from "../../client/http-client";
