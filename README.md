@@ -1,17 +1,16 @@
 # Anytype MCP Server
 
-The Anytype MCP Server is a Model Context Protocol (MCP) server implementation, enabling AI assistants to seamlessly interact with Anytype's API through natural language.
+The Anytype MCP Server is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server implementation, enabling AI assistants to seamlessly interact with [Anytype's API](https://github.com/anyproto/anytype-api) through natural language.
 
-## Overview
-
-This project implements an MCP server that acts as a bridge between AI assistants and the Anytype API. It converts Anytype's OpenAPI specification into MCP tools that AI assistants can understand and use.
+It bridges the gap between AI and Anytype's powerful features by converting Anytype's OpenAPI specification into MCP tools, allowing you to manage your knowledge base through conversation.
 
 ## Features
 
-- OpenAPI v3.1 specification support
-- Automatic conversion of API endpoints to MCP tools
-- Secure authentication handling
-- CLI tool for testing and development
+- Global & Space Search
+- Spaces & Members
+- Objects & Lists
+- Properties & Tags
+- Types & Templates
 
 ## Quick Start
 
@@ -40,10 +39,7 @@ anytype-mcp get-key
   "mcpServers": {
     "anytype": {
       "command": "npx",
-      "args": [
-        "anytype-mcp",
-        "run",
-      ],
+      "args": ["anytype-mcp", "run"],
       "env": {
         "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-05-20\"}"
       }
@@ -52,14 +48,16 @@ anytype-mcp get-key
 }
 ```
 
+## Example Interactions
+
+Here are some examples of how you can interact with your Anytype:
+
+- "Create a new space called 'Project Ideas' with description 'A space for storing project ideas'"
+- "Add a new object of type 'Task' with title 'Research AI trends' to the 'Project Ideas' space"
+- "Create a second one with title 'Dive deep into LLMs' with due date in 3 days and assign it to me"
+- "Now create a collection with the title "Tasks for this week" and add the two tasks to that list. Set due date of the first one to 10 days from now"
+
 ## Development
-
-### Prerequisites
-
-- Node.js >= 16
-- npm
-
-### Setup
 
 1. Clone the repository:
 
