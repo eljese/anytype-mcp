@@ -13,7 +13,7 @@
     "test": "vitest run",
     "test:dev": "vitest watch",
     "build": "tsc -build && node scripts/build-cli.js",
-    "dev": "tsx watch scripts/start-proxy.ts",
+    "dev": "tsx watch scripts/start-server.ts",
     "parse-openapi": "tsx scripts/parse-openapi.ts",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"scripts/**/*.{ts,tsx}\"",
     "get-key": "npx anytype-mcp get-key"

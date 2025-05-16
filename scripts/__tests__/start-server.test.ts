@@ -3,7 +3,7 @@ import yaml from "js-yaml";
 import fs from "node:fs";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { loadOpenApiSpec, main, ValidationError } from "../start-proxy";
+import { loadOpenApiSpec, main, ValidationError } from "../start-server";
 
 // Mock fs and axios
 vi.mock("node:fs");
@@ -193,8 +193,11 @@ describe("main", () => {
     vi.resetAllMocks();
   });
 
-  it("should throw error when no spec path provided", async () => {
-    await expect(main([])).rejects.toThrow("Usage: openapi-mcp-server <path-to-openapi-spec>");
+  it("should exit when no command provided", async () => {
+    const mockExit = vi.spyOn(process, "exit").mockImplementation((() => {}) as any);
+    await main([]);
+    expect(mockExit).toHaveBeenCalledWith(1);
+    expect(console.error).toHaveBeenCalledWith("Usage: anytype-mcp <command> [options]");
   });
 });
 
