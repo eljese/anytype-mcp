@@ -7,7 +7,7 @@ type NewToolMethod = {
   name: string;
   description: string;
   inputSchema: IJsonSchema & { type: "object" };
-  returnSchema?: IJsonSchema;
+  outputSchema?: IJsonSchema;
 };
 
 type FunctionParameters = {
@@ -491,7 +491,7 @@ export class OpenAPIToMCPConverter {
     }
 
     // Extract return type (response schema)
-    const returnSchema = this.extractResponseType(operation.responses);
+    const outputSchema = this.extractResponseType(operation.responses);
 
     // Generate Zod schema from input schema
     try {
@@ -504,7 +504,7 @@ export class OpenAPIToMCPConverter {
         name: methodName,
         description,
         inputSchema,
-        ...(returnSchema ? { returnSchema } : {}),
+        ...(outputSchema ? { outputSchema } : {}),
       };
     } catch (error) {
       console.warn(`Failed to generate Zod schema for ${methodName}:`, error);
@@ -513,7 +513,7 @@ export class OpenAPIToMCPConverter {
         name: methodName,
         description,
         inputSchema,
-        ...(returnSchema ? { returnSchema } : {}),
+        ...(outputSchema ? { outputSchema } : {}),
       };
     }
   }
@@ -527,19 +527,19 @@ export class OpenAPIToMCPConverter {
     if (!responseObj || !responseObj.content) return null;
 
     if (responseObj.content["application/json"]?.schema) {
-      const returnSchema = this.convertOpenApiSchemaToJsonSchema(
+      const outputSchema = this.convertOpenApiSchemaToJsonSchema(
         responseObj.content["application/json"].schema,
         new Set(),
         false,
       );
-      returnSchema["$defs"] = this.convertComponentsToJsonSchema();
+      outputSchema["$defs"] = this.convertComponentsToJsonSchema();
 
       // Preserve the response description if available and not already set
-      if (responseObj.description && !returnSchema.description) {
-        returnSchema.description = responseObj.description;
+      if (responseObj.description && !outputSchema.description) {
+        outputSchema.description = responseObj.description;
       }
 
-      return returnSchema;
+      return outputSchema;
     }
 
     // If no JSON response, fallback to a generic string or known formats

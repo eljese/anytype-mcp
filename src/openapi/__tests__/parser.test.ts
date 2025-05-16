@@ -7,7 +7,7 @@ interface ToolMethod {
   name: string;
   description: string;
   inputSchema: any;
-  returnSchema?: any;
+  outputSchema?: any;
 }
 
 interface Tool {
@@ -23,8 +23,8 @@ function verifyToolMethod(actual: ToolMethod, expected: any, toolName: string) {
   expect(actual.name).toBe(expected.name);
   expect(actual.description).toBe(expected.description);
   expect(actual.inputSchema, `inputSchema ${actual.name} ${toolName}`).toEqual(expected.inputSchema);
-  if (expected.returnSchema) {
-    expect(actual.returnSchema, `returnSchema ${actual.name} ${toolName}`).toEqual(expected.returnSchema);
+  if (expected.outputSchema) {
+    expect(actual.outputSchema, `outputSchema ${actual.name} ${toolName}`).toEqual(expected.outputSchema);
   }
 }
 
@@ -73,11 +73,11 @@ function getParamsFromSchema(method: { inputSchema: IJsonSchema }) {
   });
 }
 
-// Updated helper function to get return type from returnSchema
+// Updated helper function to get return type from outputSchema
 // No longer requires that the schema be fully expanded. If we have a $ref, just note it as 'object'.
-function getReturnType(method: { returnSchema?: IJsonSchema }) {
-  if (!method.returnSchema) return null;
-  const schema = method.returnSchema;
+function getReturnType(method: { outputSchema?: IJsonSchema }) {
+  if (!method.outputSchema) return null;
+  const schema = method.outputSchema;
   return {
     type: getTypeFromSchema(schema),
     description: schema.description,
@@ -480,7 +480,7 @@ describe("OpenAPIToMCPConverter", () => {
         expect(method).toHaveProperty("name");
         expect(method).toHaveProperty("description");
         expect(method).toHaveProperty("inputSchema");
-        expect(method).toHaveProperty("returnSchema");
+        expect(method).toHaveProperty("outputSchema");
 
         // For 'get' operations, we just check the return type is recognized correctly.
         if (method.name.startsWith("get")) {
@@ -803,7 +803,7 @@ describe("OpenAPIToMCPConverter", () => {
         expect(method).toHaveProperty("name");
         expect(method).toHaveProperty("description");
         expect(method).toHaveProperty("inputSchema");
-        expect(method).toHaveProperty("returnSchema");
+        expect(method).toHaveProperty("outputSchema");
 
         // If it's a GET operation, check that return type is recognized.
         if (method.name.startsWith("get")) {
@@ -863,7 +863,7 @@ describe("OpenAPIToMCPConverter - Additional Complex Tests", () => {
             name: string;
             description: string;
             inputSchema: IJsonSchema & { type: "object" };
-            returnSchema?: IJsonSchema;
+            outputSchema?: IJsonSchema;
           }>;
         }
       >;
@@ -1006,7 +1006,7 @@ describe("OpenAPIToMCPConverter - Additional Complex Tests", () => {
                     },
                   },
                 },
-                returnSchema: {
+                outputSchema: {
                   $ref: "#/$defs/A",
                   description: "Returns an A object",
                   $defs: {
@@ -1094,7 +1094,7 @@ describe("OpenAPIToMCPConverter - Additional Complex Tests", () => {
                     },
                   },
                 },
-                returnSchema: {
+                outputSchema: {
                   $ref: "#/$defs/A",
                   description: "Created A object",
 
@@ -1350,7 +1350,7 @@ describe("OpenAPIToMCPConverter - Additional Complex Tests", () => {
                     },
                   },
                 },
-                returnSchema: {
+                outputSchema: {
                   $ref: "#/$defs/C",
                   description: "A composed object",
                   $defs: {

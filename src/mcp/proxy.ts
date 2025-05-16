@@ -19,7 +19,7 @@ type NewToolDefinition = {
     name: string;
     description: string;
     inputSchema: IJsonSchema & { type: "object" };
-    returnSchema?: IJsonSchema;
+    outputSchema?: IJsonSchema;
   }>;
 };
 
