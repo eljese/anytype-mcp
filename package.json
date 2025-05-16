@@ -15,10 +15,11 @@
     "build": "tsc -build && node scripts/build-cli.js",
     "dev": "tsx watch scripts/start-server.ts",
     "parse-openapi": "tsx scripts/parse-openapi.ts",
+    "get-key": "npx anytype-mcp get-key",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"scripts/**/*.{ts,tsx}\"",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "prettier --check \"src/**/*.{ts,tsx}\" \"scripts/**/*.{ts,tsx}\" && eslint . --ext .ts,.tsx",
     "fix-lint": "eslint . --ext .ts,.tsx --fix",
-    "get-key": "npx anytype-mcp get-key"
+    "type-check": "tsc --noEmit"
   },
   "bin": {
     "anytype-mcp": "bin/cli.mjs"
