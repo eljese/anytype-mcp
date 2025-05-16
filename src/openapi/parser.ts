@@ -54,7 +54,6 @@ export class OpenAPIToMCPConverter {
     resolvedRefs: Set<string>,
     resolveRefs: boolean = true,
   ): IJsonSchema {
-    resolveRefs = true; // TODO: fix resolving references
     if ("$ref" in schema) {
       const ref = schema.$ref;
       if (!resolveRefs) {
@@ -288,7 +287,7 @@ export class OpenAPIToMCPConverter {
       for (const param of operation.parameters) {
         const paramObj = this.resolveParameter(param);
         if (paramObj && paramObj.schema) {
-          // do not include Anytype-Version in the input schema, it's set in http client header by prox
+          // do not include Anytype-Version in the input schema, it's set in http client header by proxy
           if (paramObj.name === "Anytype-Version") {
             continue;
           }
@@ -411,11 +410,11 @@ export class OpenAPIToMCPConverter {
       for (const param of operation.parameters) {
         const paramObj = this.resolveParameter(param);
         if (paramObj && paramObj.schema) {
-          // do not include Anytype-Version in the input schema, it's set in http client header by prox
+          // do not include Anytype-Version in the input schema, it's set in http client header by proxy
           if (paramObj.name === "Anytype-Version") {
             continue;
           }
-          const schema = this.convertOpenApiSchemaToJsonSchema(paramObj.schema, new Set(), false);
+          const schema = this.convertOpenApiSchemaToJsonSchema(paramObj.schema, new Set(), true);
           // Merge parameter-level description if available
           if (paramObj.description) {
             schema.description = paramObj.description;
@@ -439,7 +438,7 @@ export class OpenAPIToMCPConverter {
           const formSchema = this.convertOpenApiSchemaToJsonSchema(
             bodyObj.content["multipart/form-data"].schema,
             new Set(),
-            false,
+            true,
           );
           if (formSchema.type === "object" && formSchema.properties) {
             for (const [name, propSchema] of Object.entries(formSchema.properties)) {
@@ -455,7 +454,7 @@ export class OpenAPIToMCPConverter {
           const bodySchema = this.convertOpenApiSchemaToJsonSchema(
             bodyObj.content["application/json"].schema,
             new Set(),
-            false,
+            true,
           );
           // Merge body schema into the inputSchema's properties
           if (bodySchema.type === "object" && bodySchema.properties) {
@@ -530,7 +529,7 @@ export class OpenAPIToMCPConverter {
       const outputSchema = this.convertOpenApiSchemaToJsonSchema(
         responseObj.content["application/json"].schema,
         new Set(),
-        false,
+        true,
       );
       outputSchema["$defs"] = {}; // Omit this.convertComponentsToJsonSchema() to reduce definition size
 
