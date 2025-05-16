@@ -6,12 +6,8 @@ import { OpenAPIToMCPConverter } from "../src/openapi/parser";
 
 function main() {
   const args = process.argv.slice(2);
-  if (args.length !== 2) {
-    console.error("Usage: pnpm parse-openapi <input-spec.json> <output-tools.json>");
-    process.exit(1);
-  }
-
-  const [inputFile, outputFile] = args;
+  const inputFile = args[0] || "./scripts/openapi.json";
+  const outputFile = args[1] || "./scripts/tools.json";
 
   try {
     // Read and parse the OpenAPI spec
@@ -20,10 +16,10 @@ function main() {
 
     // Convert to MCP Tools
     const converter = new OpenAPIToMCPConverter(spec);
-    const { tools, openApiLookup } = converter.convertToMCPTools();
+    const { tools } = converter.convertToMCPTools();
 
     // Write the output
-    writeFileSync(outputFile, JSON.stringify({ tools, openApiLookup }, null, 2));
+    writeFileSync(outputFile, JSON.stringify({ tools }, null, 2));
     console.log(`Successfully wrote parsed tools to ${outputFile}`);
   } catch (error) {
     console.error("Error:", error instanceof Error ? error.message : String(error));
