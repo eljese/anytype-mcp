@@ -62,7 +62,6 @@ export class MCPProxy {
         def.methods.forEach((method) => {
           const toolNameWithMethod = `${toolName}-${method.name}`;
           const truncatedToolName = this.truncateToolName(toolNameWithMethod);
-          method.inputSchema.$defs = {};
           tools.push({
             name: truncatedToolName,
             description: method.description,

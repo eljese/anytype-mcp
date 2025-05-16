@@ -280,7 +280,7 @@ export class OpenAPIToMCPConverter {
       type: "object",
       properties: {},
       required: [],
-      $defs: this.convertComponentsToJsonSchema(),
+      $defs: {}, // Omit this.convertComponentsToJsonSchema() to reduce definition size
     };
 
     // Handle parameters (path, query, header, cookie)
@@ -400,7 +400,7 @@ export class OpenAPIToMCPConverter {
     const methodName = operation.operationId;
 
     const inputSchema: IJsonSchema & { type: "object" } = {
-      $defs: this.convertComponentsToJsonSchema(),
+      $defs: {}, // Omit this.convertComponentsToJsonSchema() to reduce definition size
       type: "object",
       properties: {},
       required: [],
@@ -490,7 +490,7 @@ export class OpenAPIToMCPConverter {
       }
     }
 
-    // Extract return type (response schema)
+    // Extract return type (output schema)
     const outputSchema = this.extractResponseType(operation.responses);
 
     // Generate Zod schema from input schema
@@ -532,7 +532,7 @@ export class OpenAPIToMCPConverter {
         new Set(),
         false,
       );
-      outputSchema["$defs"] = this.convertComponentsToJsonSchema();
+      outputSchema["$defs"] = {}; // Omit this.convertComponentsToJsonSchema() to reduce definition size
 
       // Preserve the response description if available and not already set
       if (responseObj.description && !outputSchema.description) {
