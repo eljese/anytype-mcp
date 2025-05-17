@@ -113,26 +113,6 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the property. Ensure to always set this to the intended format value.",
-                            "enum": [
-                              "text",
-                              "number",
-                              "select",
-                              "multi_select",
-                              "date",
-                              "files",
-                              "checkbox",
-                              "url",
-                              "email",
-                              "phone",
-                              "objects"
-                            ],
-                            "examples": [
-                              "date"
-                            ]
-                          },
                           "id": {
                             "type": "string",
                             "description": "The id of the property",
@@ -170,7 +150,7 @@
                           },
                           "date": {
                             "type": "string",
-                            "description": "The date value, if applicable",
+                            "description": "The date value in ISO 8601 format, if applicable",
                             "examples": [
                               "2025-02-14T12:34:56Z"
                             ]
@@ -1144,26 +1124,6 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the property. Ensure to always set this to the intended format value.",
-                            "enum": [
-                              "text",
-                              "number",
-                              "select",
-                              "multi_select",
-                              "date",
-                              "files",
-                              "checkbox",
-                              "url",
-                              "email",
-                              "phone",
-                              "objects"
-                            ],
-                            "examples": [
-                              "date"
-                            ]
-                          },
                           "id": {
                             "type": "string",
                             "description": "The id of the property",
@@ -1201,7 +1161,7 @@
                           },
                           "date": {
                             "type": "string",
-                            "description": "The date value, if applicable",
+                            "description": "The date value in ISO 8601 format, if applicable",
                             "examples": [
                               "2025-02-14T12:34:56Z"
                             ]
@@ -1793,26 +1753,6 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the property. Ensure to always set this to the intended format value.",
-                            "enum": [
-                              "text",
-                              "number",
-                              "select",
-                              "multi_select",
-                              "date",
-                              "files",
-                              "checkbox",
-                              "url",
-                              "email",
-                              "phone",
-                              "objects"
-                            ],
-                            "examples": [
-                              "date"
-                            ]
-                          },
                           "id": {
                             "type": "string",
                             "description": "The id of the property",
@@ -1850,7 +1790,7 @@
                           },
                           "date": {
                             "type": "string",
-                            "description": "The date value, if applicable",
+                            "description": "The date value in ISO 8601 format, if applicable",
                             "examples": [
                               "2025-02-14T12:34:56Z"
                             ]
@@ -2180,26 +2120,6 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "format": {
-                      "type": "string",
-                      "description": "The format of the property. Ensure to always set this to the intended format value.",
-                      "enum": [
-                        "text",
-                        "number",
-                        "select",
-                        "multi_select",
-                        "date",
-                        "files",
-                        "checkbox",
-                        "url",
-                        "email",
-                        "phone",
-                        "objects"
-                      ],
-                      "examples": [
-                        "date"
-                      ]
-                    },
                     "key": {
                       "type": "string",
                       "description": "The key of the property",
@@ -2216,7 +2136,7 @@
                     },
                     "date": {
                       "type": "string",
-                      "description": "The date value, if applicable",
+                      "description": "The date value in ISO 8601 format, if applicable",
                       "examples": [
                         "2025-02-14T12:34:56Z"
                       ]
@@ -2434,26 +2354,6 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "format": {
-                          "type": "string",
-                          "description": "The format of the property. Ensure to always set this to the intended format value.",
-                          "enum": [
-                            "text",
-                            "number",
-                            "select",
-                            "multi_select",
-                            "date",
-                            "files",
-                            "checkbox",
-                            "url",
-                            "email",
-                            "phone",
-                            "objects"
-                          ],
-                          "examples": [
-                            "date"
-                          ]
-                        },
                         "id": {
                           "type": "string",
                           "description": "The id of the property",
@@ -2491,7 +2391,7 @@
                         },
                         "date": {
                           "type": "string",
-                          "description": "The date value, if applicable",
+                          "description": "The date value in ISO 8601 format, if applicable",
                           "examples": [
                             "2025-02-14T12:34:56Z"
                           ]
@@ -2830,26 +2730,6 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "format": {
-                          "type": "string",
-                          "description": "The format of the property. Ensure to always set this to the intended format value.",
-                          "enum": [
-                            "text",
-                            "number",
-                            "select",
-                            "multi_select",
-                            "date",
-                            "files",
-                            "checkbox",
-                            "url",
-                            "email",
-                            "phone",
-                            "objects"
-                          ],
-                          "examples": [
-                            "date"
-                          ]
-                        },
                         "id": {
                           "type": "string",
                           "description": "The id of the property",
@@ -2887,7 +2767,7 @@
                         },
                         "date": {
                           "type": "string",
-                          "description": "The date value, if applicable",
+                          "description": "The date value in ISO 8601 format, if applicable",
                           "examples": [
                             "2025-02-14T12:34:56Z"
                           ]
@@ -3234,26 +3114,6 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "format": {
-                          "type": "string",
-                          "description": "The format of the property. Ensure to always set this to the intended format value.",
-                          "enum": [
-                            "text",
-                            "number",
-                            "select",
-                            "multi_select",
-                            "date",
-                            "files",
-                            "checkbox",
-                            "url",
-                            "email",
-                            "phone",
-                            "objects"
-                          ],
-                          "examples": [
-                            "date"
-                          ]
-                        },
                         "id": {
                           "type": "string",
                           "description": "The id of the property",
@@ -3291,7 +3151,7 @@
                         },
                         "date": {
                           "type": "string",
-                          "description": "The date value, if applicable",
+                          "description": "The date value in ISO 8601 format, if applicable",
                           "examples": [
                             "2025-02-14T12:34:56Z"
                           ]
@@ -3597,26 +3457,6 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "format": {
-                      "type": "string",
-                      "description": "The format of the property. Ensure to always set this to the intended format value.",
-                      "enum": [
-                        "text",
-                        "number",
-                        "select",
-                        "multi_select",
-                        "date",
-                        "files",
-                        "checkbox",
-                        "url",
-                        "email",
-                        "phone",
-                        "objects"
-                      ],
-                      "examples": [
-                        "date"
-                      ]
-                    },
                     "key": {
                       "type": "string",
                       "description": "The key of the property",
@@ -3633,7 +3473,7 @@
                     },
                     "date": {
                       "type": "string",
-                      "description": "The date value, if applicable",
+                      "description": "The date value in ISO 8601 format, if applicable",
                       "examples": [
                         "2025-02-14T12:34:56Z"
                       ]
@@ -3843,26 +3683,6 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "format": {
-                          "type": "string",
-                          "description": "The format of the property. Ensure to always set this to the intended format value.",
-                          "enum": [
-                            "text",
-                            "number",
-                            "select",
-                            "multi_select",
-                            "date",
-                            "files",
-                            "checkbox",
-                            "url",
-                            "email",
-                            "phone",
-                            "objects"
-                          ],
-                          "examples": [
-                            "date"
-                          ]
-                        },
                         "id": {
                           "type": "string",
                           "description": "The id of the property",
@@ -3900,7 +3720,7 @@
                         },
                         "date": {
                           "type": "string",
-                          "description": "The date value, if applicable",
+                          "description": "The date value in ISO 8601 format, if applicable",
                           "examples": [
                             "2025-02-14T12:34:56Z"
                           ]
@@ -5114,26 +4934,6 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the property. Ensure to always set this to the intended format value.",
-                            "enum": [
-                              "text",
-                              "number",
-                              "select",
-                              "multi_select",
-                              "date",
-                              "files",
-                              "checkbox",
-                              "url",
-                              "email",
-                              "phone",
-                              "objects"
-                            ],
-                            "examples": [
-                              "date"
-                            ]
-                          },
                           "id": {
                             "type": "string",
                             "description": "The id of the property",
@@ -5171,7 +4971,7 @@
                           },
                           "date": {
                             "type": "string",
-                            "description": "The date value, if applicable",
+                            "description": "The date value in ISO 8601 format, if applicable",
                             "examples": [
                               "2025-02-14T12:34:56Z"
                             ]
@@ -6346,26 +6146,6 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "format": {
-                            "type": "string",
-                            "description": "The format of the property. Ensure to always set this to the intended format value.",
-                            "enum": [
-                              "text",
-                              "number",
-                              "select",
-                              "multi_select",
-                              "date",
-                              "files",
-                              "checkbox",
-                              "url",
-                              "email",
-                              "phone",
-                              "objects"
-                            ],
-                            "examples": [
-                              "date"
-                            ]
-                          },
                           "id": {
                             "type": "string",
                             "description": "The id of the property",
@@ -6403,7 +6183,7 @@
                           },
                           "date": {
                             "type": "string",
-                            "description": "The date value, if applicable",
+                            "description": "The date value in ISO 8601 format, if applicable",
                             "examples": [
                               "2025-02-14T12:34:56Z"
                             ]
@@ -6771,26 +6551,6 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "format": {
-                          "type": "string",
-                          "description": "The format of the property. Ensure to always set this to the intended format value.",
-                          "enum": [
-                            "text",
-                            "number",
-                            "select",
-                            "multi_select",
-                            "date",
-                            "files",
-                            "checkbox",
-                            "url",
-                            "email",
-                            "phone",
-                            "objects"
-                          ],
-                          "examples": [
-                            "date"
-                          ]
-                        },
                         "id": {
                           "type": "string",
                           "description": "The id of the property",
@@ -6828,7 +6588,7 @@
                         },
                         "date": {
                           "type": "string",
-                          "description": "The date value, if applicable",
+                          "description": "The date value in ISO 8601 format, if applicable",
                           "examples": [
                             "2025-02-14T12:34:56Z"
                           ]

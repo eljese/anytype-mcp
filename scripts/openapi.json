@@ -22,9 +22,6 @@
             "example": true,
             "type": "boolean"
           },
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
-          },
           "key": {
             "example": "done",
             "type": "string"
@@ -201,9 +198,6 @@
             "example": "2025-02-14T12:34:56Z",
             "type": "string"
           },
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
-          },
           "key": {
             "example": "last_modified_date",
             "type": "string"
@@ -260,9 +254,6 @@
             "description": "The email value of the property",
             "example": "example@example.com",
             "type": "string"
-          },
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
           },
           "key": {
             "example": "email",
@@ -340,9 +331,6 @@
             },
             "type": "array",
             "uniqueItems": false
-          },
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
           },
           "key": {
             "example": "files",
@@ -512,9 +500,6 @@
       },
       "apimodel.MultiSelectPropertyLinkValue": {
         "properties": {
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
-          },
           "key": {
             "example": "tag",
             "type": "string"
@@ -584,9 +569,6 @@
       },
       "apimodel.NumberPropertyLinkValue": {
         "properties": {
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
-          },
           "key": {
             "example": "height",
             "type": "string"
@@ -779,9 +761,6 @@
       },
       "apimodel.ObjectsPropertyLinkValue": {
         "properties": {
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
-          },
           "key": {
             "example": "creator",
             "type": "string"
@@ -837,9 +816,6 @@
       },
       "apimodel.PhonePropertyLinkValue": {
         "properties": {
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
-          },
           "key": {
             "example": "phone",
             "type": "string"
@@ -1071,9 +1047,6 @@
       },
       "apimodel.SelectPropertyLinkValue": {
         "properties": {
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
-          },
           "key": {
             "example": "status",
             "type": "string"
@@ -1260,9 +1233,6 @@
       },
       "apimodel.TextPropertyLinkValue": {
         "properties": {
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
-          },
           "key": {
             "example": "description",
             "type": "string"
@@ -1396,9 +1366,6 @@
       },
       "apimodel.URLPropertyLinkValue": {
         "properties": {
-          "format": {
-            "$ref": "#/components/schemas/apimodel.PropertyFormat"
-          },
           "key": {
             "example": "source",
             "type": "string"

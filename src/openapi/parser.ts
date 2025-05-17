@@ -189,24 +189,6 @@ export class OpenAPIToMCPConverter {
       if (isPropertyValue || isPropertyLinkValue) {
         const isLink = isPropertyLinkValue;
         const baseProperties = {
-          format: {
-            type: "string",
-            description: "The format of the property. Ensure to always set this to the intended format value.",
-            enum: [
-              "text",
-              "number",
-              "select",
-              "multi_select",
-              "date",
-              "files",
-              "checkbox",
-              "url",
-              "email",
-              "phone",
-              "objects",
-            ],
-            examples: ["date"],
-          },
           ...(isLink
             ? {
                 key: {
