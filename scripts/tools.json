@@ -21,15 +21,15 @@
               },
               "query": {
                 "type": "string",
-                "description": "The search term to look for in object names and snippets"
+                "description": "The text to search within object names and content; use types field for type filtering"
               },
               "sort": {
                 "type": "object",
-                "description": "The sorting criteria and direction for the search results",
+                "description": "The sorting options for the search results",
                 "properties": {
                   "direction": {
                     "type": "string",
-                    "description": "The direction to sort the search results",
+                    "description": "The direction to sort the search results by",
                     "enum": [
                       "asc",
                       "desc"
@@ -38,7 +38,7 @@
                   },
                   "property_key": {
                     "type": "string",
-                    "description": "The property to sort the search results by",
+                    "description": "The key of the property to sort the search results by",
                     "enum": [
                       "created_date",
                       "last_modified_date",
@@ -52,7 +52,7 @@
               },
               "types": {
                 "type": "array",
-                "description": "The types of objects to search for, specified by their key",
+                "description": "The types of objects to include in results (e.g., \"page\", \"task\", \"bookmark\"); see ListTypes endpoint for valid values",
                 "items": {
                   "type": "string"
                 }
@@ -566,7 +566,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to retrieve"
+                "description": "The ID of the space to retrieve; must be retrieved from ListSpaces endpoint"
               }
             },
             "required": [
@@ -640,7 +640,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to update"
+                "description": "The ID of the space to update; must be retrieved from ListSpaces endpoint"
               },
               "description": {
                 "type": "string",
@@ -722,11 +722,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to which the list belongs"
+                "description": "The ID of the space to which the list belongs; must be retrieved from ListSpaces endpoint"
               },
               "list_id": {
                 "type": "string",
-                "description": "The ID of the list to which objects will be added"
+                "description": "The ID of the list to which objects will be added; must be retrieved from SearchSpace endpoint with types=['collection', 'set']"
               },
               "objects": {
                 "type": "array",
@@ -756,15 +756,15 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to which the list belongs; retrieve from ListSpaces endpoint"
+                "description": "The ID of the space to which the list belongs; must be retrieved from ListSpaces endpoint"
               },
               "list_id": {
                 "type": "string",
-                "description": "The ID of the list from which the object will be removed"
+                "description": "The ID of the list from which the object will be removed; must be retrieved from SearchSpace endpoint with types=['collection', 'set']"
               },
               "object_id": {
                 "type": "string",
-                "description": "The ID of the object to remove from the list"
+                "description": "The ID of the object to remove from the list; must be retrieved from SearchSpace or GlobalSearch endpoint or obtained from response context"
               }
             },
             "required": [
@@ -788,11 +788,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to which the list belongs"
+                "description": "The ID of the space to which the list belongs; must be retrieved from ListSpaces endpoint"
               },
               "list_id": {
                 "type": "string",
-                "description": "The ID of the list to retrieve views for"
+                "description": "The ID of the list to retrieve views for; must be retrieved from SearchSpace endpoint with types=['collection', 'set']"
               },
               "offset": {
                 "type": "integer",
@@ -982,15 +982,15 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to which the list belongs"
+                "description": "The ID of the space to which the list belongs; must be retrieved from ListSpaces endpoint"
               },
               "list_id": {
                 "type": "string",
-                "description": "The ID of the list to retrieve objects for"
+                "description": "The ID of the list to retrieve objects for; must be retrieved from SearchSpace endpoint with types=['collection', 'set']"
               },
               "view_id": {
                 "type": "string",
-                "description": "The ID of the view to retrieve objects for"
+                "description": "The ID of the view to retrieve objects for; must be retrieved from ListViews endpoint or omited if you want to get all objects in the list"
               },
               "offset": {
                 "type": "integer",
@@ -1331,7 +1331,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to list members for"
+                "description": "The ID of the space to list members for; must be retrieved from ListSpaces endpoint"
               },
               "offset": {
                 "type": "integer",
@@ -1460,11 +1460,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to get the member from"
+                "description": "The ID of the space to get the member from; must be retrieved from ListSpaces endpoint"
               },
               "member_id": {
                 "type": "string",
-                "description": "Member ID or Identity"
+                "description": "Member ID or Identity; must be retrieved from ListMembers endpoint or obtained from response context"
               }
             },
             "required": [
@@ -1557,7 +1557,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space in which to list objects"
+                "description": "The ID of the space in which to list objects; must be retrieved from ListSpaces endpoint"
               },
               "offset": {
                 "type": "integer",
@@ -1897,7 +1897,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space in which to create the object"
+                "description": "The ID of the space in which to create the object; must be retrieved from ListSpaces endpoint"
               },
               "body": {
                 "type": "string",
@@ -1927,7 +1927,7 @@
               },
               "properties": {
                 "type": "array",
-                "description": "⚠ Warning: Properties are experimental and may change in the next update. ⚠ The properties to set on the object",
+                "description": "⚠ Warning: Properties are experimental and may change in the next update. ⚠ The properties to set on the object; see ListTypes or GetType endpoints for linked properties",
                 "items": {
                   "type": "object",
                   "properties": {
@@ -2348,11 +2348,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space in which the object exists"
+                "description": "The ID of the space in which the object exists; must be retrieved from ListSpaces endpoint"
               },
               "object_id": {
                 "type": "string",
-                "description": "The ID of the object to delete"
+                "description": "The ID of the object to delete; must be retrieved from ListObjects, SearchSpace or GlobalSearch endpoints or obtained from response context"
               }
             },
             "required": [
@@ -2661,11 +2661,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space in which the object exists"
+                "description": "The ID of the space in which the object exists; must be retrieved from ListSpaces endpoint"
               },
               "object_id": {
                 "type": "string",
-                "description": "The ID of the object to retrieve"
+                "description": "The ID of the object to retrieve; must be retrieved from ListObjects, SearchSpace or GlobalSearch endpoints or obtained from response context"
               },
               "format": {
                 "type": "string",
@@ -2982,11 +2982,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space in which the object exists"
+                "description": "The ID of the space in which the object exists; must be retrieved from ListSpaces endpoint"
               },
               "object_id": {
                 "type": "string",
-                "description": "The ID of the object to update"
+                "description": "The ID of the object to update; must be retrieved from ListObjects, SearchSpace or GlobalSearch endpoints or obtained from response context"
               },
               "icon": {
                 "type": "object",
@@ -3012,7 +3012,7 @@
               },
               "properties": {
                 "type": "array",
-                "description": "⚠ Warning: Properties are experimental and may change in the next update. ⚠ The properties to set for the object",
+                "description": "⚠ Warning: Properties are experimental and may change in the next update. ⚠ The properties to set for the object; see ListTypes or GetType endpoints for linked properties",
                 "items": {
                   "type": "object",
                   "properties": {
@@ -3425,7 +3425,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to list properties for"
+                "description": "The ID of the space to list properties for; must be retrieved from ListSpaces endpoint"
               },
               "offset": {
                 "type": "integer",
@@ -3527,7 +3527,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to create the property in"
+                "description": "The ID of the space to create the property in; must be retrieved from ListSpaces endpoint"
               },
               "format": {
                 "type": "string",
@@ -3615,7 +3615,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to which the property belongs"
+                "description": "The ID of the space to which the property belongs; must be retrieved from ListSpaces endpoint"
               },
               "property_id": {
                 "type": "string",
@@ -3685,7 +3685,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to which the property belongs"
+                "description": "The ID of the space to which the property belongs; must be retrieved from ListSpaces endpoint"
               },
               "property_id": {
                 "type": "string",
@@ -3755,7 +3755,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to which the property belongs"
+                "description": "The ID of the space to which the property belongs; must be retrieved from ListSpaces endpoint"
               },
               "property_id": {
                 "type": "string",
@@ -3830,11 +3830,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to list tags for"
+                "description": "The ID of the space to list tags for; must be retrieved from ListSpaces endpoint"
               },
               "property_id": {
                 "type": "string",
-                "description": "The ID of the property to list tags for"
+                "description": "The ID of the property to list tags for; must be retrieved from ListProperties endpoint or obtained from response context"
               }
             },
             "required": [
@@ -3926,11 +3926,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to create the tag in"
+                "description": "The ID of the space to create the tag in; must be retrieved from ListSpaces endpoint"
               },
               "property_id": {
                 "type": "string",
-                "description": "The ID of the property to create the tag for"
+                "description": "The ID of the property to create the tag for; must be retrieved from ListProperties endpoint or obtained from response context"
               },
               "color": {
                 "type": "string",
@@ -4017,15 +4017,15 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to delete the tag from"
+                "description": "The ID of the space to delete the tag from; must be retrieved from ListSpaces endpoint"
               },
               "property_id": {
                 "type": "string",
-                "description": "The ID of the property to delete the tag for"
+                "description": "The ID of the property to delete the tag for; must be retrieved from ListProperties endpoint or obtained from response context"
               },
               "tag_id": {
                 "type": "string",
-                "description": "The ID of the tag to delete"
+                "description": "The ID of the tag to delete; must be retrieved from ListTags endpoint or obtained from response context"
               }
             },
             "required": [
@@ -4091,15 +4091,15 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to retrieve the tag from"
+                "description": "The ID of the space to retrieve the tag from; must be retrieved from ListSpaces endpoint"
               },
               "property_id": {
                 "type": "string",
-                "description": "The ID of the property to retrieve the tag for"
+                "description": "The ID of the property to retrieve the tag for; must be retrieved from ListProperties endpoint or obtained from response context"
               },
               "tag_id": {
                 "type": "string",
-                "description": "The ID of the tag to retrieve"
+                "description": "The ID of the tag to retrieve; must be retrieved from ListTags endpoint or obtained from response context"
               }
             },
             "required": [
@@ -4165,15 +4165,15 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to update the tag in"
+                "description": "The ID of the space to update the tag in; must be retrieved from ListSpaces endpoint"
               },
               "property_id": {
                 "type": "string",
-                "description": "The ID of the property to update the tag for"
+                "description": "The ID of the property to update the tag for; must be retrieved from ListProperties endpoint or obtained from response context"
               },
               "tag_id": {
                 "type": "string",
-                "description": "The ID of the tag to update"
+                "description": "The ID of the tag to update; must be retrieved from ListTags endpoint or obtained from response context"
               },
               "color": {
                 "type": "string",
@@ -4259,7 +4259,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to search in; retrieve from ListSpaces endpoint"
+                "description": "The ID of the space to search in; must be retrieved from ListSpaces endpoint"
               },
               "offset": {
                 "type": "integer",
@@ -4273,15 +4273,15 @@
               },
               "query": {
                 "type": "string",
-                "description": "The search term to look for in object names and snippets"
+                "description": "The text to search within object names and content; use types field for type filtering"
               },
               "sort": {
                 "type": "object",
-                "description": "The sorting criteria and direction for the search results",
+                "description": "The sorting options for the search results",
                 "properties": {
                   "direction": {
                     "type": "string",
-                    "description": "The direction to sort the search results",
+                    "description": "The direction to sort the search results by",
                     "enum": [
                       "asc",
                       "desc"
@@ -4290,7 +4290,7 @@
                   },
                   "property_key": {
                     "type": "string",
-                    "description": "The property to sort the search results by",
+                    "description": "The key of the property to sort the search results by",
                     "enum": [
                       "created_date",
                       "last_modified_date",
@@ -4304,7 +4304,7 @@
               },
               "types": {
                 "type": "array",
-                "description": "The types of objects to search for, specified by their key",
+                "description": "The types of objects to include in results (e.g., \"page\", \"task\", \"bookmark\"); see ListTypes endpoint for valid values",
                 "items": {
                   "type": "string"
                 }
@@ -4637,7 +4637,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to retrieve types from"
+                "description": "The ID of the space to retrieve types from; must be retrieved from ListSpaces endpoint"
               },
               "offset": {
                 "type": "integer",
@@ -4796,7 +4796,7 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space in which to create the type"
+                "description": "The ID of the space in which to create the type; must be retrieved from ListSpaces endpoint"
               },
               "icon": {
                 "type": "object",
@@ -4990,11 +4990,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space from which to delete the type"
+                "description": "The ID of the space from which to delete the type; must be retrieved from ListSpaces endpoint"
               },
               "type_id": {
                 "type": "string",
-                "description": "The ID of the type to delete"
+                "description": "The ID of the type to delete; must be retrieved from ListTypes endpoint or obtained from response context"
               }
             },
             "required": [
@@ -5117,11 +5117,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space from which to retrieve the type"
+                "description": "The ID of the space from which to retrieve the type; must be retrieved from ListSpaces endpoint"
               },
               "type_id": {
                 "type": "string",
-                "description": "The ID of the type to retrieve"
+                "description": "The ID of the type to retrieve; must be retrieved from ListTypes endpoint or obtained from response context"
               }
             },
             "required": [
@@ -5244,11 +5244,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space in which the type exists"
+                "description": "The ID of the space in which the type exists; must be retrieved from ListSpaces endpoint"
               },
               "type_id": {
                 "type": "string",
-                "description": "The ID of the type to update"
+                "description": "The ID of the type to update; must be retrieved from ListTypes endpoint or obtained from response context"
               },
               "icon": {
                 "type": "object",
@@ -5441,11 +5441,11 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to which the type belongs"
+                "description": "The ID of the space to which the type belongs; must be retrieved from ListSpaces endpoint"
               },
               "type_id": {
                 "type": "string",
-                "description": "The ID of the object type to retrieve templates for"
+                "description": "The ID of the type to retrieve templates for; must be retrieved from ListTypes endpoint or obtained from response context"
               },
               "offset": {
                 "type": "integer",
@@ -5786,15 +5786,15 @@
             "properties": {
               "space_id": {
                 "type": "string",
-                "description": "The ID of the space to which the template belongs"
+                "description": "The ID of the space to which the template belongs; must be retrieved from ListSpaces endpoint"
               },
               "type_id": {
                 "type": "string",
-                "description": "The ID of the object type to which the template belongs"
+                "description": "The ID of the type to which the template belongs; must be retrieved from ListTypes endpoint or obtained from response context"
               },
               "template_id": {
                 "type": "string",
-                "description": "The ID of the template to retrieve"
+                "description": "The ID of the template to retrieve; must be retrieved from ListTemplates endpoint or obtained from response context"
               }
             },
             "required": [
