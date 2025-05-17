@@ -280,7 +280,18 @@
                         },
                         "layout": {
                           "type": "string",
-                          "description": "The layout of the object"
+                          "description": "The layout of the object",
+                          "enum": [
+                            "basic",
+                            "profile",
+                            "action",
+                            "note",
+                            "bookmark",
+                            "set",
+                            "set",
+                            "collection",
+                            "participant"
+                          ]
                         },
                         "name": {
                           "type": "string",
@@ -764,7 +775,7 @@
               },
               "object_id": {
                 "type": "string",
-                "description": "The ID of the object to remove from the list; must be retrieved from SearchSpace or GlobalSearch endpoint or obtained from response context"
+                "description": "The ID of the object to remove from the list; must be retrieved from SearchSpace or GlobalSearch endpoints or obtained from response context"
               }
             },
             "required": [
@@ -1228,7 +1239,18 @@
                         },
                         "layout": {
                           "type": "string",
-                          "description": "The layout of the object"
+                          "description": "The layout of the object",
+                          "enum": [
+                            "basic",
+                            "profile",
+                            "action",
+                            "note",
+                            "bookmark",
+                            "set",
+                            "set",
+                            "collection",
+                            "participant"
+                          ]
                         },
                         "name": {
                           "type": "string",
@@ -1794,7 +1816,18 @@
                         },
                         "layout": {
                           "type": "string",
-                          "description": "The layout of the object"
+                          "description": "The layout of the object",
+                          "enum": [
+                            "basic",
+                            "profile",
+                            "action",
+                            "note",
+                            "bookmark",
+                            "set",
+                            "set",
+                            "collection",
+                            "participant"
+                          ]
                         },
                         "name": {
                           "type": "string",
@@ -2269,7 +2302,18 @@
                       },
                       "layout": {
                         "type": "string",
-                        "description": "The layout of the object"
+                        "description": "The layout of the object",
+                        "enum": [
+                          "basic",
+                          "profile",
+                          "action",
+                          "note",
+                          "bookmark",
+                          "set",
+                          "set",
+                          "collection",
+                          "participant"
+                        ]
                       },
                       "name": {
                         "type": "string",
@@ -2582,7 +2626,18 @@
                       },
                       "layout": {
                         "type": "string",
-                        "description": "The layout of the object"
+                        "description": "The layout of the object",
+                        "enum": [
+                          "basic",
+                          "profile",
+                          "action",
+                          "note",
+                          "bookmark",
+                          "set",
+                          "set",
+                          "collection",
+                          "participant"
+                        ]
                       },
                       "name": {
                         "type": "string",
@@ -2903,7 +2958,18 @@
                       },
                       "layout": {
                         "type": "string",
-                        "description": "The layout of the object"
+                        "description": "The layout of the object",
+                        "enum": [
+                          "basic",
+                          "profile",
+                          "action",
+                          "note",
+                          "bookmark",
+                          "set",
+                          "set",
+                          "collection",
+                          "participant"
+                        ]
                       },
                       "name": {
                         "type": "string",
@@ -3346,7 +3412,18 @@
                       },
                       "layout": {
                         "type": "string",
-                        "description": "The layout of the object"
+                        "description": "The layout of the object",
+                        "enum": [
+                          "basic",
+                          "profile",
+                          "action",
+                          "note",
+                          "bookmark",
+                          "set",
+                          "set",
+                          "collection",
+                          "participant"
+                        ]
                       },
                       "name": {
                         "type": "string",
@@ -4534,7 +4611,18 @@
                         },
                         "layout": {
                           "type": "string",
-                          "description": "The layout of the object"
+                          "description": "The layout of the object",
+                          "enum": [
+                            "basic",
+                            "profile",
+                            "action",
+                            "note",
+                            "bookmark",
+                            "set",
+                            "set",
+                            "collection",
+                            "participant"
+                          ]
                         },
                         "name": {
                           "type": "string",
@@ -4696,7 +4784,18 @@
                     },
                     "layout": {
                       "type": "string",
-                      "description": "The layout of the object"
+                      "description": "The layout of the object",
+                      "enum": [
+                        "basic",
+                        "profile",
+                        "action",
+                        "note",
+                        "bookmark",
+                        "set",
+                        "set",
+                        "collection",
+                        "participant"
+                      ]
                     },
                     "name": {
                       "type": "string",
@@ -4818,7 +4917,13 @@
               },
               "layout": {
                 "type": "string",
-                "description": "The layout of the type"
+                "description": "The layout of the type",
+                "enum": [
+                  "basic",
+                  "profile",
+                  "action",
+                  "note"
+                ]
               },
               "name": {
                 "type": "string",
@@ -4914,7 +5019,18 @@
                   },
                   "layout": {
                     "type": "string",
-                    "description": "The layout of the object"
+                    "description": "The layout of the object",
+                    "enum": [
+                      "basic",
+                      "profile",
+                      "action",
+                      "note",
+                      "bookmark",
+                      "set",
+                      "set",
+                      "collection",
+                      "participant"
+                    ]
                   },
                   "name": {
                     "type": "string",
@@ -5041,7 +5157,18 @@
                   },
                   "layout": {
                     "type": "string",
-                    "description": "The layout of the object"
+                    "description": "The layout of the object",
+                    "enum": [
+                      "basic",
+                      "profile",
+                      "action",
+                      "note",
+                      "bookmark",
+                      "set",
+                      "set",
+                      "collection",
+                      "participant"
+                    ]
                   },
                   "name": {
                     "type": "string",
@@ -5168,7 +5295,18 @@
                   },
                   "layout": {
                     "type": "string",
-                    "description": "The layout of the object"
+                    "description": "The layout of the object",
+                    "enum": [
+                      "basic",
+                      "profile",
+                      "action",
+                      "note",
+                      "bookmark",
+                      "set",
+                      "set",
+                      "collection",
+                      "participant"
+                    ]
                   },
                   "name": {
                     "type": "string",
@@ -5270,7 +5408,13 @@
               },
               "layout": {
                 "type": "string",
-                "description": "The layout of the type"
+                "description": "The layout of the type",
+                "enum": [
+                  "basic",
+                  "profile",
+                  "action",
+                  "note"
+                ]
               },
               "name": {
                 "type": "string",
@@ -5365,7 +5509,18 @@
                   },
                   "layout": {
                     "type": "string",
-                    "description": "The layout of the object"
+                    "description": "The layout of the object",
+                    "enum": [
+                      "basic",
+                      "profile",
+                      "action",
+                      "note",
+                      "bookmark",
+                      "set",
+                      "set",
+                      "collection",
+                      "participant"
+                    ]
                   },
                   "name": {
                     "type": "string",
@@ -5683,7 +5838,18 @@
                         },
                         "layout": {
                           "type": "string",
-                          "description": "The layout of the object"
+                          "description": "The layout of the object",
+                          "enum": [
+                            "basic",
+                            "profile",
+                            "action",
+                            "note",
+                            "bookmark",
+                            "set",
+                            "set",
+                            "collection",
+                            "participant"
+                          ]
                         },
                         "name": {
                           "type": "string",
@@ -6025,7 +6191,18 @@
                       },
                       "layout": {
                         "type": "string",
-                        "description": "The layout of the object"
+                        "description": "The layout of the object",
+                        "enum": [
+                          "basic",
+                          "profile",
+                          "action",
+                          "note",
+                          "bookmark",
+                          "set",
+                          "set",
+                          "collection",
+                          "participant"
+                        ]
                       },
                       "name": {
                         "type": "string",
