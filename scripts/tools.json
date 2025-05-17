@@ -141,11 +141,37 @@
                               "property"
                             ]
                           },
-                          "checkbox": {
-                            "type": "boolean",
-                            "description": "The checkbox value, if applicable",
+                          "text": {
+                            "type": "string",
+                            "description": "The text value, if applicable",
                             "examples": [
-                              true
+                              "Some text..."
+                            ]
+                          },
+                          "number": {
+                            "type": "number",
+                            "description": "The number value, if applicable",
+                            "examples": [
+                              42
+                            ]
+                          },
+                          "select": {
+                            "type": "string",
+                            "description": "The selected tag id, if applicable",
+                            "examples": [
+                              "tag_id"
+                            ]
+                          },
+                          "multi_select": {
+                            "type": "array",
+                            "description": "The selected tag ids, if applicable",
+                            "items": {
+                              "type": "string"
+                            },
+                            "examples": [
+                              [
+                                "tag_id"
+                              ]
                             ]
                           },
                           "date": {
@@ -155,16 +181,9 @@
                               "2025-02-14T12:34:56Z"
                             ]
                           },
-                          "email": {
-                            "type": "string",
-                            "description": "The email value, if applicable",
-                            "examples": [
-                              "example@example.com"
-                            ]
-                          },
                           "files": {
                             "type": "array",
-                            "description": "The file references, if applicable",
+                            "description": "The file ids, if applicable",
                             "items": {
                               "type": "string"
                             },
@@ -174,66 +193,25 @@
                               ]
                             ]
                           },
-                          "multi_select": {
-                            "type": "array",
-                            "description": "The multi-select values, if applicable",
-                            "items": {
-                              "type": "object",
-                              "description": "The selected tag value of the property",
-                              "properties": {
-                                "color": {
-                                  "type": "string",
-                                  "description": "The color of the icon",
-                                  "enum": [
-                                    "grey",
-                                    "yellow",
-                                    "orange",
-                                    "red",
-                                    "pink",
-                                    "purple",
-                                    "blue",
-                                    "ice",
-                                    "teal",
-                                    "lime"
-                                  ]
-                                },
-                                "id": {
-                                  "type": "string",
-                                  "description": "The id of the tag"
-                                },
-                                "key": {
-                                  "type": "string",
-                                  "description": "The key of the tag"
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "The name of the tag"
-                                },
-                                "object": {
-                                  "type": "string",
-                                  "description": "The data model of the object"
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "number": {
-                            "type": "number",
-                            "description": "The number value, if applicable",
+                          "checkbox": {
+                            "type": "boolean",
+                            "description": "The checkbox value, if applicable",
                             "examples": [
-                              42
+                              true
                             ]
                           },
-                          "objects": {
-                            "type": "array",
-                            "description": "The object references, if applicable",
-                            "items": {
-                              "type": "string"
-                            },
+                          "url": {
+                            "type": "string",
+                            "description": "The url value, if applicable",
                             "examples": [
-                              [
-                                "['object_id']"
-                              ]
+                              "https://example.com"
+                            ]
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "The email value, if applicable",
+                            "examples": [
+                              "example@example.com"
                             ]
                           },
                           "phone": {
@@ -243,57 +221,16 @@
                               "+1234567890"
                             ]
                           },
-                          "select": {
-                            "type": "object",
-                            "description": "The selected tag value of the property",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "id": {
-                                "type": "string",
-                                "description": "The id of the tag"
-                              },
-                              "key": {
-                                "type": "string",
-                                "description": "The key of the tag"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the tag"
-                              },
-                              "object": {
-                                "type": "string",
-                                "description": "The data model of the object"
-                              }
+                          "objects": {
+                            "type": "array",
+                            "description": "The object ids, if applicable",
+                            "items": {
+                              "type": "string"
                             },
-                            "additionalProperties": true
-                          },
-                          "text": {
-                            "type": "string",
-                            "description": "The text value, if applicable",
                             "examples": [
-                              "Some text..."
-                            ]
-                          },
-                          "url": {
-                            "type": "string",
-                            "description": "The url value, if applicable",
-                            "examples": [
-                              "https://example.com"
+                              [
+                                "['object_id']"
+                              ]
                             ]
                           }
                         }
@@ -1152,11 +1089,37 @@
                               "property"
                             ]
                           },
-                          "checkbox": {
-                            "type": "boolean",
-                            "description": "The checkbox value, if applicable",
+                          "text": {
+                            "type": "string",
+                            "description": "The text value, if applicable",
                             "examples": [
-                              true
+                              "Some text..."
+                            ]
+                          },
+                          "number": {
+                            "type": "number",
+                            "description": "The number value, if applicable",
+                            "examples": [
+                              42
+                            ]
+                          },
+                          "select": {
+                            "type": "string",
+                            "description": "The selected tag id, if applicable",
+                            "examples": [
+                              "tag_id"
+                            ]
+                          },
+                          "multi_select": {
+                            "type": "array",
+                            "description": "The selected tag ids, if applicable",
+                            "items": {
+                              "type": "string"
+                            },
+                            "examples": [
+                              [
+                                "tag_id"
+                              ]
                             ]
                           },
                           "date": {
@@ -1166,16 +1129,9 @@
                               "2025-02-14T12:34:56Z"
                             ]
                           },
-                          "email": {
-                            "type": "string",
-                            "description": "The email value, if applicable",
-                            "examples": [
-                              "example@example.com"
-                            ]
-                          },
                           "files": {
                             "type": "array",
-                            "description": "The file references, if applicable",
+                            "description": "The file ids, if applicable",
                             "items": {
                               "type": "string"
                             },
@@ -1185,66 +1141,25 @@
                               ]
                             ]
                           },
-                          "multi_select": {
-                            "type": "array",
-                            "description": "The multi-select values, if applicable",
-                            "items": {
-                              "type": "object",
-                              "description": "The selected tag value of the property",
-                              "properties": {
-                                "color": {
-                                  "type": "string",
-                                  "description": "The color of the icon",
-                                  "enum": [
-                                    "grey",
-                                    "yellow",
-                                    "orange",
-                                    "red",
-                                    "pink",
-                                    "purple",
-                                    "blue",
-                                    "ice",
-                                    "teal",
-                                    "lime"
-                                  ]
-                                },
-                                "id": {
-                                  "type": "string",
-                                  "description": "The id of the tag"
-                                },
-                                "key": {
-                                  "type": "string",
-                                  "description": "The key of the tag"
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "The name of the tag"
-                                },
-                                "object": {
-                                  "type": "string",
-                                  "description": "The data model of the object"
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "number": {
-                            "type": "number",
-                            "description": "The number value, if applicable",
+                          "checkbox": {
+                            "type": "boolean",
+                            "description": "The checkbox value, if applicable",
                             "examples": [
-                              42
+                              true
                             ]
                           },
-                          "objects": {
-                            "type": "array",
-                            "description": "The object references, if applicable",
-                            "items": {
-                              "type": "string"
-                            },
+                          "url": {
+                            "type": "string",
+                            "description": "The url value, if applicable",
                             "examples": [
-                              [
-                                "['object_id']"
-                              ]
+                              "https://example.com"
+                            ]
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "The email value, if applicable",
+                            "examples": [
+                              "example@example.com"
                             ]
                           },
                           "phone": {
@@ -1254,57 +1169,16 @@
                               "+1234567890"
                             ]
                           },
-                          "select": {
-                            "type": "object",
-                            "description": "The selected tag value of the property",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "id": {
-                                "type": "string",
-                                "description": "The id of the tag"
-                              },
-                              "key": {
-                                "type": "string",
-                                "description": "The key of the tag"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the tag"
-                              },
-                              "object": {
-                                "type": "string",
-                                "description": "The data model of the object"
-                              }
+                          "objects": {
+                            "type": "array",
+                            "description": "The object ids, if applicable",
+                            "items": {
+                              "type": "string"
                             },
-                            "additionalProperties": true
-                          },
-                          "text": {
-                            "type": "string",
-                            "description": "The text value, if applicable",
                             "examples": [
-                              "Some text..."
-                            ]
-                          },
-                          "url": {
-                            "type": "string",
-                            "description": "The url value, if applicable",
-                            "examples": [
-                              "https://example.com"
+                              [
+                                "['object_id']"
+                              ]
                             ]
                           }
                         }
@@ -1781,11 +1655,37 @@
                               "property"
                             ]
                           },
-                          "checkbox": {
-                            "type": "boolean",
-                            "description": "The checkbox value, if applicable",
+                          "text": {
+                            "type": "string",
+                            "description": "The text value, if applicable",
                             "examples": [
-                              true
+                              "Some text..."
+                            ]
+                          },
+                          "number": {
+                            "type": "number",
+                            "description": "The number value, if applicable",
+                            "examples": [
+                              42
+                            ]
+                          },
+                          "select": {
+                            "type": "string",
+                            "description": "The selected tag id, if applicable",
+                            "examples": [
+                              "tag_id"
+                            ]
+                          },
+                          "multi_select": {
+                            "type": "array",
+                            "description": "The selected tag ids, if applicable",
+                            "items": {
+                              "type": "string"
+                            },
+                            "examples": [
+                              [
+                                "tag_id"
+                              ]
                             ]
                           },
                           "date": {
@@ -1795,16 +1695,9 @@
                               "2025-02-14T12:34:56Z"
                             ]
                           },
-                          "email": {
-                            "type": "string",
-                            "description": "The email value, if applicable",
-                            "examples": [
-                              "example@example.com"
-                            ]
-                          },
                           "files": {
                             "type": "array",
-                            "description": "The file references, if applicable",
+                            "description": "The file ids, if applicable",
                             "items": {
                               "type": "string"
                             },
@@ -1814,66 +1707,25 @@
                               ]
                             ]
                           },
-                          "multi_select": {
-                            "type": "array",
-                            "description": "The multi-select values, if applicable",
-                            "items": {
-                              "type": "object",
-                              "description": "The selected tag value of the property",
-                              "properties": {
-                                "color": {
-                                  "type": "string",
-                                  "description": "The color of the icon",
-                                  "enum": [
-                                    "grey",
-                                    "yellow",
-                                    "orange",
-                                    "red",
-                                    "pink",
-                                    "purple",
-                                    "blue",
-                                    "ice",
-                                    "teal",
-                                    "lime"
-                                  ]
-                                },
-                                "id": {
-                                  "type": "string",
-                                  "description": "The id of the tag"
-                                },
-                                "key": {
-                                  "type": "string",
-                                  "description": "The key of the tag"
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "The name of the tag"
-                                },
-                                "object": {
-                                  "type": "string",
-                                  "description": "The data model of the object"
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "number": {
-                            "type": "number",
-                            "description": "The number value, if applicable",
+                          "checkbox": {
+                            "type": "boolean",
+                            "description": "The checkbox value, if applicable",
                             "examples": [
-                              42
+                              true
                             ]
                           },
-                          "objects": {
-                            "type": "array",
-                            "description": "The object references, if applicable",
-                            "items": {
-                              "type": "string"
-                            },
+                          "url": {
+                            "type": "string",
+                            "description": "The url value, if applicable",
                             "examples": [
-                              [
-                                "['object_id']"
-                              ]
+                              "https://example.com"
+                            ]
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "The email value, if applicable",
+                            "examples": [
+                              "example@example.com"
                             ]
                           },
                           "phone": {
@@ -1883,57 +1735,16 @@
                               "+1234567890"
                             ]
                           },
-                          "select": {
-                            "type": "object",
-                            "description": "The selected tag value of the property",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "id": {
-                                "type": "string",
-                                "description": "The id of the tag"
-                              },
-                              "key": {
-                                "type": "string",
-                                "description": "The key of the tag"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the tag"
-                              },
-                              "object": {
-                                "type": "string",
-                                "description": "The data model of the object"
-                              }
+                          "objects": {
+                            "type": "array",
+                            "description": "The object ids, if applicable",
+                            "items": {
+                              "type": "string"
                             },
-                            "additionalProperties": true
-                          },
-                          "text": {
-                            "type": "string",
-                            "description": "The text value, if applicable",
                             "examples": [
-                              "Some text..."
-                            ]
-                          },
-                          "url": {
-                            "type": "string",
-                            "description": "The url value, if applicable",
-                            "examples": [
-                              "https://example.com"
+                              [
+                                "['object_id']"
+                              ]
                             ]
                           }
                         }
@@ -2127,11 +1938,37 @@
                         "last_modified_date"
                       ]
                     },
-                    "checkbox": {
-                      "type": "boolean",
-                      "description": "The checkbox value, if applicable",
+                    "text": {
+                      "type": "string",
+                      "description": "The text value, if applicable",
                       "examples": [
-                        true
+                        "Some text..."
+                      ]
+                    },
+                    "number": {
+                      "type": "number",
+                      "description": "The number value, if applicable",
+                      "examples": [
+                        42
+                      ]
+                    },
+                    "select": {
+                      "type": "string",
+                      "description": "The selected tag id, if applicable",
+                      "examples": [
+                        "tag_id"
+                      ]
+                    },
+                    "multi_select": {
+                      "type": "array",
+                      "description": "The selected tag ids, if applicable",
+                      "items": {
+                        "type": "string"
+                      },
+                      "examples": [
+                        [
+                          "tag_id"
+                        ]
                       ]
                     },
                     "date": {
@@ -2141,16 +1978,9 @@
                         "2025-02-14T12:34:56Z"
                       ]
                     },
-                    "email": {
-                      "type": "string",
-                      "description": "The email value, if applicable",
-                      "examples": [
-                        "example@example.com"
-                      ]
-                    },
                     "files": {
                       "type": "array",
-                      "description": "The file references, if applicable",
+                      "description": "The file ids, if applicable",
                       "items": {
                         "type": "string"
                       },
@@ -2160,66 +1990,25 @@
                         ]
                       ]
                     },
-                    "multi_select": {
-                      "type": "array",
-                      "description": "The multi-select values, if applicable",
-                      "items": {
-                        "type": "object",
-                        "description": "The selected tag value of the property",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "id": {
-                            "type": "string",
-                            "description": "The id of the tag"
-                          },
-                          "key": {
-                            "type": "string",
-                            "description": "The key of the tag"
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the tag"
-                          },
-                          "object": {
-                            "type": "string",
-                            "description": "The data model of the object"
-                          }
-                        },
-                        "additionalProperties": true
-                      }
-                    },
-                    "number": {
-                      "type": "number",
-                      "description": "The number value, if applicable",
+                    "checkbox": {
+                      "type": "boolean",
+                      "description": "The checkbox value, if applicable",
                       "examples": [
-                        42
+                        true
                       ]
                     },
-                    "objects": {
-                      "type": "array",
-                      "description": "The object references, if applicable",
-                      "items": {
-                        "type": "string"
-                      },
+                    "url": {
+                      "type": "string",
+                      "description": "The url value, if applicable",
                       "examples": [
-                        [
-                          "['object_id']"
-                        ]
+                        "https://example.com"
+                      ]
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "The email value, if applicable",
+                      "examples": [
+                        "example@example.com"
                       ]
                     },
                     "phone": {
@@ -2229,57 +2018,16 @@
                         "+1234567890"
                       ]
                     },
-                    "select": {
-                      "type": "object",
-                      "description": "The selected tag value of the property",
-                      "properties": {
-                        "color": {
-                          "type": "string",
-                          "description": "The color of the icon",
-                          "enum": [
-                            "grey",
-                            "yellow",
-                            "orange",
-                            "red",
-                            "pink",
-                            "purple",
-                            "blue",
-                            "ice",
-                            "teal",
-                            "lime"
-                          ]
-                        },
-                        "id": {
-                          "type": "string",
-                          "description": "The id of the tag"
-                        },
-                        "key": {
-                          "type": "string",
-                          "description": "The key of the tag"
-                        },
-                        "name": {
-                          "type": "string",
-                          "description": "The name of the tag"
-                        },
-                        "object": {
-                          "type": "string",
-                          "description": "The data model of the object"
-                        }
+                    "objects": {
+                      "type": "array",
+                      "description": "The object ids, if applicable",
+                      "items": {
+                        "type": "string"
                       },
-                      "additionalProperties": true
-                    },
-                    "text": {
-                      "type": "string",
-                      "description": "The text value, if applicable",
                       "examples": [
-                        "Some text..."
-                      ]
-                    },
-                    "url": {
-                      "type": "string",
-                      "description": "The url value, if applicable",
-                      "examples": [
-                        "https://example.com"
+                        [
+                          "['object_id']"
+                        ]
                       ]
                     }
                   }
@@ -2382,11 +2130,37 @@
                             "property"
                           ]
                         },
-                        "checkbox": {
-                          "type": "boolean",
-                          "description": "The checkbox value, if applicable",
+                        "text": {
+                          "type": "string",
+                          "description": "The text value, if applicable",
                           "examples": [
-                            true
+                            "Some text..."
+                          ]
+                        },
+                        "number": {
+                          "type": "number",
+                          "description": "The number value, if applicable",
+                          "examples": [
+                            42
+                          ]
+                        },
+                        "select": {
+                          "type": "string",
+                          "description": "The selected tag id, if applicable",
+                          "examples": [
+                            "tag_id"
+                          ]
+                        },
+                        "multi_select": {
+                          "type": "array",
+                          "description": "The selected tag ids, if applicable",
+                          "items": {
+                            "type": "string"
+                          },
+                          "examples": [
+                            [
+                              "tag_id"
+                            ]
                           ]
                         },
                         "date": {
@@ -2396,16 +2170,9 @@
                             "2025-02-14T12:34:56Z"
                           ]
                         },
-                        "email": {
-                          "type": "string",
-                          "description": "The email value, if applicable",
-                          "examples": [
-                            "example@example.com"
-                          ]
-                        },
                         "files": {
                           "type": "array",
-                          "description": "The file references, if applicable",
+                          "description": "The file ids, if applicable",
                           "items": {
                             "type": "string"
                           },
@@ -2415,66 +2182,25 @@
                             ]
                           ]
                         },
-                        "multi_select": {
-                          "type": "array",
-                          "description": "The multi-select values, if applicable",
-                          "items": {
-                            "type": "object",
-                            "description": "The selected tag value of the property",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "id": {
-                                "type": "string",
-                                "description": "The id of the tag"
-                              },
-                              "key": {
-                                "type": "string",
-                                "description": "The key of the tag"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the tag"
-                              },
-                              "object": {
-                                "type": "string",
-                                "description": "The data model of the object"
-                              }
-                            },
-                            "additionalProperties": true
-                          }
-                        },
-                        "number": {
-                          "type": "number",
-                          "description": "The number value, if applicable",
+                        "checkbox": {
+                          "type": "boolean",
+                          "description": "The checkbox value, if applicable",
                           "examples": [
-                            42
+                            true
                           ]
                         },
-                        "objects": {
-                          "type": "array",
-                          "description": "The object references, if applicable",
-                          "items": {
-                            "type": "string"
-                          },
+                        "url": {
+                          "type": "string",
+                          "description": "The url value, if applicable",
                           "examples": [
-                            [
-                              "['object_id']"
-                            ]
+                            "https://example.com"
+                          ]
+                        },
+                        "email": {
+                          "type": "string",
+                          "description": "The email value, if applicable",
+                          "examples": [
+                            "example@example.com"
                           ]
                         },
                         "phone": {
@@ -2484,57 +2210,16 @@
                             "+1234567890"
                           ]
                         },
-                        "select": {
-                          "type": "object",
-                          "description": "The selected tag value of the property",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "id": {
-                              "type": "string",
-                              "description": "The id of the tag"
-                            },
-                            "key": {
-                              "type": "string",
-                              "description": "The key of the tag"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the tag"
-                            },
-                            "object": {
-                              "type": "string",
-                              "description": "The data model of the object"
-                            }
+                        "objects": {
+                          "type": "array",
+                          "description": "The object ids, if applicable",
+                          "items": {
+                            "type": "string"
                           },
-                          "additionalProperties": true
-                        },
-                        "text": {
-                          "type": "string",
-                          "description": "The text value, if applicable",
                           "examples": [
-                            "Some text..."
-                          ]
-                        },
-                        "url": {
-                          "type": "string",
-                          "description": "The url value, if applicable",
-                          "examples": [
-                            "https://example.com"
+                            [
+                              "['object_id']"
+                            ]
                           ]
                         }
                       }
@@ -2758,11 +2443,37 @@
                             "property"
                           ]
                         },
-                        "checkbox": {
-                          "type": "boolean",
-                          "description": "The checkbox value, if applicable",
+                        "text": {
+                          "type": "string",
+                          "description": "The text value, if applicable",
                           "examples": [
-                            true
+                            "Some text..."
+                          ]
+                        },
+                        "number": {
+                          "type": "number",
+                          "description": "The number value, if applicable",
+                          "examples": [
+                            42
+                          ]
+                        },
+                        "select": {
+                          "type": "string",
+                          "description": "The selected tag id, if applicable",
+                          "examples": [
+                            "tag_id"
+                          ]
+                        },
+                        "multi_select": {
+                          "type": "array",
+                          "description": "The selected tag ids, if applicable",
+                          "items": {
+                            "type": "string"
+                          },
+                          "examples": [
+                            [
+                              "tag_id"
+                            ]
                           ]
                         },
                         "date": {
@@ -2772,16 +2483,9 @@
                             "2025-02-14T12:34:56Z"
                           ]
                         },
-                        "email": {
-                          "type": "string",
-                          "description": "The email value, if applicable",
-                          "examples": [
-                            "example@example.com"
-                          ]
-                        },
                         "files": {
                           "type": "array",
-                          "description": "The file references, if applicable",
+                          "description": "The file ids, if applicable",
                           "items": {
                             "type": "string"
                           },
@@ -2791,66 +2495,25 @@
                             ]
                           ]
                         },
-                        "multi_select": {
-                          "type": "array",
-                          "description": "The multi-select values, if applicable",
-                          "items": {
-                            "type": "object",
-                            "description": "The selected tag value of the property",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "id": {
-                                "type": "string",
-                                "description": "The id of the tag"
-                              },
-                              "key": {
-                                "type": "string",
-                                "description": "The key of the tag"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the tag"
-                              },
-                              "object": {
-                                "type": "string",
-                                "description": "The data model of the object"
-                              }
-                            },
-                            "additionalProperties": true
-                          }
-                        },
-                        "number": {
-                          "type": "number",
-                          "description": "The number value, if applicable",
+                        "checkbox": {
+                          "type": "boolean",
+                          "description": "The checkbox value, if applicable",
                           "examples": [
-                            42
+                            true
                           ]
                         },
-                        "objects": {
-                          "type": "array",
-                          "description": "The object references, if applicable",
-                          "items": {
-                            "type": "string"
-                          },
+                        "url": {
+                          "type": "string",
+                          "description": "The url value, if applicable",
                           "examples": [
-                            [
-                              "['object_id']"
-                            ]
+                            "https://example.com"
+                          ]
+                        },
+                        "email": {
+                          "type": "string",
+                          "description": "The email value, if applicable",
+                          "examples": [
+                            "example@example.com"
                           ]
                         },
                         "phone": {
@@ -2860,57 +2523,16 @@
                             "+1234567890"
                           ]
                         },
-                        "select": {
-                          "type": "object",
-                          "description": "The selected tag value of the property",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "id": {
-                              "type": "string",
-                              "description": "The id of the tag"
-                            },
-                            "key": {
-                              "type": "string",
-                              "description": "The key of the tag"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the tag"
-                            },
-                            "object": {
-                              "type": "string",
-                              "description": "The data model of the object"
-                            }
+                        "objects": {
+                          "type": "array",
+                          "description": "The object ids, if applicable",
+                          "items": {
+                            "type": "string"
                           },
-                          "additionalProperties": true
-                        },
-                        "text": {
-                          "type": "string",
-                          "description": "The text value, if applicable",
                           "examples": [
-                            "Some text..."
-                          ]
-                        },
-                        "url": {
-                          "type": "string",
-                          "description": "The url value, if applicable",
-                          "examples": [
-                            "https://example.com"
+                            [
+                              "['object_id']"
+                            ]
                           ]
                         }
                       }
@@ -3142,11 +2764,37 @@
                             "property"
                           ]
                         },
-                        "checkbox": {
-                          "type": "boolean",
-                          "description": "The checkbox value, if applicable",
+                        "text": {
+                          "type": "string",
+                          "description": "The text value, if applicable",
                           "examples": [
-                            true
+                            "Some text..."
+                          ]
+                        },
+                        "number": {
+                          "type": "number",
+                          "description": "The number value, if applicable",
+                          "examples": [
+                            42
+                          ]
+                        },
+                        "select": {
+                          "type": "string",
+                          "description": "The selected tag id, if applicable",
+                          "examples": [
+                            "tag_id"
+                          ]
+                        },
+                        "multi_select": {
+                          "type": "array",
+                          "description": "The selected tag ids, if applicable",
+                          "items": {
+                            "type": "string"
+                          },
+                          "examples": [
+                            [
+                              "tag_id"
+                            ]
                           ]
                         },
                         "date": {
@@ -3156,16 +2804,9 @@
                             "2025-02-14T12:34:56Z"
                           ]
                         },
-                        "email": {
-                          "type": "string",
-                          "description": "The email value, if applicable",
-                          "examples": [
-                            "example@example.com"
-                          ]
-                        },
                         "files": {
                           "type": "array",
-                          "description": "The file references, if applicable",
+                          "description": "The file ids, if applicable",
                           "items": {
                             "type": "string"
                           },
@@ -3175,66 +2816,25 @@
                             ]
                           ]
                         },
-                        "multi_select": {
-                          "type": "array",
-                          "description": "The multi-select values, if applicable",
-                          "items": {
-                            "type": "object",
-                            "description": "The selected tag value of the property",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "id": {
-                                "type": "string",
-                                "description": "The id of the tag"
-                              },
-                              "key": {
-                                "type": "string",
-                                "description": "The key of the tag"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the tag"
-                              },
-                              "object": {
-                                "type": "string",
-                                "description": "The data model of the object"
-                              }
-                            },
-                            "additionalProperties": true
-                          }
-                        },
-                        "number": {
-                          "type": "number",
-                          "description": "The number value, if applicable",
+                        "checkbox": {
+                          "type": "boolean",
+                          "description": "The checkbox value, if applicable",
                           "examples": [
-                            42
+                            true
                           ]
                         },
-                        "objects": {
-                          "type": "array",
-                          "description": "The object references, if applicable",
-                          "items": {
-                            "type": "string"
-                          },
+                        "url": {
+                          "type": "string",
+                          "description": "The url value, if applicable",
                           "examples": [
-                            [
-                              "['object_id']"
-                            ]
+                            "https://example.com"
+                          ]
+                        },
+                        "email": {
+                          "type": "string",
+                          "description": "The email value, if applicable",
+                          "examples": [
+                            "example@example.com"
                           ]
                         },
                         "phone": {
@@ -3244,57 +2844,16 @@
                             "+1234567890"
                           ]
                         },
-                        "select": {
-                          "type": "object",
-                          "description": "The selected tag value of the property",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "id": {
-                              "type": "string",
-                              "description": "The id of the tag"
-                            },
-                            "key": {
-                              "type": "string",
-                              "description": "The key of the tag"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the tag"
-                            },
-                            "object": {
-                              "type": "string",
-                              "description": "The data model of the object"
-                            }
+                        "objects": {
+                          "type": "array",
+                          "description": "The object ids, if applicable",
+                          "items": {
+                            "type": "string"
                           },
-                          "additionalProperties": true
-                        },
-                        "text": {
-                          "type": "string",
-                          "description": "The text value, if applicable",
                           "examples": [
-                            "Some text..."
-                          ]
-                        },
-                        "url": {
-                          "type": "string",
-                          "description": "The url value, if applicable",
-                          "examples": [
-                            "https://example.com"
+                            [
+                              "['object_id']"
+                            ]
                           ]
                         }
                       }
@@ -3464,11 +3023,37 @@
                         "last_modified_date"
                       ]
                     },
-                    "checkbox": {
-                      "type": "boolean",
-                      "description": "The checkbox value, if applicable",
+                    "text": {
+                      "type": "string",
+                      "description": "The text value, if applicable",
                       "examples": [
-                        true
+                        "Some text..."
+                      ]
+                    },
+                    "number": {
+                      "type": "number",
+                      "description": "The number value, if applicable",
+                      "examples": [
+                        42
+                      ]
+                    },
+                    "select": {
+                      "type": "string",
+                      "description": "The selected tag id, if applicable",
+                      "examples": [
+                        "tag_id"
+                      ]
+                    },
+                    "multi_select": {
+                      "type": "array",
+                      "description": "The selected tag ids, if applicable",
+                      "items": {
+                        "type": "string"
+                      },
+                      "examples": [
+                        [
+                          "tag_id"
+                        ]
                       ]
                     },
                     "date": {
@@ -3478,16 +3063,9 @@
                         "2025-02-14T12:34:56Z"
                       ]
                     },
-                    "email": {
-                      "type": "string",
-                      "description": "The email value, if applicable",
-                      "examples": [
-                        "example@example.com"
-                      ]
-                    },
                     "files": {
                       "type": "array",
-                      "description": "The file references, if applicable",
+                      "description": "The file ids, if applicable",
                       "items": {
                         "type": "string"
                       },
@@ -3497,66 +3075,25 @@
                         ]
                       ]
                     },
-                    "multi_select": {
-                      "type": "array",
-                      "description": "The multi-select values, if applicable",
-                      "items": {
-                        "type": "object",
-                        "description": "The selected tag value of the property",
-                        "properties": {
-                          "color": {
-                            "type": "string",
-                            "description": "The color of the icon",
-                            "enum": [
-                              "grey",
-                              "yellow",
-                              "orange",
-                              "red",
-                              "pink",
-                              "purple",
-                              "blue",
-                              "ice",
-                              "teal",
-                              "lime"
-                            ]
-                          },
-                          "id": {
-                            "type": "string",
-                            "description": "The id of the tag"
-                          },
-                          "key": {
-                            "type": "string",
-                            "description": "The key of the tag"
-                          },
-                          "name": {
-                            "type": "string",
-                            "description": "The name of the tag"
-                          },
-                          "object": {
-                            "type": "string",
-                            "description": "The data model of the object"
-                          }
-                        },
-                        "additionalProperties": true
-                      }
-                    },
-                    "number": {
-                      "type": "number",
-                      "description": "The number value, if applicable",
+                    "checkbox": {
+                      "type": "boolean",
+                      "description": "The checkbox value, if applicable",
                       "examples": [
-                        42
+                        true
                       ]
                     },
-                    "objects": {
-                      "type": "array",
-                      "description": "The object references, if applicable",
-                      "items": {
-                        "type": "string"
-                      },
+                    "url": {
+                      "type": "string",
+                      "description": "The url value, if applicable",
                       "examples": [
-                        [
-                          "['object_id']"
-                        ]
+                        "https://example.com"
+                      ]
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "The email value, if applicable",
+                      "examples": [
+                        "example@example.com"
                       ]
                     },
                     "phone": {
@@ -3566,57 +3103,16 @@
                         "+1234567890"
                       ]
                     },
-                    "select": {
-                      "type": "object",
-                      "description": "The selected tag value of the property",
-                      "properties": {
-                        "color": {
-                          "type": "string",
-                          "description": "The color of the icon",
-                          "enum": [
-                            "grey",
-                            "yellow",
-                            "orange",
-                            "red",
-                            "pink",
-                            "purple",
-                            "blue",
-                            "ice",
-                            "teal",
-                            "lime"
-                          ]
-                        },
-                        "id": {
-                          "type": "string",
-                          "description": "The id of the tag"
-                        },
-                        "key": {
-                          "type": "string",
-                          "description": "The key of the tag"
-                        },
-                        "name": {
-                          "type": "string",
-                          "description": "The name of the tag"
-                        },
-                        "object": {
-                          "type": "string",
-                          "description": "The data model of the object"
-                        }
+                    "objects": {
+                      "type": "array",
+                      "description": "The object ids, if applicable",
+                      "items": {
+                        "type": "string"
                       },
-                      "additionalProperties": true
-                    },
-                    "text": {
-                      "type": "string",
-                      "description": "The text value, if applicable",
                       "examples": [
-                        "Some text..."
-                      ]
-                    },
-                    "url": {
-                      "type": "string",
-                      "description": "The url value, if applicable",
-                      "examples": [
-                        "https://example.com"
+                        [
+                          "['object_id']"
+                        ]
                       ]
                     }
                   }
@@ -3711,11 +3207,37 @@
                             "property"
                           ]
                         },
-                        "checkbox": {
-                          "type": "boolean",
-                          "description": "The checkbox value, if applicable",
+                        "text": {
+                          "type": "string",
+                          "description": "The text value, if applicable",
                           "examples": [
-                            true
+                            "Some text..."
+                          ]
+                        },
+                        "number": {
+                          "type": "number",
+                          "description": "The number value, if applicable",
+                          "examples": [
+                            42
+                          ]
+                        },
+                        "select": {
+                          "type": "string",
+                          "description": "The selected tag id, if applicable",
+                          "examples": [
+                            "tag_id"
+                          ]
+                        },
+                        "multi_select": {
+                          "type": "array",
+                          "description": "The selected tag ids, if applicable",
+                          "items": {
+                            "type": "string"
+                          },
+                          "examples": [
+                            [
+                              "tag_id"
+                            ]
                           ]
                         },
                         "date": {
@@ -3725,16 +3247,9 @@
                             "2025-02-14T12:34:56Z"
                           ]
                         },
-                        "email": {
-                          "type": "string",
-                          "description": "The email value, if applicable",
-                          "examples": [
-                            "example@example.com"
-                          ]
-                        },
                         "files": {
                           "type": "array",
-                          "description": "The file references, if applicable",
+                          "description": "The file ids, if applicable",
                           "items": {
                             "type": "string"
                           },
@@ -3744,66 +3259,25 @@
                             ]
                           ]
                         },
-                        "multi_select": {
-                          "type": "array",
-                          "description": "The multi-select values, if applicable",
-                          "items": {
-                            "type": "object",
-                            "description": "The selected tag value of the property",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "id": {
-                                "type": "string",
-                                "description": "The id of the tag"
-                              },
-                              "key": {
-                                "type": "string",
-                                "description": "The key of the tag"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the tag"
-                              },
-                              "object": {
-                                "type": "string",
-                                "description": "The data model of the object"
-                              }
-                            },
-                            "additionalProperties": true
-                          }
-                        },
-                        "number": {
-                          "type": "number",
-                          "description": "The number value, if applicable",
+                        "checkbox": {
+                          "type": "boolean",
+                          "description": "The checkbox value, if applicable",
                           "examples": [
-                            42
+                            true
                           ]
                         },
-                        "objects": {
-                          "type": "array",
-                          "description": "The object references, if applicable",
-                          "items": {
-                            "type": "string"
-                          },
+                        "url": {
+                          "type": "string",
+                          "description": "The url value, if applicable",
                           "examples": [
-                            [
-                              "['object_id']"
-                            ]
+                            "https://example.com"
+                          ]
+                        },
+                        "email": {
+                          "type": "string",
+                          "description": "The email value, if applicable",
+                          "examples": [
+                            "example@example.com"
                           ]
                         },
                         "phone": {
@@ -3813,57 +3287,16 @@
                             "+1234567890"
                           ]
                         },
-                        "select": {
-                          "type": "object",
-                          "description": "The selected tag value of the property",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "id": {
-                              "type": "string",
-                              "description": "The id of the tag"
-                            },
-                            "key": {
-                              "type": "string",
-                              "description": "The key of the tag"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the tag"
-                            },
-                            "object": {
-                              "type": "string",
-                              "description": "The data model of the object"
-                            }
+                        "objects": {
+                          "type": "array",
+                          "description": "The object ids, if applicable",
+                          "items": {
+                            "type": "string"
                           },
-                          "additionalProperties": true
-                        },
-                        "text": {
-                          "type": "string",
-                          "description": "The text value, if applicable",
                           "examples": [
-                            "Some text..."
-                          ]
-                        },
-                        "url": {
-                          "type": "string",
-                          "description": "The url value, if applicable",
-                          "examples": [
-                            "https://example.com"
+                            [
+                              "['object_id']"
+                            ]
                           ]
                         }
                       }
@@ -4962,11 +4395,37 @@
                               "property"
                             ]
                           },
-                          "checkbox": {
-                            "type": "boolean",
-                            "description": "The checkbox value, if applicable",
+                          "text": {
+                            "type": "string",
+                            "description": "The text value, if applicable",
                             "examples": [
-                              true
+                              "Some text..."
+                            ]
+                          },
+                          "number": {
+                            "type": "number",
+                            "description": "The number value, if applicable",
+                            "examples": [
+                              42
+                            ]
+                          },
+                          "select": {
+                            "type": "string",
+                            "description": "The selected tag id, if applicable",
+                            "examples": [
+                              "tag_id"
+                            ]
+                          },
+                          "multi_select": {
+                            "type": "array",
+                            "description": "The selected tag ids, if applicable",
+                            "items": {
+                              "type": "string"
+                            },
+                            "examples": [
+                              [
+                                "tag_id"
+                              ]
                             ]
                           },
                           "date": {
@@ -4976,16 +4435,9 @@
                               "2025-02-14T12:34:56Z"
                             ]
                           },
-                          "email": {
-                            "type": "string",
-                            "description": "The email value, if applicable",
-                            "examples": [
-                              "example@example.com"
-                            ]
-                          },
                           "files": {
                             "type": "array",
-                            "description": "The file references, if applicable",
+                            "description": "The file ids, if applicable",
                             "items": {
                               "type": "string"
                             },
@@ -4995,66 +4447,25 @@
                               ]
                             ]
                           },
-                          "multi_select": {
-                            "type": "array",
-                            "description": "The multi-select values, if applicable",
-                            "items": {
-                              "type": "object",
-                              "description": "The selected tag value of the property",
-                              "properties": {
-                                "color": {
-                                  "type": "string",
-                                  "description": "The color of the icon",
-                                  "enum": [
-                                    "grey",
-                                    "yellow",
-                                    "orange",
-                                    "red",
-                                    "pink",
-                                    "purple",
-                                    "blue",
-                                    "ice",
-                                    "teal",
-                                    "lime"
-                                  ]
-                                },
-                                "id": {
-                                  "type": "string",
-                                  "description": "The id of the tag"
-                                },
-                                "key": {
-                                  "type": "string",
-                                  "description": "The key of the tag"
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "The name of the tag"
-                                },
-                                "object": {
-                                  "type": "string",
-                                  "description": "The data model of the object"
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "number": {
-                            "type": "number",
-                            "description": "The number value, if applicable",
+                          "checkbox": {
+                            "type": "boolean",
+                            "description": "The checkbox value, if applicable",
                             "examples": [
-                              42
+                              true
                             ]
                           },
-                          "objects": {
-                            "type": "array",
-                            "description": "The object references, if applicable",
-                            "items": {
-                              "type": "string"
-                            },
+                          "url": {
+                            "type": "string",
+                            "description": "The url value, if applicable",
                             "examples": [
-                              [
-                                "['object_id']"
-                              ]
+                              "https://example.com"
+                            ]
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "The email value, if applicable",
+                            "examples": [
+                              "example@example.com"
                             ]
                           },
                           "phone": {
@@ -5064,57 +4475,16 @@
                               "+1234567890"
                             ]
                           },
-                          "select": {
-                            "type": "object",
-                            "description": "The selected tag value of the property",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "id": {
-                                "type": "string",
-                                "description": "The id of the tag"
-                              },
-                              "key": {
-                                "type": "string",
-                                "description": "The key of the tag"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the tag"
-                              },
-                              "object": {
-                                "type": "string",
-                                "description": "The data model of the object"
-                              }
+                          "objects": {
+                            "type": "array",
+                            "description": "The object ids, if applicable",
+                            "items": {
+                              "type": "string"
                             },
-                            "additionalProperties": true
-                          },
-                          "text": {
-                            "type": "string",
-                            "description": "The text value, if applicable",
                             "examples": [
-                              "Some text..."
-                            ]
-                          },
-                          "url": {
-                            "type": "string",
-                            "description": "The url value, if applicable",
-                            "examples": [
-                              "https://example.com"
+                              [
+                                "['object_id']"
+                              ]
                             ]
                           }
                         }
@@ -6174,11 +5544,37 @@
                               "property"
                             ]
                           },
-                          "checkbox": {
-                            "type": "boolean",
-                            "description": "The checkbox value, if applicable",
+                          "text": {
+                            "type": "string",
+                            "description": "The text value, if applicable",
                             "examples": [
-                              true
+                              "Some text..."
+                            ]
+                          },
+                          "number": {
+                            "type": "number",
+                            "description": "The number value, if applicable",
+                            "examples": [
+                              42
+                            ]
+                          },
+                          "select": {
+                            "type": "string",
+                            "description": "The selected tag id, if applicable",
+                            "examples": [
+                              "tag_id"
+                            ]
+                          },
+                          "multi_select": {
+                            "type": "array",
+                            "description": "The selected tag ids, if applicable",
+                            "items": {
+                              "type": "string"
+                            },
+                            "examples": [
+                              [
+                                "tag_id"
+                              ]
                             ]
                           },
                           "date": {
@@ -6188,16 +5584,9 @@
                               "2025-02-14T12:34:56Z"
                             ]
                           },
-                          "email": {
-                            "type": "string",
-                            "description": "The email value, if applicable",
-                            "examples": [
-                              "example@example.com"
-                            ]
-                          },
                           "files": {
                             "type": "array",
-                            "description": "The file references, if applicable",
+                            "description": "The file ids, if applicable",
                             "items": {
                               "type": "string"
                             },
@@ -6207,66 +5596,25 @@
                               ]
                             ]
                           },
-                          "multi_select": {
-                            "type": "array",
-                            "description": "The multi-select values, if applicable",
-                            "items": {
-                              "type": "object",
-                              "description": "The selected tag value of the property",
-                              "properties": {
-                                "color": {
-                                  "type": "string",
-                                  "description": "The color of the icon",
-                                  "enum": [
-                                    "grey",
-                                    "yellow",
-                                    "orange",
-                                    "red",
-                                    "pink",
-                                    "purple",
-                                    "blue",
-                                    "ice",
-                                    "teal",
-                                    "lime"
-                                  ]
-                                },
-                                "id": {
-                                  "type": "string",
-                                  "description": "The id of the tag"
-                                },
-                                "key": {
-                                  "type": "string",
-                                  "description": "The key of the tag"
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "description": "The name of the tag"
-                                },
-                                "object": {
-                                  "type": "string",
-                                  "description": "The data model of the object"
-                                }
-                              },
-                              "additionalProperties": true
-                            }
-                          },
-                          "number": {
-                            "type": "number",
-                            "description": "The number value, if applicable",
+                          "checkbox": {
+                            "type": "boolean",
+                            "description": "The checkbox value, if applicable",
                             "examples": [
-                              42
+                              true
                             ]
                           },
-                          "objects": {
-                            "type": "array",
-                            "description": "The object references, if applicable",
-                            "items": {
-                              "type": "string"
-                            },
+                          "url": {
+                            "type": "string",
+                            "description": "The url value, if applicable",
                             "examples": [
-                              [
-                                "['object_id']"
-                              ]
+                              "https://example.com"
+                            ]
+                          },
+                          "email": {
+                            "type": "string",
+                            "description": "The email value, if applicable",
+                            "examples": [
+                              "example@example.com"
                             ]
                           },
                           "phone": {
@@ -6276,57 +5624,16 @@
                               "+1234567890"
                             ]
                           },
-                          "select": {
-                            "type": "object",
-                            "description": "The selected tag value of the property",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "id": {
-                                "type": "string",
-                                "description": "The id of the tag"
-                              },
-                              "key": {
-                                "type": "string",
-                                "description": "The key of the tag"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the tag"
-                              },
-                              "object": {
-                                "type": "string",
-                                "description": "The data model of the object"
-                              }
+                          "objects": {
+                            "type": "array",
+                            "description": "The object ids, if applicable",
+                            "items": {
+                              "type": "string"
                             },
-                            "additionalProperties": true
-                          },
-                          "text": {
-                            "type": "string",
-                            "description": "The text value, if applicable",
                             "examples": [
-                              "Some text..."
-                            ]
-                          },
-                          "url": {
-                            "type": "string",
-                            "description": "The url value, if applicable",
-                            "examples": [
-                              "https://example.com"
+                              [
+                                "['object_id']"
+                              ]
                             ]
                           }
                         }
@@ -6579,11 +5886,37 @@
                             "property"
                           ]
                         },
-                        "checkbox": {
-                          "type": "boolean",
-                          "description": "The checkbox value, if applicable",
+                        "text": {
+                          "type": "string",
+                          "description": "The text value, if applicable",
                           "examples": [
-                            true
+                            "Some text..."
+                          ]
+                        },
+                        "number": {
+                          "type": "number",
+                          "description": "The number value, if applicable",
+                          "examples": [
+                            42
+                          ]
+                        },
+                        "select": {
+                          "type": "string",
+                          "description": "The selected tag id, if applicable",
+                          "examples": [
+                            "tag_id"
+                          ]
+                        },
+                        "multi_select": {
+                          "type": "array",
+                          "description": "The selected tag ids, if applicable",
+                          "items": {
+                            "type": "string"
+                          },
+                          "examples": [
+                            [
+                              "tag_id"
+                            ]
                           ]
                         },
                         "date": {
@@ -6593,16 +5926,9 @@
                             "2025-02-14T12:34:56Z"
                           ]
                         },
-                        "email": {
-                          "type": "string",
-                          "description": "The email value, if applicable",
-                          "examples": [
-                            "example@example.com"
-                          ]
-                        },
                         "files": {
                           "type": "array",
-                          "description": "The file references, if applicable",
+                          "description": "The file ids, if applicable",
                           "items": {
                             "type": "string"
                           },
@@ -6612,66 +5938,25 @@
                             ]
                           ]
                         },
-                        "multi_select": {
-                          "type": "array",
-                          "description": "The multi-select values, if applicable",
-                          "items": {
-                            "type": "object",
-                            "description": "The selected tag value of the property",
-                            "properties": {
-                              "color": {
-                                "type": "string",
-                                "description": "The color of the icon",
-                                "enum": [
-                                  "grey",
-                                  "yellow",
-                                  "orange",
-                                  "red",
-                                  "pink",
-                                  "purple",
-                                  "blue",
-                                  "ice",
-                                  "teal",
-                                  "lime"
-                                ]
-                              },
-                              "id": {
-                                "type": "string",
-                                "description": "The id of the tag"
-                              },
-                              "key": {
-                                "type": "string",
-                                "description": "The key of the tag"
-                              },
-                              "name": {
-                                "type": "string",
-                                "description": "The name of the tag"
-                              },
-                              "object": {
-                                "type": "string",
-                                "description": "The data model of the object"
-                              }
-                            },
-                            "additionalProperties": true
-                          }
-                        },
-                        "number": {
-                          "type": "number",
-                          "description": "The number value, if applicable",
+                        "checkbox": {
+                          "type": "boolean",
+                          "description": "The checkbox value, if applicable",
                           "examples": [
-                            42
+                            true
                           ]
                         },
-                        "objects": {
-                          "type": "array",
-                          "description": "The object references, if applicable",
-                          "items": {
-                            "type": "string"
-                          },
+                        "url": {
+                          "type": "string",
+                          "description": "The url value, if applicable",
                           "examples": [
-                            [
-                              "['object_id']"
-                            ]
+                            "https://example.com"
+                          ]
+                        },
+                        "email": {
+                          "type": "string",
+                          "description": "The email value, if applicable",
+                          "examples": [
+                            "example@example.com"
                           ]
                         },
                         "phone": {
@@ -6681,57 +5966,16 @@
                             "+1234567890"
                           ]
                         },
-                        "select": {
-                          "type": "object",
-                          "description": "The selected tag value of the property",
-                          "properties": {
-                            "color": {
-                              "type": "string",
-                              "description": "The color of the icon",
-                              "enum": [
-                                "grey",
-                                "yellow",
-                                "orange",
-                                "red",
-                                "pink",
-                                "purple",
-                                "blue",
-                                "ice",
-                                "teal",
-                                "lime"
-                              ]
-                            },
-                            "id": {
-                              "type": "string",
-                              "description": "The id of the tag"
-                            },
-                            "key": {
-                              "type": "string",
-                              "description": "The key of the tag"
-                            },
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the tag"
-                            },
-                            "object": {
-                              "type": "string",
-                              "description": "The data model of the object"
-                            }
+                        "objects": {
+                          "type": "array",
+                          "description": "The object ids, if applicable",
+                          "items": {
+                            "type": "string"
                           },
-                          "additionalProperties": true
-                        },
-                        "text": {
-                          "type": "string",
-                          "description": "The text value, if applicable",
                           "examples": [
-                            "Some text..."
-                          ]
-                        },
-                        "url": {
-                          "type": "string",
-                          "description": "The url value, if applicable",
-                          "examples": [
-                            "https://example.com"
+                            [
+                              "['object_id']"
+                            ]
                           ]
                         }
                       }

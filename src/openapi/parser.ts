@@ -225,70 +225,69 @@ export class OpenAPIToMCPConverter {
           type: "object",
           properties: {
             ...baseProperties,
-            checkbox: {
-              type: "boolean",
-              description: "The checkbox value, if applicable",
-              examples: [true],
-            },
-            date: {
+            text: {
               type: "string",
-              description: "The date value in ISO 8601 format, if applicable",
-              examples: ["2025-02-14T12:34:56Z"],
-            },
-            email: {
-              type: "string",
-              description: "The email value, if applicable",
-              examples: ["example@example.com"],
-            },
-            files: {
-              type: "array",
-              description: "The file references, if applicable",
-              items: {
-                type: "string",
-              },
-              examples: [["['file_id']"]],
-            },
-            multi_select: {
-              type: "array",
-              description: "The multi-select values, if applicable",
-              items: this.convertOpenApiSchemaToJsonSchema(
-                this.internalResolveRef("#/components/schemas/apimodel.Tag", new Set())!,
-                new Set(),
-                true,
-              ),
+              description: "The text value, if applicable",
+              examples: ["Some text..."],
             },
             number: {
               type: "number",
               description: "The number value, if applicable",
               examples: [42],
             },
-            objects: {
+            select: {
+              type: "string",
+              description: "The selected tag id, if applicable",
+              examples: ["tag_id"],
+            },
+            multi_select: {
               type: "array",
-              description: "The object references, if applicable",
+              description: "The selected tag ids, if applicable",
               items: {
                 type: "string",
               },
-              examples: [["['object_id']"]],
+              examples: [["tag_id"]],
+            },
+            date: {
+              type: "string",
+              description: "The date value in ISO 8601 format, if applicable",
+              examples: ["2025-02-14T12:34:56Z"],
+            },
+            files: {
+              type: "array",
+              description: "The file ids, if applicable",
+              items: {
+                type: "string",
+              },
+              examples: [["['file_id']"]],
+            },
+            checkbox: {
+              type: "boolean",
+              description: "The checkbox value, if applicable",
+              examples: [true],
+            },
+            url: {
+              type: "string",
+              description: "The url value, if applicable",
+              examples: ["https://example.com"],
+            },
+            email: {
+              type: "string",
+              description: "The email value, if applicable",
+              examples: ["example@example.com"],
             },
             phone: {
               type: "string",
               description: "The phone number value, if applicable",
               examples: ["+1234567890"],
             },
-            select: this.convertOpenApiSchemaToJsonSchema(
-              this.internalResolveRef("#/components/schemas/apimodel.Tag", new Set())!,
-              new Set(),
-              true,
-            ),
-            text: {
-              type: "string",
-              description: "The text value, if applicable",
-              examples: ["Some text..."],
-            },
-            url: {
-              type: "string",
-              description: "The url value, if applicable",
-              examples: ["https://example.com"],
+            objects: {
+              type: "array",
+              description: "The object ids, if applicable",
+              items: {
+                type: "string",
+              },
+              examples: [["['object_id']"]],
             },
           } as Record<string, IJsonSchema>,
         };
