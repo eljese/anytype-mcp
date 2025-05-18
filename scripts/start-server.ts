@@ -20,7 +20,7 @@ function isYamlFile(filePath: string): boolean {
 
 export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Document> {
   let rawSpec: string;
-  const defaultSpecPath = "http://localhost:31009/openapi.yaml";
+  const defaultSpecPath = "http://localhost:31009/docs/openapi.yaml";
   const finalSpecPath = specPath || defaultSpecPath;
 
   // Check if the path is a URL
