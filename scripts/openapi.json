@@ -80,6 +80,26 @@
           "ColorLime"
         ]
       },
+      "apimodel.CreateApiKeyResponse": {
+        "properties": {
+          "api_key": {
+            "description": "The api key used to authenticate requests",
+            "example": "zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6=",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "apimodel.CreateChallengeResponse": {
+        "properties": {
+          "challenge_id": {
+            "description": "The challenge id associated with the displayed code and needed to solve the challenge for api_key",
+            "example": "67647f5ecda913e9a2e11b26",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "apimodel.CreateObjectRequest": {
         "properties": {
           "body": {
@@ -233,16 +253,6 @@
           "object": {
             "description": "The data model of the object",
             "example": "property",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "apimodel.DisplayCodeResponse": {
-        "properties": {
-          "challenge_id": {
-            "description": "The challenge id associated with the displayed code and needed to solve the challenge for token",
-            "example": "67647f5ecda913e9a2e11b26",
             "type": "string"
           }
         },
@@ -1280,16 +1290,6 @@
         },
         "type": "object"
       },
-      "apimodel.TokenResponse": {
-        "properties": {
-          "app_key": {
-            "description": "The app key used to authenticate requests",
-            "example": "zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6=",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "apimodel.Type": {
         "description": "The type of the object",
         "properties": {
@@ -1853,9 +1853,88 @@
     "url": "https://swagger.io/resources/open-api/"
   },
   "paths": {
-    "/v1/auth/display_code": {
+    "/v1/auth/api_keys": {
       "post": {
-        "description": "Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a short code within the Anytype Desktop. The `challenge_id` must then be used with the token endpoint (see below) to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access.",
+        "description": "After receiving a `challenge_id` from the `/v1/auth/challenges` endpoint, the client calls this endpoint to provide the corresponding 4-digit code along with the challenge ID. The endpoint verifies that the challenge solution is correct and, if it is, returns an `api_key`. This endpoint is central to the authentication process, as it validates the user's identity and issues a key that can be used for further interactions with the API.",
+        "operationId": "create_api_key",
+        "parameters": [
+          {
+            "description": "The version of the API to use",
+            "in": "header",
+            "name": "Anytype-Version",
+            "required": true,
+            "schema": {
+              "default": "2025-05-20",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The ID of the challenge to solve",
+            "in": "query",
+            "name": "challenge_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The 4-digit code retrieved from Anytype Desktop app",
+            "in": "query",
+            "name": "code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/apimodel.CreateApiKeyResponse"
+                }
+              }
+            },
+            "description": "The API key that can be used in the Authorization header for subsequent requests"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/util.ValidationError"
+                }
+              }
+            },
+            "description": "Bad request"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/util.ServerError"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Create API Key",
+        "tags": ["Auth"]
+      }
+    },
+    "/v1/auth/challenges": {
+      "post": {
+        "description": "Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a 4-digit code within the Anytype Desktop. The `challenge_id` must then be used with the `/v1/auth/api_keys` endpoint to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access.",
         "operationId": "create_auth_challenge",
         "parameters": [
           {
@@ -1888,11 +1967,11 @@
           }
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/apimodel.DisplayCodeResponse"
+                  "$ref": "#/components/schemas/apimodel.CreateChallengeResponse"
                 }
               }
             },
@@ -1906,7 +1985,7 @@
                 }
               }
             },
-            "description": "Invalid input"
+            "description": "Bad request"
           },
           "500": {
             "content": {
@@ -1919,86 +1998,7 @@
             "description": "Internal server error"
           }
         },
-        "summary": "Start challenge",
-        "tags": ["Auth"]
-      }
-    },
-    "/v1/auth/token": {
-      "post": {
-        "description": "After receiving a `challenge_id` from the `display_code` endpoint, the client calls this endpoint to provide the corresponding 4-digit code along with the challenge ID. The endpoint verifies that the challenge solution is correct and, if it is, returns a permanent `app_key. This endpoint is central to the authentication process, as it validates the user's identity and issues a token that can be used for further interactions with the API.",
-        "operationId": "solve_auth_challenge",
-        "parameters": [
-          {
-            "description": "The version of the API to use",
-            "in": "header",
-            "name": "Anytype-Version",
-            "required": true,
-            "schema": {
-              "default": "2025-05-20",
-              "type": "string"
-            }
-          },
-          {
-            "description": "The ID of the challenge to solve",
-            "in": "query",
-            "name": "challenge_id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "4-digit code retrieved from Anytype Desktop app",
-            "in": "query",
-            "name": "code",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/apimodel.TokenResponse"
-                }
-              }
-            },
-            "description": "The app key that can be used in the Authorization header for subsequent requests"
-          },
-          "400": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/util.ValidationError"
-                }
-              }
-            },
-            "description": "Invalid input"
-          },
-          "500": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/util.ServerError"
-                }
-              }
-            },
-            "description": "Internal server error"
-          }
-        },
-        "summary": "Solve challenge",
+        "summary": "Create Challenge",
         "tags": ["Auth"]
       }
     },
@@ -2191,7 +2191,7 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -2467,7 +2467,7 @@
             }
           },
           {
-            "description": "The ID of the list to which objects will be added; must be retrieved from SearchSpace endpoint with types=['collection', 'set']",
+            "description": "The ID of the list to which objects will be added; must be retrieved from SearchSpace endpoint with types: ['collection', 'set']",
             "in": "path",
             "name": "list_id",
             "required": true,
@@ -2583,7 +2583,7 @@
             }
           },
           {
-            "description": "The ID of the list from which the object will be removed; must be retrieved from SearchSpace endpoint with types=['collection', 'set']",
+            "description": "The ID of the list from which the object will be removed; must be retrieved from SearchSpace endpoint with types: ['collection', 'set']",
             "in": "path",
             "name": "list_id",
             "required": true,
@@ -2697,7 +2697,7 @@
             }
           },
           {
-            "description": "The ID of the list to retrieve views for; must be retrieved from SearchSpace endpoint with types=['collection', 'set']",
+            "description": "The ID of the list to retrieve views for; must be retrieved from SearchSpace endpoint with types: ['collection', 'set']",
             "in": "path",
             "name": "list_id",
             "required": true,
@@ -2799,7 +2799,7 @@
             }
           },
           {
-            "description": "The ID of the list to retrieve objects for; must be retrieved from SearchSpace endpoint with types=['collection', 'set']",
+            "description": "The ID of the list to retrieve objects for; must be retrieved from SearchSpace endpoint with types: ['collection', 'set']",
             "in": "path",
             "name": "list_id",
             "required": true,
@@ -2808,7 +2808,7 @@
             }
           },
           {
-            "description": "The ID of the view to retrieve objects for; must be retrieved from ListViews endpoint or omited if you want to get all objects in the list",
+            "description": "The ID of the view to retrieve objects for; must be retrieved from ListViews endpoint or omitted if you want to get all objects in the list",
             "in": "path",
             "name": "view_id",
             "required": true,
@@ -3175,7 +3175,7 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -3697,7 +3697,7 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -3782,7 +3782,7 @@
             }
           },
           {
-            "description": "The ID of the property to delete",
+            "description": "The ID of the property to delete; must be retrieved from ListProperties endpoint or obtained from response context",
             "in": "path",
             "name": "property_id",
             "required": true,
@@ -3895,7 +3895,7 @@
             }
           },
           {
-            "description": "The ID of the property to retrieve",
+            "description": "The ID of the property to retrieve; must be retrieved from ListProperties endpoint or obtained from response context",
             "in": "path",
             "name": "property_id",
             "required": true,
@@ -3988,7 +3988,7 @@
             }
           },
           {
-            "description": "The ID of the property to update",
+            "description": "The ID of the property to update; must be retrieved from ListProperties endpoint or obtained from response context",
             "in": "path",
             "name": "property_id",
             "required": true,
@@ -4228,7 +4228,7 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -4873,7 +4873,7 @@
           "required": true
         },
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
