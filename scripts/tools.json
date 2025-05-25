@@ -3623,6 +3623,10 @@
                   "objects"
                 ]
               },
+              "key": {
+                "type": "string",
+                "description": "The key of the property; should always be snake_case, otherwise it will be converted to snake_case"
+              },
               "name": {
                 "type": "string",
                 "description": "The name of the property"
@@ -3837,6 +3841,10 @@
               "property_id": {
                 "type": "string",
                 "description": "The ID of the property to update; must be retrieved from ListProperties endpoint or obtained from response context"
+              },
+              "key": {
+                "type": "string",
+                "description": "The key to set for the property; ; should always be snake_case, otherwise it will be converted to snake_case"
               },
               "name": {
                 "type": "string",
@@ -4915,6 +4923,10 @@
                 },
                 "additionalProperties": true
               },
+              "key": {
+                "type": "string",
+                "description": "The key of the type; should always be snake_case, otherwise it will be converted to snake_case"
+              },
               "layout": {
                 "type": "string",
                 "description": "The layout of the type",
@@ -4977,7 +4989,8 @@
             "required": [
               "space_id",
               "layout",
-              "name"
+              "name",
+              "plural_name"
             ]
           },
           "outputSchema": {
@@ -5405,6 +5418,10 @@
                   }
                 },
                 "additionalProperties": true
+              },
+              "key": {
+                "type": "string",
+                "description": "The key to set for the type; should always be snake_case, otherwise it will be converted to snake_case"
               },
               "layout": {
                 "type": "string",
