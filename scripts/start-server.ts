@@ -82,35 +82,21 @@ async function getAppKey(specPath?: string) {
 export async function main(args: string[] = process.argv.slice(2)) {
   const command = args[0];
 
-  if (!command) {
-    console.error("Usage: anytype-mcp <command> [options]");
-    console.error("\nCommands:");
-    console.error("  get-key [swagger-file]    Generate an app key for Anytype");
-    console.error("  run [swagger-file]        Run the MCP proxy with an OpenAPI spec");
-    console.error("\nExamples:");
-    console.error("  anytype-mcp get-key");
-    console.error("  anytype-mcp get-key path/to/swagger.yaml");
-    console.error("  anytype-mcp run");
-    console.error("  anytype-mcp run path/to/swagger.yaml");
-    process.exit(1);
+  if (!command || command === "run") {
+    const specPath = command === "run" ? args[1] : undefined;
+    await runProxy(specPath);
+    return;
   }
 
-  switch (command) {
-    case "get-key": {
-      const getKeySpecPath = args[1];
-      await getAppKey(getKeySpecPath);
-      break;
-    }
-    case "run": {
-      const runSpecPath = args[1];
-      await runProxy(runSpecPath);
-      break;
-    }
-    default:
-      console.error(`Error: Unknown command "${command}"`);
-      console.error('Run "anytype-mcp" without arguments to see available commands');
-      process.exit(1);
+  if (command === "get-key") {
+    const getKeySpecPath = args[1];
+    await getAppKey(getKeySpecPath);
+    return;
   }
+
+  console.error(`Error: Unknown command "${command}"`);
+  console.error('Run "anytype-mcp" without arguments to see available commands');
+  process.exit(1);
 }
 
 const shouldStart = process.argv[1].endsWith("anytype-mcp");

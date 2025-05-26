@@ -33,8 +33,8 @@ export class AppKeyGenerator {
     "anytype": {
       "command": "npx",
       "args": [
-        "anytype-mcp",
-        "run",
+        "-y",
+        "@anyproto/anytype-mcp",
       ],
       "env": {
         "OPENAPI_MCP_HEADERS": "{\\"Authorization\\":\\"Bearer ${appKey}\\", \\"Anytype-Version\\":\\"${anytypeVersion}\\"}"

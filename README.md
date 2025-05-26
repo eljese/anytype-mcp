@@ -12,34 +12,59 @@ It bridges the gap between AI and Anytype's powerful features by converting Anyt
 - Properties & Tags
 - Types & Templates
 
-## Quick Start
+## Installation
 
-1. Build the project:
+You can install the Anytype MCP Server in two ways:
+
+### From npm registry
+
+```bash
+npx -y @anyproto/anytype-mcp
+```
+
+### From source
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/anyproto/anytype-mcp.git
+cd anytype-mcp
+```
+
+2. Install dependencies:
+
+```bash
+npm install -D
+```
+
+3. Build the project:
 
 ```bash
 npm run build
 ```
 
-2. Link the package globally (optional):
+4. Link the package globally:
 
 ```bash
 npm link
 ```
 
-3. Get your Anytype API key:
+## Configuration
+
+1. Get your Anytype API key:
 
 ```bash
 anytype-mcp get-key
 ```
 
-4. Add the config to your MCP client settings:
+2. Add the config to your MCP client settings:
 
 ```json
 {
   "mcpServers": {
     "anytype": {
       "command": "npx",
-      "args": ["anytype-mcp", "run"],
+      "args": ["-y", "@anyproto/anytype-mcp"],
       "env": {
         "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-05-20\"}"
       }
