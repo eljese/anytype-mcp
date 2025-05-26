@@ -12,9 +12,27 @@ It bridges the gap between AI and Anytype's powerful features by converting Anyt
 - Properties & Tags
 - Types & Templates
 
-## Usage
+## Quick Start
 
-### 1. Configure in your MCP client
+### 1. Get Your API Key
+
+1. Open Anytype
+2. Go to Settings
+3. Navigate to API Keys
+4. Create a new API key
+
+<details>
+<summary>Alternative: Get API key via CLI</summary>
+
+You can also get your API key using the command line:
+
+```bash
+npx -y @anyproto/anytype-mcp get-key
+```
+
+</details>
+
+### 2. Configure Your MCP Client
 
 Add the following configuration to your MCP client settings:
 
@@ -32,21 +50,8 @@ Add the following configuration to your MCP client settings:
 }
 ```
 
-To get your Anytype API key, you can either:
-
-1. Use the command line:
-
-```bash
-npx -y @anyproto/anytype-mcp get-key
-```
-
-2. Or get it from the Anytype desktop client:
-   - Open Anytype
-   - Go to Settings
-   - Navigate to API Keys
-   - Create a new API key
-
-### 2. Alternative: Global Installation
+<details>
+<summary>Alternative: Global Installation</summary>
 
 If you prefer to install the package globally:
 
@@ -71,36 +76,6 @@ npm install -g @anyproto/anytype-mcp
 }
 ```
 
-<details>
-<summary>Development: Installation from source</summary>
-
-If you need to install from source:
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/anyproto/anytype-mcp.git
-cd anytype-mcp
-```
-
-2. Install dependencies:
-
-```bash
-npm install -D
-```
-
-3. Build the project:
-
-```bash
-npm run build
-```
-
-4. Link the package globally:
-
-```bash
-npm link
-```
-
 </details>
 
 ## Example Interactions
@@ -114,6 +89,8 @@ Here are some examples of how you can interact with your Anytype:
 
 ## Development
 
+### Installation from Source
+
 1. Clone the repository:
 
 ```bash
@@ -131,6 +108,12 @@ npm install -D
 
 ```bash
 npm run build
+```
+
+4. Link the package globally (optional):
+
+```bash
+npm link
 ```
 
 ## Contribution
