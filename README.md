@@ -12,17 +12,69 @@ It bridges the gap between AI and Anytype's powerful features by converting Anyt
 - Properties & Tags
 - Types & Templates
 
-## Installation
+## Usage
 
-You can install the Anytype MCP Server in two ways:
+### 1. Configure in your MCP client
 
-### From npm registry
+Add the following configuration to your MCP client settings:
 
-```bash
-npx -y @anyproto/anytype-mcp
+```json
+{
+  "mcpServers": {
+    "anytype": {
+      "command": "npx",
+      "args": ["-y", "@anyproto/anytype-mcp"],
+      "env": {
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-05-20\"}"
+      }
+    }
+  }
+}
 ```
 
-### From source
+To get your Anytype API key, you can either:
+
+1. Use the command line:
+
+```bash
+npx -y @anyproto/anytype-mcp get-key
+```
+
+2. Or get it from the Anytype desktop client:
+   - Open Anytype
+   - Go to Settings
+   - Navigate to API Keys
+   - Create a new API key
+
+### 2. Alternative: Global Installation
+
+If you prefer to install the package globally:
+
+1. Install the package:
+
+```bash
+npm install -g @anyproto/anytype-mcp
+```
+
+2. Update your MCP client configuration to use the global installation:
+
+```json
+{
+  "mcpServers": {
+    "anytype": {
+      "command": "anytype-mcp",
+      "env": {
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-05-20\"}"
+      }
+    }
+  }
+}
+```
+
+<details>
+<summary>Development: Installation from source</summary>
+
+If you need to install from source:
 
 1. Clone the repository:
 
@@ -49,29 +101,7 @@ npm run build
 npm link
 ```
 
-## Configuration
-
-1. Get your Anytype API key:
-
-```bash
-anytype-mcp get-key
-```
-
-2. Add the config to your MCP client settings:
-
-```json
-{
-  "mcpServers": {
-    "anytype": {
-      "command": "npx",
-      "args": ["-y", "@anyproto/anytype-mcp"],
-      "env": {
-        "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-05-20\"}"
-      }
-    }
-  }
-}
-```
+</details>
 
 ## Example Interactions
 
