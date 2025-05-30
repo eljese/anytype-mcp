@@ -3,7 +3,8 @@ import yaml from "js-yaml";
 import fs from "node:fs";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { loadOpenApiSpec, main, ValidationError } from "../start-server";
+import { loadOpenApiSpec, ValidationError } from "../../src/init-server";
+import { main } from "../start-server";
 
 // Mock fs and axios
 vi.mock("node:fs");
