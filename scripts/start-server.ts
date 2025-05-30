@@ -19,19 +19,14 @@ function isYamlFile(filePath: string): boolean {
 }
 
 export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Document> {
+  const defaultSpecUrl = "http://localhost:31009/docs/openapi.yaml";
+  const finalSpec = specPath || defaultSpecUrl;
   let rawSpec: string;
-  const defaultSpecPath = "http://localhost:31009/docs/openapi.yaml";
-  const finalSpecPath = specPath || defaultSpecPath;
 
-  // Check if the path is a URL
-  if (finalSpecPath.startsWith("http://") || finalSpecPath.startsWith("https://")) {
+  if (finalSpec.startsWith("http://") || finalSpec.startsWith("https://")) {
     try {
-      const response = await axios.get(finalSpecPath);
-      if (typeof response.data === "string") {
-        rawSpec = response.data;
-      } else {
-        rawSpec = JSON.stringify(response.data);
-      }
+      const response = await axios.get(finalSpec);
+      rawSpec = typeof response.data === "string" ? response.data : JSON.stringify(response.data);
     } catch (error: any) {
       if (error.code === "ECONNREFUSED") {
         console.error("Can't connect to API. Please ensure Anytype is running and reachable.");
@@ -41,66 +36,43 @@ export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Docu
       process.exit(1);
     }
   } else {
-    // Load from local file system
-    try {
-      rawSpec = fs.readFileSync(path.resolve(process.cwd(), finalSpecPath), "utf-8");
-    } catch (error) {
-      console.error("Failed to read OpenAPI specification file:", (error as Error).message);
-      process.exit(1);
-    }
+    const filePath = path.resolve(process.cwd(), finalSpec);
+    rawSpec = fs.readFileSync(filePath, "utf-8");
   }
 
-  // Parse and validate the spec
-  try {
-    const parsed = isYamlFile(finalSpecPath) ? yaml.load(rawSpec) : JSON.parse(rawSpec);
-    return parsed as OpenAPIV3.Document;
-  } catch (error) {
-    if (error instanceof ValidationError) {
-      throw error;
-    }
-    console.error("Failed to parse OpenAPI specification:", (error as Error).message);
+  return isYamlFile(finalSpec)
+    ? (yaml.load(rawSpec) as OpenAPIV3.Document)
+    : (JSON.parse(rawSpec) as OpenAPIV3.Document);
+}
+
+export async function initProxy(specPath: string) {
+  const openApiSpec = await loadOpenApiSpec(specPath);
+  const proxy = new MCPProxy("Anytype API", openApiSpec);
+
+  console.error("Connecting to Anytype API...");
+  return proxy.connect(new StdioServerTransport());
+}
+
+async function generateAppKey(specPath?: string) {
+  const openApiSpec = await loadOpenApiSpec(specPath);
+  const baseUrl = openApiSpec.servers?.[0]?.url || "http://localhost:31009";
+  const generator = new AppKeyGenerator(baseUrl);
+  await generator.generateAppKey();
+}
+
+export async function main(args: string[] = process.argv.slice(2)) {
+  const [command, specPath] = args;
+  if (!command || command === "run") {
+    await initProxy(specPath);
+  } else if (command === "get-key") {
+    await generateAppKey(specPath);
+  } else {
+    console.error(`Error: Unknown command "${command}"`);
     process.exit(1);
   }
 }
 
-async function runProxy(specPath?: string) {
-  const openApiSpec = await loadOpenApiSpec(specPath);
-  const proxy = new MCPProxy("Anytype API", openApiSpec);
-
-  console.error("Connecting to Claude Desktop...");
-  return proxy.connect(new StdioServerTransport());
-}
-
-async function getAppKey(specPath?: string) {
-  const openApiSpec = await loadOpenApiSpec(specPath);
-  const basePath = openApiSpec.servers?.[0]?.url || "http://localhost:31009";
-  const generator = new AppKeyGenerator(basePath);
-  await generator.generateAppKey();
-}
-
-// Main execution
-export async function main(args: string[] = process.argv.slice(2)) {
-  const command = args[0];
-
-  if (!command || command === "run") {
-    const specPath = command === "run" ? args[1] : undefined;
-    await runProxy(specPath);
-    return;
-  }
-
-  if (command === "get-key") {
-    const getKeySpecPath = args[1];
-    await getAppKey(getKeySpecPath);
-    return;
-  }
-
-  console.error(`Error: Unknown command "${command}"`);
-  console.error('Run "anytype-mcp" without arguments to see available commands');
-  process.exit(1);
-}
-
 const shouldStart = process.argv[1].endsWith("anytype-mcp");
-// Only run main if this is the entry point
 if (shouldStart) {
   main().catch((error) => {
     if (error instanceof ValidationError) {
