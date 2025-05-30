@@ -1,6 +1,5 @@
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import axios from "axios";
-import yaml from "js-yaml";
 import fs from "node:fs";
 import path from "node:path";
 import { OpenAPIV3 } from "openapi-types";
@@ -13,12 +12,8 @@ export class ValidationError extends Error {
   }
 }
 
-function isYamlFile(filePath: string): boolean {
-  return filePath.endsWith(".yaml") || filePath.endsWith(".yml");
-}
-
 export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Document> {
-  const defaultSpecUrl = "http://localhost:31009/docs/openapi.yaml";
+  const defaultSpecUrl = "http://localhost:31009/docs/openapi.json";
   const finalSpec = specPath || defaultSpecUrl;
   let rawSpec: string;
 
@@ -39,9 +34,12 @@ export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Docu
     rawSpec = fs.readFileSync(filePath, "utf-8");
   }
 
-  return isYamlFile(finalSpec)
-    ? (yaml.load(rawSpec) as OpenAPIV3.Document)
-    : (JSON.parse(rawSpec) as OpenAPIV3.Document);
+  try {
+    return JSON.parse(rawSpec) as OpenAPIV3.Document;
+  } catch (error: any) {
+    console.error("Failed to parse OpenAPI specification:", error.message);
+    process.exit(1);
+  }
 }
 
 export async function initProxy(specPath: string) {

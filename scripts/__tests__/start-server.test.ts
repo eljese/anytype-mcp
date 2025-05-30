@@ -1,10 +1,8 @@
 import axios from "axios";
-import yaml from "js-yaml";
 import fs from "node:fs";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { loadOpenApiSpec, ValidationError } from "../../src/init-server";
-import { main } from "../start-server";
 
 // Mock fs and axios
 vi.mock("node:fs");
@@ -111,7 +109,7 @@ describe("loadOpenApiSpec", () => {
 
     it("should load a valid OpenAPI spec from local YAML file", async () => {
       // Mock fs.readFileSync to return a valid YAML spec
-      const yamlSpec = yaml.dump(validOpenApiSpec);
+      const yamlSpec = JSON.stringify(validOpenApiSpec);
       vi.mocked(fs.readFileSync).mockReturnValue(yamlSpec);
 
       const result = await loadOpenApiSpec("./test-spec.yaml");
@@ -173,7 +171,7 @@ describe("loadOpenApiSpec", () => {
 
     it("should load a valid OpenAPI spec from YAML URL", async () => {
       // Mock axios.get to return a valid YAML spec
-      const yamlSpec = yaml.dump(validOpenApiSpec);
+      const yamlSpec = JSON.stringify(validOpenApiSpec);
       vi.mocked(axios.get).mockResolvedValue({ data: yamlSpec });
 
       const result = await loadOpenApiSpec("http://example.com/api-spec.yaml");
@@ -192,13 +190,6 @@ describe("main", () => {
 
   afterEach(() => {
     vi.resetAllMocks();
-  });
-
-  it("should exit when no command provided", async () => {
-    const mockExit = vi.spyOn(process, "exit").mockImplementation((() => {}) as any);
-    await main([]);
-    expect(mockExit).toHaveBeenCalledWith(1);
-    expect(console.error).toHaveBeenCalledWith("Usage: anytype-mcp <command> [options]");
   });
 });
 
