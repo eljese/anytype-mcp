@@ -1,5 +1,7 @@
 # Anytype MCP Server
 
+[![NPM version](https://img.shields.io/npm/v/@anyproto/anytype-mcp.svg)](https://npmjs.org/package/@anyproto/anytype-mcp)
+
 The Anytype MCP Server is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server implementation, enabling AI assistants to seamlessly interact with [Anytype's API](https://github.com/anyproto/anytype-api) through natural language.
 
 It bridges the gap between AI and Anytype's powerful features by converting Anytype's OpenAPI specification into MCP tools, allowing you to manage your knowledge base through conversation.
