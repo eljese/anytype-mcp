@@ -13,8 +13,7 @@ export class ValidationError extends Error {
 }
 
 export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Document> {
-  const defaultSpecUrl = "http://localhost:31009/docs/openapi.json";
-  const finalSpec = specPath || defaultSpecUrl;
+  const finalSpec = specPath || "http://127.0.0.1:31009/docs/openapi.json";
   let rawSpec: string;
 
   if (finalSpec.startsWith("http://") || finalSpec.startsWith("https://")) {
