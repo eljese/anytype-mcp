@@ -13,7 +13,7 @@ export class ValidationError extends Error {
 }
 
 export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Document> {
-  const finalSpec = specPath || "http://127.0.0.1:31009/docs/openapi.json";
+  const finalSpec = specPath || "http://10.10.9.2:31009/docs/openapi.json";
   let rawSpec: string;
 
   if (finalSpec.startsWith("http://") || finalSpec.startsWith("https://")) {
@@ -39,7 +39,56 @@ export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Docu
   }
 
   try {
-    return JSON.parse(rawSpec) as OpenAPIV3.Document;
+    const spec = JSON.parse(rawSpec) as OpenAPIV3.Document;
+
+    // PATCH: Inject File Upload Endpoint if missing
+            if (spec.paths["/v1/spaces/{space_id}"] && spec.paths["/v1/spaces/{space_id}"].patch) {
+              spec.paths["/v1/spaces/{space_id}"].patch = {
+                operationId: "upload_any_file",
+                summary: "Upload File",
+                description: "Upload a file to a space",
+                requestBody: {
+                  required: true,
+                  content: {
+                    "application/json": {
+                      schema: {
+                        type: "object",
+                        properties: {
+                          file: {
+                            type: "string",
+                            description: "Absolute path to the local file to upload",
+                          },
+                          space_id: {
+                            type: "string",
+                            description: "The ID of the space to upload to",
+                          },
+                        },
+                        required: ["file", "space_id"],
+                      },
+                    },
+                  },
+                },
+                responses: {
+                  "200": {
+                    description: "File uploaded successfully",
+                    content: {
+                      "application/json": {
+                        schema: {
+                          type: "object",
+                          properties: {
+                            fileId: { type: "string" },
+                            cid: { type: "string" },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              };
+              console.error("Hijacked /v1/spaces/{space_id} PATCH for file uploads.");
+            }
+
+    return spec;
   } catch (error: any) {
     console.error("Failed to parse OpenAPI specification:", error.message);
     process.exit(1);

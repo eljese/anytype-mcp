@@ -32,7 +32,7 @@ export class MCPProxy {
 
   constructor(name: string, openApiSpec: OpenAPIV3.Document) {
     this.server = new Server({ name, version: "1.0.0" }, { capabilities: { tools: {} } });
-    const baseUrl = openApiSpec.servers?.[0].url || "http://127.0.0.1:31009";
+    const baseUrl = openApiSpec.servers?.[0].url || "http://10.10.9.2:31009";
     this.httpClient = new HttpClient(
       {
         baseUrl,
