@@ -41,61 +41,52 @@ export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Docu
   try {
     const spec = JSON.parse(rawSpec) as OpenAPIV3.Document;
 
-    // PATCH: Inject File Upload Endpoint if missing
-            if (spec.paths["/v1/spaces/{space_id}"] && spec.paths["/v1/spaces/{space_id}"].patch) {
-              spec.paths["/v1/spaces/{space_id}"].patch = {
-                operationId: "create_file",
-                summary: "Create File",
-                description: "Upload a file to a space using streaming proxy",
-                parameters: [
-                  {
-                    name: "space_id",
-                    in: "path",
-                    required: true,
-                    schema: { type: "string" },
+    // PATCH: Inject File Upload Endpoint
+    spec.paths["/v1/file"] = {
+      post: {
+        operationId: "upload_file",
+        summary: "Upload File",
+        description: "Upload a file to a space using the CLI proxy endpoint",
+        requestBody: {
+          required: true,
+          content: {
+            "multipart/form-data": {
+              schema: {
+                type: "object",
+                properties: {
+                  file: {
+                    type: "string",
+                    format: "binary",
+                    description: "Absolute path to the local file to upload",
                   },
-                ],
-                requestBody: {
-                  required: true,
-                  content: {
-                    "multipart/form-data": {
-                      schema: {
-                        type: "object",
-                        properties: {
-                          file: {
-                            type: "string",
-                            format: "binary",
-                            description: "Absolute path to the local file to upload",
-                          },
-                          space_id: {
-                            type: "string",
-                            description: "The ID of the space to upload to",
-                          },
-                        },
-                        required: ["file", "space_id"],
-                      },
-                    },
+                  space_id: {
+                    type: "string",
+                    description: "The ID of the space to upload to",
                   },
                 },
-                responses: {
-                  "200": {
-                    description: "File uploaded successfully",
-                    content: {
-                      "application/json": {
-                        schema: {
-                          type: "object",
-                          properties: {
-                            fileId: { type: "string" },
-                            cid: { type: "string" },
-                          },
-                        },
-                      },
-                    },
+                required: ["file", "space_id"],
+              },
+            },
+          },
+        },
+        responses: {
+          "200": {
+            description: "File uploaded successfully",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    object_id: { type: "string" },
                   },
                 },
-              };
-              console.error("Hijacked /v1/spaces/{space_id} PATCH for file uploads (multipart/form-data).");
-            }
+              },
+            },
+          },
+        },
+      },
+    };
+    console.error("Injected /v1/file POST for file uploads.");
 
     return spec;
   } catch (error: any) {
