@@ -47,6 +47,14 @@ export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Docu
                 operationId: "create_file",
                 summary: "Create File",
                 description: "Upload a file to a space using streaming proxy",
+                parameters: [
+                  {
+                    name: "space_id",
+                    in: "path",
+                    required: true,
+                    schema: { type: "string" },
+                  },
+                ],
                 requestBody: {
                   required: true,
                   content: {
