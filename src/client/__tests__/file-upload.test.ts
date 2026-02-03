@@ -10,7 +10,7 @@ vi.mock("form-data");
 describe("HttpClient File Upload (Streaming)", () => {
   let client: HttpClient;
   const mockApiInstance = {
-    upload_any_file: vi.fn(),
+    create_file: vi.fn(),
   };
 
   const baseConfig = {
@@ -27,7 +27,7 @@ describe("HttpClient File Upload (Streaming)", () => {
     paths: {
       "/v1/spaces/{space_id}": {
         patch: {
-          operationId: "upload_any_file",
+          operationId: "create_file",
           parameters: [
             {
               name: "space_id",
@@ -89,7 +89,7 @@ describe("HttpClient File Upload (Streaming)", () => {
       space_id: "space123",
     };
 
-    mockApiInstance.upload_any_file.mockResolvedValue({
+    mockApiInstance.create_file.mockResolvedValue({
       data: { fileId: "file_xyz" },
       status: 200,
       headers: {},
@@ -99,7 +99,7 @@ describe("HttpClient File Upload (Streaming)", () => {
 
     expect(fs.createReadStream).toHaveBeenCalledWith("/abs/path/to/image.png");
     expect(FormData.prototype.append).toHaveBeenCalledWith("file", mockFileStream);
-    expect(mockApiInstance.upload_any_file).toHaveBeenCalledWith(
+    expect(mockApiInstance.create_file).toHaveBeenCalledWith(
       expect.objectContaining({ space_id: "space123" }),
       expect.any(FormData),
       expect.objectContaining({ headers: mockFormDataHeaders })

@@ -44,18 +44,19 @@ export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Docu
     // PATCH: Inject File Upload Endpoint if missing
             if (spec.paths["/v1/spaces/{space_id}"] && spec.paths["/v1/spaces/{space_id}"].patch) {
               spec.paths["/v1/spaces/{space_id}"].patch = {
-                operationId: "upload_any_file",
-                summary: "Upload File",
-                description: "Upload a file to a space",
+                operationId: "create_file",
+                summary: "Create File",
+                description: "Upload a file to a space using streaming proxy",
                 requestBody: {
                   required: true,
                   content: {
-                    "application/json": {
+                    "multipart/form-data": {
                       schema: {
                         type: "object",
                         properties: {
                           file: {
                             type: "string",
+                            format: "binary",
                             description: "Absolute path to the local file to upload",
                           },
                           space_id: {
@@ -85,7 +86,7 @@ export async function loadOpenApiSpec(specPath?: string): Promise<OpenAPIV3.Docu
                   },
                 },
               };
-              console.error("Hijacked /v1/spaces/{space_id} PATCH for file uploads.");
+              console.error("Hijacked /v1/spaces/{space_id} PATCH for file uploads (multipart/form-data).");
             }
 
     return spec;
