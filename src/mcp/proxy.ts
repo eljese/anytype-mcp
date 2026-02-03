@@ -125,6 +125,7 @@ export class MCPProxy {
   private parseHeadersFromEnv(): Record<string, string> {
     const headersJson = process.env.OPENAPI_MCP_HEADERS;
     if (!headersJson) {
+      console.error("DEBUG: OPENAPI_MCP_HEADERS environment variable not found.");
       return {};
     }
 
@@ -134,6 +135,21 @@ export class MCPProxy {
         console.warn("OPENAPI_MCP_HEADERS environment variable must be a JSON object, got:", typeof headers);
         return {};
       }
+
+      // Telemetry: Log keys and obfuscated values to stderr
+      Object.entries(headers).forEach(([key, value]) => {
+        const valStr = String(value);
+        let logVal = "present";
+        if (key.toLowerCase() === "authorization") {
+          if (valStr.toLowerCase().startsWith("bearer ")) {
+            logVal = `Bearer ${valStr.substring(7, 12)}...`;
+          } else {
+            logVal = "Redacted (Not Bearer)";
+          }
+        }
+        console.error(`DEBUG: MCP Header Detected: ${key}=${logVal}`);
+      });
+
       return headers;
     } catch (error) {
       console.warn("Failed to parse OPENAPI_MCP_HEADERS environment variable:", error);
