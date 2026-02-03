@@ -52,15 +52,16 @@ describe("OpenAPIToMCPConverter - Duplicate Required Fields", () => {
     expect(method).toBeDefined();
     
     const required = method!.inputSchema.required;
+    expect(required).toBeDefined();
     
     // Count occurrences of each required field
-    const counts = required.reduce((acc: Record<string, number>, curr: string) => {
+    const counts = (required as string[]).reduce((acc: Record<string, number>, curr: string) => {
       acc[curr] = (acc[curr] || 0) + 1;
       return acc;
     }, {});
 
     expect(counts["field1"]).toBe(1);
     expect(counts["param1"]).toBe(1);
-    expect(required.length).toBe(2);
+    expect((required as string[]).length).toBe(2);
   });
 });
