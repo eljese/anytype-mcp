@@ -175,3 +175,4 @@ bin
 .shared-secret
 .DS_Store
 examples/uploads
+.gemini/
