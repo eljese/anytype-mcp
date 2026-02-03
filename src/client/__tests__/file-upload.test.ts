@@ -102,7 +102,7 @@ describe("HttpClient File Upload (Streaming)", () => {
     expect(mockApiInstance.create_file).toHaveBeenCalledWith(
       expect.objectContaining({ space_id: "space123" }),
       expect.any(FormData),
-      expect.objectContaining({ headers: mockFormDataHeaders })
+      expect.objectContaining({ headers: mockFormDataHeaders, timeout: 300000 })
     );
     expect(response.data).toEqual({ fileId: "file_xyz" });
   });

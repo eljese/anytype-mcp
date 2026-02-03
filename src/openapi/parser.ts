@@ -136,7 +136,7 @@ export class OpenAPIToMCPConverter {
         }
       }
       if (schema.required) {
-        result.required = schema.required;
+        result.required = Array.from(new Set(schema.required));
       }
       if (schema.additionalProperties === true || schema.additionalProperties === undefined) {
         result.additionalProperties = true;
@@ -472,6 +472,9 @@ export class OpenAPIToMCPConverter {
       }
     }
 
+    // Deduplicate required fields
+    schema.required = Array.from(new Set(schema.required));
+
     return schema;
   }
 
@@ -626,6 +629,10 @@ export class OpenAPIToMCPConverter {
 
     // Build description including error responses
     let description = operation.summary || operation.description || "";
+    
+    // Deduplicate required fields
+    inputSchema.required = Array.from(new Set(inputSchema.required));
+
     if (operation.responses) {
       const errorResponses = Object.entries(operation.responses)
         .filter(([code]) => code.startsWith("4") || code.startsWith("5"))

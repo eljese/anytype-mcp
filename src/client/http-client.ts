@@ -32,8 +32,10 @@ export class HttpClientError extends Error {
 export class HttpClient {
   private api: Promise<AxiosInstance>;
   private client: OpenAPIClientAxios;
+  private defaultHeaders?: Record<string, string>;
 
   constructor(config: HttpClientConfig, openApiSpec: OpenAPIV3.Document | OpenAPIV3_1.Document) {
+    this.defaultHeaders = config.headers;
     // @ts-expect-error OpenAPIClientAxios can be imported as default or named export, we handle both cases
     this.client = new (OpenAPIClientAxios.default ?? OpenAPIClientAxios)({
       definition: openApiSpec,
@@ -158,13 +160,17 @@ export class HttpClient {
     try {
       // If we have form data, we need to set the correct headers
       const hasBody = Object.keys(bodyParams).length > 0;
-      const headers = formData
-        ? formData.getHeaders()
-        : { ...(hasBody ? { "Content-Type": "application/json" } : { "Content-Type": null }) };
+      const headers = {
+        ...this.defaultHeaders,
+        ...(formData
+          ? formData.getHeaders()
+          : { ...(hasBody ? { "Content-Type": "application/json" } : { "Content-Type": null }) }),
+      };
+
       const requestConfig = {
-        headers: {
-          ...headers,
-        },
+        headers,
+        // Increase timeout for file uploads to 5 minutes
+        ...(formData ? { timeout: 300000 } : {}),
       };
 
       // first argument is url parameters, second is body parameters

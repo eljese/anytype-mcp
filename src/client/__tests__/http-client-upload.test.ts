@@ -110,7 +110,10 @@ describe("HttpClient File Upload", () => {
     expect(fs.createReadStream).toHaveBeenCalledWith("/path/to/test.txt");
     expect(FormData.prototype.append).toHaveBeenCalledWith("file", mockFileStream);
     expect(FormData.prototype.append).toHaveBeenCalledWith("description", "Test file");
-    expect(mockApiInstance.uploadFile).toHaveBeenCalledWith({}, expect.any(FormData), { headers: mockFormDataHeaders });
+    expect(mockApiInstance.uploadFile).toHaveBeenCalledWith({}, expect.any(FormData), {
+      headers: mockFormDataHeaders,
+      timeout: 300000,
+    });
   });
 
   it("should throw error for invalid file path", async () => {
@@ -207,6 +210,9 @@ describe("HttpClient File Upload", () => {
     expect(FormData.prototype.append).toHaveBeenCalledWith("file1", mockFileStream1);
     expect(FormData.prototype.append).toHaveBeenCalledWith("file2", mockFileStream2);
     expect(FormData.prototype.append).toHaveBeenCalledWith("description", "Test files");
-    expect(mockApiInstance.uploadFile).toHaveBeenCalledWith({}, expect.any(FormData), { headers: mockFormDataHeaders });
+    expect(mockApiInstance.uploadFile).toHaveBeenCalledWith({}, expect.any(FormData), {
+      headers: mockFormDataHeaders,
+      timeout: 300000,
+    });
   });
 });
